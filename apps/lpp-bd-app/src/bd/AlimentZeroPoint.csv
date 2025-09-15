@@ -1,0 +1,360 @@
+id;nom;quantite;unite;points;categorie_id;calories;matieres_grasses;acide_gras_sature;glucides;sucres;fibres;proteines;sel;zero_point
+1;Abricot;3;pièce(s);0;7;94.5;0.21;0;21.43;21.43;3.43;1.71;0.01;1
+2;Avocat;100;g;0;8;205;20.6;4.51;0.83;0.4;3.6;1.56;0.01;1
+3;Baies de sureau;10;g;0;7;33.63;0.34;0.08;5.71;4.59;1.43;1.23;0.08;1
+4;Banane;1;pièce(s);0;7;118.43;0.39;0.13;27.3;22.36;2.34;1.43;0;1
+5;Bar (loup);120;g;0;5;99;0.84;0.24;0;0;0;22.92;0.28;1
+6;Baudroie;120;g;0;5;117.84;0.82;0.23;0;0;0;27.6;0.07;1
+7;Betterave rouge;150;g;0;8;55.95;0.15;0;11.4;10.8;3;2.25;0.24;1
+8;Cabillaud;120;g;0;5;93.12;0.68;0.12;0;0;0.24;21.72;0.28;1
+9;Calamar;120;g;0;5;92.4;1.43;0.34;2.6;0;0;17.28;0.73;1
+10;Carambole;125;g;0;7;36.25;0.38;0;7.88;7.5;2.13;0.63;0.01;1
+11;Cardon;100;g;0;8;10.3;0.1;0.01;1.7;1.5;1.6;0.65;0.17;1
+12;Carotte;100;g;0;8;40.2;0.5;0.01;7.59;6;2.7;0.63;0.11;1
+13;Carpe;120;g;0;5;136.8;5.71;1.54;0;0;0;21.24;0.09;1
+14;Carrelet;120;g;0;5;106.32;1.13;0.24;0;0;0;24;0.24;1
+15;Cassis;100;g;0;7;50;0.3;0;9;9;7;1.3;0.01;1
+16;Caviar;10;g;0;5;25.3;1.7;0.4;0;0;0;2.5;0.43;1
+17;Céleri branche;30;g;0;8;5.28;0.15;0;0.72;0.39;0.66;0.19;0.06;1
+18;Céleri rave;150;g;0;8;43.95;0.75;0.01;5.97;2.4;6.75;2.07;0.13;1
+19;Cèpes;100;g;0;8;31.6;0.43;0.07;3.03;1.7;1.93;3.13;0.02;1
+20;Cerise;10;pièce(s);0;7;47.11;0.07;0;10.71;10.71;1.19;0.91;0.01;1
+21;Champignons;100;g;0;8;21.7;0.23;0.06;1.88;1.43;1.72;2.37;0.01;1
+22;Champignons de Paris;100;g;0;8;28;0.36;0.07;3.15;2.5;1;2.62;0.1;1
+23;Chanterelles;100;g;0;8;33.1;0.78;0.5;2.3;1.87;4.23;2.28;0.02;1
+24;Chayotte. christophine;150;g;0;8;38.83;0.19;0.05;6.76;2.49;2.55;1.23;0.01;1
+25;Dinde : escalope ou filet;100;g;0;4;124;3.93;1.01;0;0;0;22.2;0.13;1
+26;Echalote;15;g;0;8;9.54;0.08;0;1.83;0.5;0.39;0.27;0;1
+27;Ecrevisses (décortiquées);120;g;0;5;81.96;0.77;0.13;0.97;0;0;17.76;0.47;1
+28;Eglefin;120;g;0;5;86.76;0.42;0.12;0;0;0;20.76;0.19;1
+29;Empereur;120;g;0;5;88.2;1.8;0.36;0;0;0;18;0.25;1
+30;Fenouil;100;g;0;8;21.8;0.5;0.01;2.63;2.2;2.6;1;0.05;1
+32;Fèves (crues);30;g;0;8;40.5;0.09;0.02;4.47;0.6;1.95;4.47;0.01;1
+34;Figue fraiche (3 pièces);150;g;0;7;104.1;0.75;0.01;20.25;18.3;6.15;1.78;0.02;1
+35;Filet de poulet fumé;30;g;0;8;39;1;0.27;0.09;0;0.15;7.35;1.5;1
+36;Filets de maquereaux en conserve au naturel (1 boite);176;g;0;5;232.32;14.61;4.4;0.53;0;0;24.64;0;1
+37;Gambas (décortiquées);120;g;0;5;97.2;0.6;0.24;0;0;0;22.8;1.8;1
+38;Germe de soja;50;g;0;8;6.45;0.05;0;0.5;0.25;0.6;1;0.16;1
+39;Girolles;100;g;0;8;30.2;1.5;0;0.21;0.21;1.75;3.09;0.03;1
+41;Haddock (églefin fumé);120;g;0;5;116.4;0.88;0.16;0;0;0;27.12;2.29;1
+42;Hareng frais;120;g;0;5;211.2;14.04;3.38;0;0;0;21.24;0.26;1
+43;Hareng fumé;120;g;0;5;252;16.2;3.36;0;0;0;26.64;1.65;1
+44;Haricot beurre;100;g;0;8;20.6;0.2;0.04;3.2;1.73;1.9;1.5;0.63;1
+45;Haricot vert;100;g;0;8;34;0.17;0.05;4.35;1.96;3.68;1.97;0.01;1
+46;Jambon de dinde ou blanc de dinde (2 tranches);70;g;0;4;72.8;1.17;0.38;0.9;0.76;0.27;14.63;1.34;1
+47;Jambon de poulet ou blanc de poulet (1 tranche);35;g;0;4;37.1;0.63;0.19;0.49;0.4;0.19;7.24;0.67;1
+48;Kaki;1;pièce(s);0;7;171.5;0.75;0.03;35.75;34.75;8.5;2.2;0;1
+49;Lactaires;100;g;0;8;30.2;1.5;0;0.21;0.21;1.75;3.09;0.03;1
+50;Laitue;50;g;0;8;8.3;0.1;0.02;1.1;1.1;0.4;0.68;0.02;1
+51;Laitue iceberg;50;g;0;8;8.85;0.09;0.01;1.23;0.76;0.56;0.5;0.01;1
+52;Langouste (décortiquée);120;g;0;5;104.28;1.61;0.3;1.28;0;0;21.24;0.54;1
+53;Langoustine (décortiquée);120;g;0;5;107.76;0.95;0.25;1.84;0;0;21.24;0.54;1
+54;Macédoine de légumes nature;1;portion;0;8;;;;;;;;;1
+55;Maïs;1;portion;0;8;;;;;;;;;1
+56;Mandarine;1;portion;0;7;;;;;;;;;1
+57;Mangue;1;portion;0;7;;;;;;;;;1
+58;Maquereau;1;portion;0;5;;;;;;;;;1
+59;Melon;1;portion;0;7;;;;;;;;;1
+60;Navet;1;portion;0;8;;;;;;;;;1
+61;Nectarine;1;portion;0;7;;;;;;;;;1
+62;OEuf d'oie entier;1;portion;0;12;;;;;;;;;1
+63;OEuf de caille;1;portion;0;12;;;;;;;;;1
+64;OEuf de cane;1;portion;0;12;;;;;;;;;1
+65;OEuf de poule entier;1;portion;0;12;;;;;;;;;1
+66;Palourde (décoquillée);1;portion;0;5;;;;;;;;;1
+67;Pamplemousse;1;portion;0;7;;;;;;;;;1
+68;Panais;1;portion;0;8;;;;;;;;;1
+69;Panga;1;portion;0;5;;;;;;;;;1
+70;Papaye;1;portion;0;7;;;;;;;;;1
+71;Pastèque;1;portion;0;7;;;;;;;;;1
+72;Patisson;1;portion;0;8;;;;;;;;;1
+73;Pêche;1;portion;0;7;;;;;;;;;1
+74;Perche;1;portion;0;5;;;;;;;;;1
+75;Petits pois;1;portion;0;8;;;;;;;;;1
+76;Petits pois / carottes;1;portion;0;8;;;;;;;;;1
+77;Radis;1;portion;0;8;;;;;;;;;1
+78;Radis noir;1;portion;0;8;;;;;;;;;1
+79;Raie;1;portion;0;5;;;;;;;;;1
+80;Raisin;1;portion;0;7;;;;;;;;;1
+81;Sabre;1;portion;0;5;;;;;;;;;1
+82;Saint-Pierre;1;portion;0;5;;;;;;;;;1
+83;Salade de fruits frais Sans sucres ajoutés;1;portion;0;6;;;;;;;;;1
+84;Salicorne (Salicornia sp.). fraîche;1;portion;0;8;;;;;;;;;1
+85;Salsifis;1;portion;0;8;;;;;;;;;1
+86;Sandre;1;portion;0;5;;;;;;;;;1
+87;Sardine fraîche;1;portion;0;5;;;;;;;;;1
+88;Tacaud;1;portion;0;5;;;;;;;;;1
+89;Tétragone cornue;1;portion;0;8;;;;;;;;;1
+90;Thon en conserve au naturel;1;portion;0;5;;;;;;;;;1
+91;Vivaneau;1;portion;0;5;;;;;;;;;1
+92;Yaourt 0% nature;1;portion;0;11;;;;;;;;;1
+93;Yaourt au lait de brebis 0% nature;1;portion;0;11;;;;;;;;;1
+94;Ananas;1;portion;0;7;;;;;;;;;1
+95;Anchois;1;portion;0;5;;;;;;;;;1
+96;Anguille;1;portion;0;5;;;;;;;;;1
+97;Anguille fumée;1;portion;0;5;;;;;;;;;1
+98;Artichaut;1;portion;0;8;;;;;;;;;1
+99;Bigorneaux (décoquillés);1;portion;0;5;;;;;;;;;1
+100;Blanc d'oeuf;1;portion;0;12;;;;;;;;;1
+101;Blette;1;portion;0;8;;;;;;;;;1
+102;Bolets;1;portion;0;8;;;;;;;;;1
+103;Brème;1;portion;0;5;;;;;;;;;1
+104;Brochet;1;portion;0;5;;;;;;;;;1
+105;Chicon;1;portion;0;8;;;;;;;;;1
+106;Chou;1;portion;0;8;;;;;;;;;1
+107;Chou blanc;1;portion;0;8;;;;;;;;;1
+108;Chou rouge;1;portion;0;8;;;;;;;;;1
+109;Chou vert;1;portion;0;8;;;;;;;;;1
+110;Choucroute (non cuisinée);1;portion;0;8;;;;;;;;;1
+111;Chou-fleur;1;portion;0;8;;;;;;;;;1
+112;Choux de Bruxelles;1;portion;0;8;;;;;;;;;1
+113;Citron;1;portion;0;7;;;;;;;;;1
+114;Citron vert;1;portion;0;7;;;;;;;;;1
+115;Citrouille;1;portion;0;8;;;;;;;;;1
+116;Cive;1;portion;0;8;;;;;;;;;1
+117;Clam (décoquillé);1;portion;0;5;;;;;;;;;1
+118;Cocktail de fruits de mer;1;portion;0;5;;;;;;;;;1
+119;Clémentine;1;portion;0;7;;;;;;;;;1
+120;Coeur de palmier;1;portion;0;8;;;;;;;;;1
+121;Asperge;1;portion;0;8;;;;;;;;;1
+122;Aubergine;1;portion;0;8;;;;;;;;;1
+123;Brocoli;1;portion;0;8;;;;;;;;;1
+124;Brosme;1;portion;0;5;;;;;;;;;1
+125;Brugnon;1;portion;0;7;;;;;;;;;1
+126;Bulots (décoquillés);1;portion;0;5;;;;;;;;;1
+127;Coing;1;portion;0;7;;;;;;;;;1
+128;Colin;1;portion;0;5;;;;;;;;;1
+129;Compote de fruits Sans sucres ajoutés;1;portion;0;6;;;;;;;;;1
+130;Concombre;1;portion;0;8;;;;;;;;;1
+131;Coques (décoquillées);1;portion;0;5;;;;;;;;;1
+132;Coregone;1;portion;0;5;;;;;;;;;1
+133;Courge;1;portion;0;8;;;;;;;;;1
+134;Courge spaghetti;1;portion;0;8;;;;;;;;;1
+135;Courgette;1;portion;0;8;;;;;;;;;1
+136;Crabe;1;portion;0;5;;;;;;;;;1
+137;Cranberry;1;portion;0;7;;;;;;;;;1
+138;Cresson;1;portion;0;8;;;;;;;;;1
+139;Crevettes (décortiquées);1;portion;0;5;;;;;;;;;1
+140;Crudités (sans sauce);1;portion;0;2;;;;;;;;;1
+141;Cuisses de grenouille;1;portion;0;4;;;;;;;;;1
+142;Dorade coryphène;1;portion;0;5;;;;;;;;;1
+143;Epinard;1;portion;0;8;;;;;;;;;1
+144;Escargots nature;1;portion;0;4;;;;;;;;;1
+145;Espadon;1;portion;0;5;;;;;;;;;1
+146;Esturgeon;1;portion;0;5;;;;;;;;;1
+147;Fraise;1;portion;0;7;;;;;;;;;1
+148;Framboise;1;portion;0;7;;;;;;;;;1
+149;Fruit de la passion;1;portion;0;7;;;;;;;;;1
+150;Fruit du jaquier;1;portion;0;7;;;;;;;;;1
+151;Fruits rouges;1;portion;0;7;;;;;;;;;1
+152;Grondin;1;portion;0;5;;;;;;;;;1
+153;Groseille à  maquereau;1;portion;0;7;;;;;;;;;1
+154;Groseilles;1;portion;0;7;;;;;;;;;1
+155;Haricots rouges;1;portion;0;8;;;;;;;;;1
+156;Haricots secs;1;portion;0;8;;;;;;;;;1
+157;Hoki;1;portion;0;5;;;;;;;;;1
+158;Homard (décortiqué);1;portion;0;5;;;;;;;;;1
+159;Huîtres;1;portion;0;5;;;;;;;;;1
+160;Julienne de légumes (sans matière grasse);1;portion;0;8;;;;;;;;;1
+161;Blé concassé (boulgour. pilpil) cru;30;g;3;14;;;;;;;;;0
+162;Kumquat;1;portion;0;7;;;;;;;;;1
+163;Limande;1;portion;0;5;;;;;;;;;1
+164;Litchi;1;portion;0;7;;;;;;;;;1
+165;Lotte;1;portion;0;5;;;;;;;;;1
+166;Loup (bar);1;portion;0;5;;;;;;;;;1
+167;Morue fraîche;1;portion;0;5;;;;;;;;;1
+168;Morue salée;1;portion;0;5;;;;;;;;;1
+169;Moules (décoquillées);1;portion;0;5;;;;;;;;;1
+170;Muge;1;portion;0;5;;;;;;;;;1
+171;Mulet;1;portion;0;5;;;;;;;;;1
+172;Myrtilles;1;portion;0;7;;;;;;;;;1
+173;Noix de Saint-Jacques;1;portion;0;5;;;;;;;;;1
+174;Orange;1;portion;0;7;;;;;;;;;1
+175;Ouassou;1;portion;0;5;;;;;;;;;1
+176;Potage de légumes (sans féculents);1;portion;0;8;;;;;;;;;1
+177;Potimarron;1;portion;0;8;;;;;;;;;1
+178;Potiron;1;portion;0;8;;;;;;;;;1
+179;Poulet : escalope. filet ou aiguillette;1;portion;0;4;;;;;;;;;1
+180;Poulpe;1;portion;0;5;;;;;;;;;1
+181;Pousse d'épinard;1;portion;0;8;;;;;;;;;1
+182;Pousse de bambou;1;portion;0;8;;;;;;;;;1
+183;Praire (décoquillée);1;portion;0;5;;;;;;;;;1
+184;Prune;1;portion;0;7;;;;;;;;;1
+185;Purée de pois cassés nature (surgelée);1;portion;0;8;;;;;;;;;1
+186;Roquette;1;portion;0;8;;;;;;;;;1
+187;Rouget;1;portion;0;5;;;;;;;;;1
+188;Roussette;1;portion;0;5;;;;;;;;;1
+189;Rutabaga;1;portion;0;8;;;;;;;;;1
+190;Seiche;1;portion;0;5;;;;;;;;;1
+191;Silure;1;portion;0;11;;;;;;;;;1
+192;Skyr 0% nature;1;portion;0;11;;;;;;;;;1
+193;Sole;1;portion;0;5;;;;;;;;;1
+194;Sprat;1;portion;0;5;;;;;;;;;1
+195;Truite de mer;1;portion;0;5;;;;;;;;;1
+196;Truite fumée;1;portion;0;5;;;;;;;;;1
+197;Turbot;1;portion;0;5;;;;;;;;;1
+198;Yaourt nature classique;1;portion;0;11;;;;;;;;;1
+199;Banane plantain;100;g;3;14;;;;;;;;;0
+200;Chataignes;100;g;5;14;;;;;;;;;0
+201;Blé dur précuit(cuit);100;g;4;14;;;;;;;;;0
+202;Coucous (cru);30;g;3;14;;;;;;;;;0
+203;Coucous (cuit nature);120;g;4;14;;;;;;;;;0
+204;Graines de lupin salées;50;g;1;14;;;;;;;;;0
+205;Igname cru;120;g;4;14;;;;;;;;;0
+206;Millet en grain (cru);30;g;3;14;;;;;;;;;0
+207;Orge en grain (cru);30;g;3;14;;;;;;;;;0
+208;Patate douce (cuite);120;g;3;14;;;;;;;;;0
+209;Pâtes à  potage (crues);20;g;2;14;;;;;;;;;0
+210;Pâtes sêches (crues);35;g;2;14;;;;;;;;;0
+211;Pâtes (cuites);100;g;3;14;;;;;;;;;0
+212;Pâtes fraiches (cuites);50;g;4;14;;;;;;;;;0
+213;Polenta (crue);30;g;3;14;;;;;;;;;0
+214;Polenta nature (cuite);120;g;6;14;;;;;;;;;0
+215;Pommes de terre natures;100;g;2;14;;;;;;;;;0
+216;Pommes de terre en flocon (purée);30;g;3;14;;;;;;;;;0
+217;Pommes de terre en purée;100;g;3;14;;;;;;;;;0
+218;Frites (maison);100;g;8;14;;;;;;;;;0
+219;Pommes dauphines surgelées;100;g;6;14;;;;;;;;;0
+220;Frites au four (surgelées);100;g;6;14;;;;;;;;;0
+221;Pommes noisettes (surgelées);100;g;4;14;;;;;;;;;0
+222;Pommes de terre rissolées (surgelées);150;g;5;14;;;;;;;;;0
+223;Pommes de terre sautées 'surgelées);150;g;5;14;;;;;;;;;0
+224;Purée de marrons;100;g;3;14;;;;;;;;;0
+225;Quinoa (cru);30;g;3;14;;;;;;;;;0
+226;Riz (cru);30;g;3;14;;;;;;;;;0
+227;Riz (cuit);100;g;3;14;;;;;;;;;0
+228;Semoule fine (crue);20;g;2;14;;;;;;;;;0
+229;Tapioca (cru);20;g;2;14;;;;;;;;;0
+230;Vermicelles de blé. riz. soja (cru);30;g;3;14;;;;;;;;;0
+231;Coulis de tomate nature;6;CS;1;15;;;;;;;;;0
+232;Ketchup;1;CS;1;15;;;;;;;;;0
+233;Pesto au basilic;1;cc;1;15;;;;;;;;;0
+234;Sauce barbecue;2;CS;1;15;;;;;;;;;0
+235;Sauce bernaise;1;cc;1;15;;;;;;;;;0
+236;Sauce béchamel;3;CS;1;15;;;;;;;;;0
+237;Sauce chili;1;CS;0;15;;;;;;;;;0
+238;Sauce d'huitres;1;CS;0;15;;;;;;;;;0
+239;Sauce hollandaise;2;cc;1;15;;;;;;;;;0
+240;Sauce Mornay;3;CS;1;15;;;;;;;;;0
+241;Sauce pour nem;1;portion;0;15;;;;;;;;;1
+242;Sauce soja;1;portion;0;15;;;;;;;;;1
+243;Sauce tartare;1;cc;1;15;;;;;;;;;0
+244;Sauce tomate cuisinée;3;CS;1;15;;;;;;;;;0
+245;Sauce Worcestershire;1;portion;0;15;;;;;;;;;0
+246;Boison au soja nature;200;ml;2;16;;;;;;;;;0
+247;Crème de soja;1;CS;1;16;;;;;;;;;0
+248;Entremet au soja nature;100;g;1;16;;;;;;;;;0
+249;Entremet au soja chocolat ou vanille;100;g;3;16;;;;;;;;;0
+250;Entremet au soja céréales et fruits;100;g;2;16;;;;;;;;;0
+251;Farine de soja dégraissée;20;g;2;16;;;;;;;;;0
+252;Vermicelles de soja (cru);30;g;3;16;;;;;;;;;0
+253;Tofu soyeux ferme;100;g;2;16;;;;;;;;;0
+254;Seitan;80;g;2;16;;;;;;;;;0
+255;Baguette;50;g;3;17;;;;;;;;;0
+256;Biscotte;10;g;1;17;;;;;;;;;0
+257;Blini (grand);70;g;3;17;;;;;;;;;0
+258;Blini (petit x 2);20;g;1;17;;;;;;;;;0
+259;Cracker de table nature (x1);2;g;1;17;;;;;;;;;0
+260;Croutons nature;20;g;2;17;;;;;;;;;0
+261;Feuille de brick (x1);15;g;1;17;;;;;;;;;0
+262;Galette de maïs (tortilla) ;1;Pièce;2;17;;;;;;;;;0
+263;Galette de riz soufflé (x1);8;g;1;17;;;;;;;;;0
+264;Galette de sarrazin (x1);50;g;2;17;;;;;;;;;0
+265;Gressins natures ;2;Pièce;1;17;;;;;;;;;0
+266;Muffin anglais nature;60;g;4;17;;;;;;;;;0
+267;Pain au son;50;g;3;17;;;;;;;;;0
+268;Pain aux céreales;50;g;4;17;;;;;;;;;0
+269;Pain brioché;20;g;2;17;;;;;;;;;0
+270;Pain complet;50;g;3;17;;;;;;;;;0
+271;Pain de campagne;50;g;4;17;;;;;;;;;0
+272;Pain de mie (1 petite tranche);20;g;1;17;;;;;;;;;0
+273;Pain pour hamburger (1 petit);50;g;4;17;;;;;;;;;0
+274;Pain pour hamburger (1 grand);80;g;6;17;;;;;;;;;0
+275;Pain pitta (x1);70;g;5;17;;;;;;;;;0
+276;Pain de seigle;50;g;3;17;;;;;;;;;0
+277;Pâte filo (1 feuille);25;g;2;17;;;;;;;;;0
+278;Pain grillé (1 tranche);20;g;2;17;;;;;;;;;0
+279;Pain grillé suedois (x1);20;g;2;17;;;;;;;;;0
+280;Toast brioché (x2);25;g;3;17;;;;;;;;;0
+281;Amandine. préparation en poudre;3;CS;3;18;;;;;;;;;0
+282;Boisson à  base de malt et orge;200;ml;5;18;;;;;;;;;0
+283;Chicorée (poudre) (cc);1;cc;0;18;;;;;;;;;0
+284;Chicorée (poudre) (CS);1;CS;1;18;;;;;;;;;0
+285;Café poudre (cc);1;cc;0;18;;;;;;;;;0
+286;Café poudre (CS);1;CS;1;18;;;;;;;;;0
+287;Chocolat instantané sucré en poudre;2;cc;1;18;;;;;;;;;0
+288;Préparation maltée sucrée au chocolat;1;CS;1;18;;;;;;;;;0
+289;Préparation pour boisson chocolatée sucrée;1;CS;1;18;;;;;;;;;0
+290;Préparation pour boisson chocolatée à  l'aspartam;4;cc;1;18;;;;;;;;;0
+291;Beurre de cacahuetes;2;cc;2;18;;;;;;;;;0
+292;Confiture ou gelée classique ou allegée;2;cc;1;18;;;;;;;;;0
+293;Crème de marrons ;2;cc;1;18;;;;;;;;;0
+294;Miel (cc);1;cc;1;18;;;;;;;;;0
+295;Miel (CS);1;CS;2;18;;;;;;;;;0
+296;Pate à  tartiner au chocolat ;1;cc;1;18;;;;;;;;;0
+297;Sirop d'érable;1;CS;1;18;;;;;;;;;0
+298;Sucre en poudre (cc);1;cc;1;18;;;;;;;;;0
+299;Sucre en poudre (CS);1;CS;2;18;;;;;;;;;0
+300;Beaufort;30;g;3;19;;;;;;;;;0
+301;Brie;30;g;3;19;;;;;;;;;0
+302;Brousse allégée;40;g;1;19;;;;;;;;;0
+303;Brousse;30;g;1;19;;;;;;;;;0
+304;Camembert léger;40;g;2;19;;;;;;;;;0
+305;Camembert;30;g;2;19;;;;;;;;;0
+306;Canccuillotte;30;g;1;19;;;;;;;;;0
+307;Cantal;30;g;3;19;;;;;;;;;0
+308;Carré de l'Est;30;g;3;19;;;;;;;;;0
+309;Cheddar;30;g;3;19;;;;;;;;;0
+310;Comté;30;g;3;19;;;;;;;;;0
+311;Coulommiers;30;g;2;19;;;;;;;;;0
+312;Edam;30;g;3;19;;;;;;;;;0
+313;Emmenthal allégé;30;g;2;19;;;;;;;;;0
+314;Emmenthal;30;g;3;19;;;;;;;;;0
+315;Feta au naturel allégé;30;g;1;19;;;;;;;;;0
+316;Feta au naturel;30;g;2;19;;;;;;;;;0
+317;Fromage bleu;30;g;3;19;;;;;;;;;0
+318;Fromage de chèvre frais;30;g;2;19;;;;;;;;;0
+319;Fromage de chèvre sec;40;g;4;19;;;;;;;;;0
+320;Fromage frais (demi-sel);1;portion;1;19;;;;;;;;;0
+321;Fromage frais (demi-sel) (g);25;g;1;19;;;;;;;;;0
+322;Fromage frais 0%;2;portion;1;19;;;;;;;;;0
+323;Fromage frais 0% (g);50;g;1;19;;;;;;;;;0
+324;Fromage fondu;1;portion;1;19;;;;;;;;;0
+325;Fromage fondu allégé;2;portion;1;19;;;;;;;;;0
+326;Fromage des Pyrénées;30;g;3;19;;;;;;;;;0
+327;Fromage fondu (g);17;g;1;19;;;;;;;;;0
+328;Gouda;30;g;3;19;;;;;;;;;0
+329;Gruyère et emmenthal allégé;30;g;2;19;;;;;;;;;0
+330;Gruyère et emmenthal;30;g;3;19;;;;;;;;;0
+331;Gruyère et emmenthal râpé (g);10;g;1;19;;;;;;;;;0
+332;Gruyère et emmenthal râpé;2;cc;1;19;;;;;;;;;0
+333;Livarot;30;g;2;19;;;;;;;;;0
+334;Maroilles;30;g;3;19;;;;;;;;;0
+335;Mascarpone;30;g;3;19;;;;;;;;;0
+336;Mimolette;30;g;3;19;;;;;;;;;0
+337;Morbier;30;g;3;19;;;;;;;;;0
+338;Mozzarella (light);30;g;1;19;;;;;;;;;0
+339;Mozzarella;30;g;2;19;;;;;;;;;0
+340;Munster;30;g;3;19;;;;;;;;;0
+341;Parmesan râpé (g);10;g;1;19;;;;;;;;;0
+342;Parmesan râpé;1;CS;1;19;;;;;;;;;0
+343;Parmesan;30;g;3;19;;;;;;;;;0
+344;Pont l'à‰vêque;30;g;2;19;;;;;;;;;0
+345;Port-Salut;30;g;3;19;;;;;;;;;0
+346;Raclette;30;g;2;19;;;;;;;;;0
+347;Reblochon;30;g;3;19;;;;;;;;;0
+348;Ricotta;30;g;1;19;;;;;;;;;0
+349;Roquefort;30;g;3;19;;;;;;;;;0
+350;Saint-Marcellin;30;g;3;19;;;;;;;;;0
+351;Saint-Nectaire;30;g;3;19;;;;;;;;;0
+352;Saint-Paulin;30;g;4;19;98.1;7.92;5.37;0;0;0;6.69;0.48;0
+353;Tomme de Savoie ou de montagne;30;g;4;19;96.36;7.8;4.92;0;0;0;6.54;0.26;0
+354;Vacherin;30;g;5;19;96.18;8.34;5.31;0;0;0;5.28;0.34;0
+355;Tranche poulet roti (Fleury Michon) - 1 tranche;38;g;0;3;49.4;0.76;0.15;0.38;0.38;0;10.26;1.8;1
+356;Tranche végé lentilles corail (Fleury Michon) - 1 tranche;30;g;1;3;42.9;1.95;0.18;3.3;0.15;1.14;2.43;0.54;0
+357;Epinards hachés à la crème (Findus);100;g;2;8;78;4.4;2.8;5.3;1.4;1.7;3.5;0.6;0
+358;Galette céréales. sarrasin et comté (Céréal bio);100;g;8;16;263;13;3;27;0;3;7.5;0.98;0
+359;Galette boulgour de blé roquefort et figues (Céréal bio);100;g;8;16;243;9.3;2.1;29;3.5;7;7.4;0.99;0
+360;Jambon serrano (Monique Ranou);100;g;6;3;228;11;3.9;0.5;0.5;0;32.09;3.78;0
+361;Tranche végé haricots rouges (Fleury Michon)  - 1 tranche;30;g;1;3;34.5;1.86;0.15;1.59;1.08;1.44;2.1;0.54;0
+362;Saint Agur - Crème de fromage - 1 part;30;g;4;19;84.9;7.5;5.4;0.69;0.24;0;3.9;0.45;0

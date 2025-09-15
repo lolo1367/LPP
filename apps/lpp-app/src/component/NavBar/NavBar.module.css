@@ -1,0 +1,273 @@
+/* Conteneur principal */
+.navbarCustom {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+  z-index: 1000;
+}
+
+.titreApplication {
+  margin-left: 2rem;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+/* Liste de navigation */
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Lien de nav */
+.navLinkCustom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-text);
+  text-decoration: none;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.navLinkCustom:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navLinkCustom.active {
+  color: var(--color-background-alt);
+}
+
+/* Icônes */
+.menuIcon {
+  font-size: 22px;
+}
+
+/* Texte du lien */
+.linkText {
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* === Mobile : bottom nav === */
+@media (max-width: 575px) {
+  .navbarCustom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+
+  .titreApplication {
+    display: none;
+  }
+
+  .navList {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .dropdownToggle {
+    flex-direction: column;
+  }
+
+  .linkText {
+    font-size: 0.7rem;
+  }
+}
+/* === Tablette : Bottom nav ==*/
+@media (min-width: 576px) and (max-width: 768px) {
+  .navbarCustom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+  *.titreApplication{
+    display: none;
+  }
+
+  .navList {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .dropdownToggle {
+    flex-direction: column;
+  }
+
+  .linkText {
+    font-size: 0.7rem;
+  }
+}
+
+/* === Desktop : sidebar === */
+@media (min-width: 769px) {
+  .navbarCustom {
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    height: var(--nav-height);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-right: 1px solid #ccc;
+  }
+
+  .navList {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    gap: 1rem;
+  }
+
+  .navLinkCustom,
+  .dropdownToggle {
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 1rem;
+  }
+
+  .menuIcon {
+    margin-right: 0.5rem;
+    font-size: 20px;
+  }
+
+  .linkText {
+    margin-top: 0;
+  }
+
+  .dropdownMenu {
+    left: 100%;
+    top: 0;
+    transform: none;
+  }
+}
+/* === Dropdown container === */
+.navItemDropdown {
+  position: relative;
+  list-style: none;
+}
+
+/* Bouton du dropdown */
+.dropdownToggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-primary-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 100%;
+  position: relative; /* pour placer le chevron */
+}
+
+.dropdownToggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Chevron */
+.chevron {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Menu déroulant */
+.dropdownMenu {
+  position: absolute;
+  bottom: 100%; /* Mobile : au-dessus de la navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: black;
+  min-width: 160px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+/* Items du menu */
+.dropdownItem {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: 0.85rem;
+}
+
+.dropdownItem:hover {
+  background: #f0f0f0;
+}
+
+.dropdownDivider {
+  height: 1px;
+  margin: 0.5rem 0;
+  background: #ddd;
+}
+
+/* === RESPONSIVE === */
+
+/* Mobile : icône + chevron côte à côte, texte en dessous */
+@media (max-width: 768px) {
+  .dropdownToggle {
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+
+  .chevron {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dropdownMenu {
+    list-style: none;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Desktop : icône + texte côte à côte */
+@media (min-width: 769px) {
+  .dropdownToggle {
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 1rem;
+  }
+
+  .chevron {
+    margin-left: 4px;
+  }
+
+  .dropdownMenu {
+    list-style: none;
+    top: 100%;
+    left: 0;
+    bottom: auto;
+    transform: none;
+  }
+}

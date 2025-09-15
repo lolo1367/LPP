@@ -1,0 +1,91 @@
+/* GraphiquePoids.module.css */
+
+.titre {
+   font-weight: bold;
+   font-size: 1.5rem; /* taille par défaut */
+   text-align: center;
+   margin-bottom: 1rem;
+}
+
+/* Zone des onglets */
+.zoneTabs {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 1rem;
+}
+
+/* Conteneur du graphique */
+.graphContainer {
+   width: 100%;
+   height: 300px; /* hauteur par défaut */
+}
+
+/* Styles des ticks des axes */
+.axisLabel {
+   font-size: 0.85rem;
+   fill: #333; /* couleur des ticks */
+}
+
+/* Tooltip */
+.recharts-tooltip-wrapper {
+   padding: 4px !important;     /* moins de padding */
+   margin: 0 !important;
+}
+
+.recharts-default-tooltip {
+   padding: 4px 8px !important; /* ajuste le padding interne */
+   background: rgba(0,0,0,0.75); /* ou ce que tu veux */
+   border-radius: 4px;
+   line-height: 1.2rem;         /* réduit l’espace vertical */
+   font-size: 0.85rem;
+}  
+
+/* Media queries pour responsive design */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+   .titre {
+       font-size: 1.3rem;
+   }
+   .graphContainer {
+       height: 250px;
+   }
+   .axisLabel {
+       font-size: 0.75rem;
+   }
+   .recharts-tooltip-wrapper {
+       font-size: 0.8rem;
+   }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+   .titre {
+       font-size: 1.1rem;
+   }
+   .graphContainer {
+       height: 200px;
+   }
+   .axisLabel {
+       font-size: 0.7rem;
+   }
+   .recharts-tooltip-wrapper {
+       font-size: 0.75rem;
+   }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+   .titre {
+       font-size: 1rem;
+   }
+   .graphContainer {
+       height: 180px;
+   }
+   .axisLabel {
+       font-size: 0.65rem;
+   }
+   .recharts-tooltip-wrapper {
+       font-size: 0.7rem;
+   }
+}

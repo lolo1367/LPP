@@ -1,0 +1,164 @@
+	/* src/styles/variables.css */
+
+	/* ============================= */
+	/*  Palette de couleurs principale*/
+	/* ============================= */
+	:root {
+	/* Couleur principale */
+	--color-primary: rgb(24, 24, 119,1);
+	--color-primary-text: #ffffff; /* Texte blanc sur primaire */
+	--color-primary-hover: rgb(24, 24, 119,0.75);
+	--color-primary-text-light: #f0f0f0;
+
+	/* Couleurs secondaires */
+	--color-secondary:   rgb(100, 100, 100);
+	--color-secondary-text: #ffffff;
+	--color-secondary-hover:  rgb(200, 200, 200);
+
+	/* Couleurs tertiares */
+	--color-tertiary: rgb(26, 115, 232,1);
+	--color-tertiary-text: #ffffff; 
+	--color-tertiary-hover: rgb(26, 115, 232,0.5); ;
+
+	/* Couleurs de l'etat ERREUR */
+	--color-error: #f74355;    /* Rouge erreur */
+	--color-error-hover:  #b52a37;
+	--color-error-text: #ffffff;
+	--color-error-background: #FEE2E2; /* Fond pour les messages d'erreur */
+
+	/* Couleurs d’accentuation */
+	--color-accent: rgb(240, 97, 216); /* Jaune ambré */
+
+	/* Couleurs d'action hover */
+	--color-action-hover:rgba(240, 127, 221, 0.748); /* Jaune ambré */
+	--color-text-hover: #FFFFFF ;
+
+	/* Couleurs de fond */
+	--color-background-main: #f0f0fA; /* Fond général clair -- #f0f0f0; */
+	--color-background-alt: #e3cbf5; /* Fond alternatif clair (ex menu sélectionné) */
+	--color-background-primary: var(--color-primary); /* Fond avec couleur primaire */
+	--color-background-light: #FFFFFF ;
+
+	/* Couleurs de texte */
+	--color-text-primary: #222222; /* Texte principal (foncé) */
+	--color-text-secondary: #888888; /* Texte secondaire (moins contrasté) */
+	--color-text-light: #dddddd; /* Texte clair/discret */
+	--color-text-inverse: #ffffff; /* Texte blanc (sur fond foncé) */
+
+	/* Couleurs de bordure */
+	--color-border-light: #eee;
+	--color-border-medium: #ddd;
+	--color-border-strong: #bbb;
+	--color-border-input: #ccc;
+
+	/* Couleurs d’état */
+	--color-success: #28a739;  /* Vert succès */
+	--background-success: #D1FAE5; /* Fond */
+	--color-warning: #ffc107;  /* Jaune avertissement */
+	--background-warning: #FEFCE8;
+	--color-error: #f74355;    /* Rouge erreur */
+	--color-error-hover:  #b52a37;
+	--color-error-text: #ffffff;
+	--background-error: #FEE2E2; /* Fond pour les messages d'erreur */
+	--color-information: #3B82F6;    /* Informatio, */
+	--background-information: #DBEAFE; 
+	
+
+	/* Ombres */
+	--shadow-light: 0 1px 4px rgba(0, 0, 0, 0.08);
+	--shadow-medium: 0 2px 8px rgba(/0, 0, 0, 0.12);
+	--shadow-strong: 0 4px 12px rgba(0, 0, 0, 0.16);
+
+	/* Couleur de l'ascenseur */
+	--color-sb-background: var(--color-background-main) ;
+	--color-sb-color: var(--color-primary);
+	--color-sb-hover: var(--color-accent); 
+
+	/* Couleur pour les boutons */
+	--color-btn-primary: var(--color-primary) ;
+	--color-btn-primary-text: var(--color-primary-text);
+	--color-btn-secondary: #aaa;
+	--color-btn-secondary-text: #fff ;
+	}
+
+	:root {
+		--nav-height: 60px;
+		--nav-width: 200px;
+		--footer-height: 40px;
+	 }
+
+	@media (max-width: 575px) {
+	:root {
+
+	/* ======================================================= */
+	/* Style pour les tailles de police et pastilles / icons   */
+	/* ======================================================= */
+		--size-font-titre: 1.2rem;
+		--size-font-sous-titre: 1.1rem;
+		--size-font-normal: 0.9rem;
+		--size-font-mini: 0.75rem;
+		--size-pastille: 1.8rem;
+		--size-icon: 1.5rem;
+
+	/* =======================================================*/
+	/* Taille pour les imput                                  */
+	/* =======================================================*/
+	   --input-width-small: 100px;
+		--input-width-medium: 140px;
+		--input-width-large: 300px ;
+
+	}
+	
+}
+
+	@media (min-width: 576px) and (max-width: 768px) {
+
+	:root {
+	/* ======================================================= */
+	/* Style pour les tailles de police et pastilles / icons   */
+	/* ======================================================= */
+		--size-font-titre: 1.4rem;
+		--size-font-sous-titre: 1.2rem;
+		--size-font-normal: 1rem;
+		--size-font-mini: 0.85rem ;
+		--size-pastille: 1.8rem;
+		--size-icon: 2rem;
+
+	/* =======================================================*/
+	/* Taille pour les imput                                  */
+	/* =======================================================*/
+		--input-width-small:150px;
+		--input-width-medium: 190px;
+		--input-width-large: 400px;			
+		}
+		
+	}
+
+	@media (min-width: 769px) {
+
+	/* ======================================================= */
+	/* Style pour les tailles de police et pastilles / icons   */
+	/* ======================================================= */
+	:root {
+		--size-pastille: 2.5rem;
+		--size-font-titre: 1.5rem;
+		--size-font-sous-titre: 1.25rem;
+		--size-font-normal: 1.1rem;
+		--size-font-mini: 0.75rem ;
+		--size-icon: 1.75rem;
+
+	/* =======================================================*/
+	/* Taille pour les imput                                  */
+	/* =======================================================*/
+		--input-width-small:150px;
+		--input-width-medium: 225 px;
+		--input-width-large: 500px;	
+		
+		
+	
+			}
+			
+
+		
+	}
+	

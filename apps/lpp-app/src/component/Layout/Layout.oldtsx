@@ -1,0 +1,28 @@
+import Navbar from '../NavBar/Navbar';
+import Footer from '../Footer/Footer';
+import React, { PropsWithChildren } from 'react';
+import style from './Layout.module.css'
+import TooltipInitializer from '../ToolTipInitializer/ToolTipInitializer';
+
+  const Layout: React.FC<PropsWithChildren> = ({ children }) => {
+
+	  return (
+			<>
+			<TooltipInitializer />
+			<div className="d-flex flex-column vh-100">
+				<Navbar />
+
+				<main className={style.main}>
+					<div className={style.centeredContainer}>
+					<div className={style.zoneScrollable}>
+							{children}
+						</div>
+					</div>
+				</main>	
+				<Footer />
+			  </div>
+			</>	
+		 );
+	  };
+
+  export default Layout;

@@ -1,0 +1,63 @@
+.pickerWrapper {
+	width: 100%;
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr 0.75fr; /* entier | fraction | unité (un peu plus étroite) */
+	gap: 12px;
+	align-items: stretch;
+	box-sizing: border-box;
+	align-items: center;
+ }
+ 
+ /* Bande de sélection centrale */
+ .pickerOverlay {
+	position: absolute;
+	left: 0; right: 0;
+	top: calc(50% - 25px);
+	height: 50px;
+	pointer-events: none;
+	border-radius: 1.5rem;
+	margin-left: 0.5rem;
+	background-color: var(--color-primary) ;
+	opacity: 20%;
+	box-shadow: var(--shadow-strong);
+ }
+ 
+ /* Colonnes valeurs (5 items visibles) */
+ .pickerContainerValeur {
+	height: 250px;
+	overflow-y: auto;
+	padding-top: 100px;   /* (5-1)/2 * 50 */
+	padding-bottom: 100px;
+	text-align: center;
+	scroll-snap-type: y mandatory; /* optionnel */
+	box-sizing: border-box;
+ }
+ 
+ /* Colonne unité (3 items visibles) */
+ .pickerContainerUnite {
+	height: 150px;
+	overflow-y: auto;
+	padding-top: 50px;    /* (3-1)/2 * 50 */
+	padding-bottom: 50px;
+	text-align: center;
+	scroll-snap-type: y mandatory;
+	box-sizing: border-box;
+ }
+ 
+ .pickerItem {
+	height: 50px;
+	line-height: 50px;
+   font-size: var(--modal-font-normal);
+	scroll-snap-align: center;
+ }
+ 
+ .pickerItemActive {
+	color: var(--color-primary);
+	font-weight: 600;
+ }
+ 
+ /* (optionnel) si tu veux forcer la 3e colonne plus étroite/large : */
+ .colValeur { min-width: 0; }
+ .colUnite  { min-width: 0; }
+ 

@@ -1,0 +1,273 @@
+@media (max-width: 575px) {
+   .page-container {
+      display: flex;
+      justify-content: center;
+      min-height: 100%;
+      width: 100%;
+   }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+    .page-container {
+      display: flex;
+      justify-content: center;
+      min-height: 100%;
+      width: 100%;
+   }
+}
+
+@media (min-width: 769px) {
+
+
+    .page-container {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      padding: 1rem;
+      width: 100%;
+   }
+}
+
+/* Le conteneur qui enveloppe les données */
+.page-card {
+   background-color: var(--color-background-main); 
+   border-radius: 25px; 
+   box-shadow: var(--shadow-strong); 
+   width: 100%; 
+   margin-top: 0px; /* Pas de marge supérieure par défaut, ajustée par .appContainer */
+   overflow: hidden; 
+   display: flex; /* Utilise Flexbox pour empiler les enfants (SemaineSelector et PointSummary) */
+   flex-direction: column;
+}
+
+.page-header {
+   background-color: var(--color-background-main) !important;
+   color: var(--color-primary) !important;
+   padding: var(--padding-y) var(--padding-x);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid var(--color-border-medium);
+}
+
+.page-title {
+   font-size: var(--size-font-titre);
+   font-weight: bold;
+   line-height: 1.2;
+   width: 100%;
+   text-align: center;
+   margin-bottom: 0;
+   color: var(--color-primary);
+ }
+
+/* ========================================================================*/
+/* Styles liés à la zone de recherche                                      */
+/* ========================================================================*/
+ 
+.page-search-container {
+   border-bottom: 1px solid var(--color-border-medium);
+   padding: var(--padding-y) var(--padding-x);
+   justify-content: space-between;
+   align-items: center	;
+}
+
+ /* Input de saisie de la recherche : ! La position est relative pour pouvoir positionner l'icone */ 
+.page-search-input-wrapper {
+   width: 100%;
+   position: relative; 
+   display: flex;
+   align-items: center ;
+}
+
+.page-search-icon-input {
+   position: absolute;
+   left: 0.875rem;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 1.5rem;
+   height: 1.5rem;
+   color: var(--color-text-secondary) ;
+   pointer-events: none;
+}
+
+.page-search-icon-input svg {
+   width: var(--size-font-normal);
+   height: var(--size-font-normal);
+}
+ 
+.page-search-input {
+   width: 100%;
+   padding: 0.5rem 1rem 0.5rem 2.5rem; /* left padding pour laisser la place à l’icône */
+   border: 1px solid var(--color-border-light);
+   box-shadow: var(--shadow-medium);
+   border-radius: 2rem;
+   font-size: var(--size-font-normal);
+   transition: border-color 0.2s ease;
+}
+ 
+.page-search-input::placeholder {
+   color: var(--color-text-secondary)    ;
+}
+
+.page-search-input:focus {
+   outline: none;
+   border-color: var(--color-primary);
+}
+
+.page-search-button {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	color: var(--color-primary);
+	font-size: var(--size-icon);
+	display: flex;	
+	align-items: center;
+	margin-left: 1rem;
+}
+
+.page-search-button:hover {
+	color: var(--color-action-hover);
+	cursor: pointer;
+ }
+ 
+/* =======================================================================*/
+/* Style du body                                                          */
+/* =======================================================================*/
+
+.page-body {
+   display: flex;
+   padding: var(--padding-y) var(--padding-x   );
+   
+}
+
+/* Seule cette partie scroll */
+.page-body-scrollable {
+   flex: 1;
+   overflow-y: auto;
+   -webkit-overflow-scrolling: touch;
+ }
+
+/* =======================================================================*/
+/* Tableau de résultat                                                    */
+/*========================================================================*/
+
+.page-liste-absence-item {
+   text-align: center;
+   color: var(--color-text-secondary);
+   font-style: italic;
+   font-size: var(--size-font-normal);
+ }
+.page-scroll-wrapper {
+	border-radius: 1.5rem;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	background-color: var(--color-background-light);
+	border: 1px solid var(--color-border-light);
+	box-shadow: var(--shadow-medium);
+   width: 100%;
+}
+
+.page-liste{
+	height: calc(60vH / 60px) ;
+	min-height: calc(5 * 60px)   ;
+	max-height: 60vH ;
+	overflow-y: auto;	
+	padding-left: 0;
+	padding-right: 0;
+	scroll-snap-type: y mandatory; /* Pour scroller par item */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE et Edge */
+ }
+
+ .page-liste::-webkit-scrollbar {
+	display: none	;
+ }
+ 
+ .page-liste::-webkit-scrollbar-thumb {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 8px;
+ }
+ 
+ .page-liste::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 8px;
+ }
+
+ .page-item-wrapper{
+	scroll-snap-align: start;
+	box-sizing: border-box;
+	background-color: var(--color-background-light)	;
+	padding-left : var(--padding-x);
+	padding-right: var(--padding-x);
+
+}
+
+ .page-liste-item {
+	box-sizing: border-box;
+	height: 60px ;
+	display: flex;
+	background-color: transparent;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--color-border-light);
+	transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+ }
+
+ .page-liste-absence-item {
+   color: var(--color-text-primary);
+   text-align: center;
+ }
+
+ .page-liste-action-bouton { /* Pour les boutons d'ajout de repas */
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 8px; /* Padding identique à celui de la flèche d'accès au détail de la ligne */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: var(--color-primary); /* Couleur des actions */
+   transition: color 0.2s ease;
+ }
+ 
+ .page-liste-action-bouton:hover {
+   color: var(--color-action-hover); /* Couleur au survol */
+ }
+
+ .page-liste-action-bouton svg {
+   width: var(--size-icon);
+   height: var(--size-icon);
+   /* Vous pouvez aussi changer la couleur */
+   /* color: #votre-couleur; */ 
+ }
+
+ /*===============================================================================*/
+ /* Bouton action                                                                 */
+ /* ==============================================================================*/
+
+ .page-action-bouton { /* Pour les boutons d'ajout de repas */
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 8px; /* Padding identique à celui de la flèche d'accès au détail de la ligne */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: var(--color-primary); /* Couleur des actions */
+   transition: color 0.2s ease;
+ }
+ 
+ .page-action-bouton:hover {
+   color: var(--color-action-hover); /* Couleur au survol */
+ }
+
+ .page-action-bouton svg {
+   width: calc(var(--size-icon)*1.5);
+   height: calc(var(--size-icon)*1.5);
+   /* Vous pouvez aussi changer la couleur */
+   /* color: #votre-couleur; */ 
+ }
+
+ 

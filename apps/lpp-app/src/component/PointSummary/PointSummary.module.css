@@ -1,0 +1,91 @@
+/* src/components/PointSummary/PointSummary.module.css */
+
+.summaryContainer {
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: var(--background-color-white); /* Utilisation de la variable */
+  padding: 10px 10px; /* Padding horizontal ajusté pour éviter le rognage */
+  box-sizing: border-box;
+}
+
+.summaryContent {
+  padding: 0;
+}
+
+/* Styles pour les sections latérales (Bonus et Points restants) */
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Aligne le contenu vers le bas du conteneur */
+  padding: 5px 0;
+  text-align: center;
+  min-height: 110px; /* Hauteur minimale augmentée pour donner plus d'espace vertical aux labels sur deux lignes */
+}
+
+/* Styles uniformes pour TOUS les libellés (Reste hebdo, Reste journalier, Utilisés aujourd'hui) */
+.bonusPointsLabel,
+.usedPointsLabel,
+.gaugeTitle {
+  font-size: 12px;
+  color: var(--color-text-secondary); /* Utilisation de la variable */
+  /*text-transform: uppercase;*/ /* Tous les labels en majuscules */
+  font-weight: 500;
+  line-height: 1.2; /* Assure une hauteur de ligne cohérente */
+  height: 30px; /* Hauteur fixe pour le conteneur du label, suffisante pour accueillir deux lignes de texte confortablement */
+  display: flex; /* Permet d'aligner le texte verticalement dans ce conteneur */
+  align-items: flex-end; /* Aligne le texte au bas de ce conteneur de 40px, assurant l'alignement des baselines */
+  justify-content: center; /* Centre le texte horizontalement */
+  overflow: hidden;  /* Commenté pour permettre de voir si le texte déborde. Si les labels sont rognés, c'est que cette hauteur de 40px est insuffisante ou qu'il y a un autre problème d'espace. */
+  max-width: 60px; /* Limite la largeur du label pour forcer le passage à la ligne */
+}
+
+.usedPointsValue {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--color-text-secondary); /* Utilisation de la variable */
+  line-height: 1.2;
+  margin-bottom: 5px; /* Espace sous la valeur */
+}
+
+.bonusPointsValue {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--color-text-secondary); /* Utilisation de la variable */
+  line-height: 1.2;
+  margin-bottom: 5px; /* Espace sous la valeur */
+}
+
+/* Styles pour la jauge de progression semi-circulaire */
+.gaugeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Pousse l'SVG et le titre vers le bas */
+  width: 120px;
+  margin: 0 0px 7px;
+  min-height: 110px; /* Hauteur minimale augmentée pour correspondre à summaryItem */
+}
+
+.gaugeSvg {
+  overflow: visible;
+  margin-bottom: 5px; /* Espace sous la jauge SVG */
+}
+
+/* Les styles .gaugeBackgroundPath et .gaugeProgressPath sont définis directement dans le JSX */
+
+.gaugeProgressPath {
+  stroke: var(--color-tertiary); 
+  transition: stroke-dashoffset 0.35s ease-out;
+}
+
+.pointsRemainingInGauge { /* Nouveau nom de classe pour le nombre au centre de la jauge */
+  font-size: 44px; /* Taille de la police augmentée pour le nombre de la jauge */
+  font-weight: bold;
+  fill: var(--color-text-primary); /* Utilisation de la variable */
+}
+
+

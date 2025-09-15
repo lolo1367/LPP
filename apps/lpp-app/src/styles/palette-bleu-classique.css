@@ -1,0 +1,54 @@
+:root {
+  --color-primary: #1E3A8A;
+  --primary-light: #3B82F6;
+  --color-secondary: #60A5FA;
+  --color-accent: #ffc107;
+
+  /* Fonds de page */
+  --background-color: #F0F4FF;
+  --background-color-light-gray: #f0f0f0;
+  --background-color-white: #fff;
+  --background-color-page: #f8f8f8; /* Arrière-plan général de la page */
+  --text-color: #1F2937;
+
+  --text-color-dark: #333; /* Texte foncé (titres, valeurs principales) */
+  --text-color-medium: #666; /* Texte moyen (labels, icônes) */
+  --text-color-light: #888; /* Texte clair/discret (portions, messages secondaires) */
+  --text-color-white: #fff; /* Texte blanc */
+  --text-color-error: red; /* Texte d'erreur */
+
+    /* Couleurs de bordure/séparation */
+  --border-color-light: #eee; /* Bordure très claire (lignes de séparation) */
+  --border-color-medium: #ddd; /* Bordure moyenne (sous les en-têtes de repas) */
+  --border-color-fallback: #ccc; /* Bordure pour les fallbacks (icônes manquantes) */
+
+  /* Ombres */
+  --shadow-light: 0px 1px 4px rgba(0, 0, 0, 0.08); /* Ombre légère (capsule des jours) */
+  --shadow-medium: 0px 2px 8px rgba(0, 0, 0, 0.08); /* Ombre moyenne (cartes) */
+  --shadow-strong: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Ombre forte (dashboardCard) */
+}
+
+/* Fond général */
+.bg-main {
+  background-color: var(--background-color);
+}
+
+/* Couleurs de texte */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* Boutons */
+.btn-primary-custom {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-light);
+}

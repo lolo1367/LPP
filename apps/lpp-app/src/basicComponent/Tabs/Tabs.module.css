@@ -1,0 +1,70 @@
+/* ======================================================= */
+/* Style pour les tailles de policde                       */
+/* ======================================================= */
+
+@media (max-width: 575px) {
+   :root {
+      --tab-padding-x: 0.5rem;
+      --tab-margin-x: 0.5rem;
+      --tab-padding-y: 0.5rem;
+   }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+   :root {
+      --tab-padding-x: 0.5rem;
+      --tab-margin-x: 0.5rem;
+      --tab-padding-y: 0.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+
+   :root {
+      --tab-padding-x: 0.5rem;
+      --tab-margin-x: 0.5rem;
+      --tab-padding-y: 0.5rem;
+    }
+}
+
+
+.tabListe {
+   display: flex;
+   border-bottom: 1px solid #ccc;
+   margin-bottom: 1rem;
+ }
+ 
+ .tabButton {
+   margin-right:  var(--tab-margin-x);
+   margin-left: var(--tab-margin-x);
+   margin-bottom: 0px;
+   margin-top: 1px;
+   padding-left: 0px;
+   padding-right: 0px;
+   padding-bottom: var(--tab-padding-y);
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   outline: none;
+   transition: background-color 0.3s;
+   color: var(--color-text-secondary);
+ }
+ 
+ .tabButton:hover {
+   background-color: var(--color-action-hover);
+   color: var(--color-text-hover);
+ }
+ 
+ .tabButton.active {
+   background-color: transparent ;
+   border-bottom: 3px solid var(--color-primary);
+   color: var(--color-text-primary);
+   font-weight: 500;
+ }
+ 
+ .tabContent { 
+   padding-top: 0.5rem;
+   border-top: none;
+   border-radius: 0 0 5px 5px;
+ }

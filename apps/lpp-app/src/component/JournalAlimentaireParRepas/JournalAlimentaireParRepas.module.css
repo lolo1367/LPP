@@ -1,0 +1,151 @@
+/* src/components/JournalAlimentaireParRepas/JournalAlimentaireParRepas.module.css */
+
+.container {
+  width: 100%; /* Prend toute la largeur disponible du parent */
+  max-width: none; /* Supprime la largeur maximale spécifique ici */
+  margin-top: 0; /* Supprime la marge supérieure */
+  background-color: var(--color-background-light); /* Conserve le fond blanc pour la continuité avec le PointSummary */
+  border-radius: 0; /* Supprime les arrondis */
+  box-shadow: none; /* Supprime l'ombre */
+  padding: 0px; /* MODIFIÉ: Pas de padding horizontal ici, géré par les enfants */
+  box-sizing: border-box;
+}
+
+.noEntries {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  padding: 10px;
+}
+
+.repasGroup { 
+  margin-bottom: 8px; /* Garde la marge pour espacer les groupes de repas */
+  border: none; /* Supprime la bordure */
+  border-radius: 0; /* Supprime les arrondis */
+  overflow: visible; /* Supprime overflow: hidden */
+  margin-left: 0; /* Supprime la marge négative */
+  margin-right: 0; /* Supprime la marge négative */ 
+}
+
+/* Style liés au header des repas */
+.repasHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-background-main); /* Fond légèrement gris pour l'en-tête du repas */
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid #ddd; /* Séparateur sous l'en-tête */
+  padding: calc(var(--padding-y)/2) var(--padding-x); 
+}
+
+.repasIcon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px ;
+  margin-right: 8px;
+  margin-left: 0px; /* L'alignement est géré par le padding du .repasHeader */
+  /* Ajoutez plus de styles pour les icônes si elles sont SVG ou des types d'images spécifiques */
+}
+
+.repasName {
+  flex-grow: 1;
+}
+
+.repasTotalPoints {
+  font-size: 16px;
+  margin-right: 0px; /* Supprime la marge droite fixe, l'alignement est géré par flexbox et padding */
+  color: var(--color-text-primary); /* Couleur pour les points totaux du repas */
+  padding-right: 16px; /* Garde le padding droit pour l'espace avant le bouton + */
+  text-align: right;
+}
+
+/* Styles liés aux lignes de repas */
+.repasLines {
+  /* Padding horizontal de 15px pour aligner le contenu des lignes avec la carte principale */
+  padding: 0 var(--padding-x); 
+  color: var(--color-text-secondary);
+}
+
+.journalLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Aligne les éléments au centre verticalement */
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border-light); /* Ligne de séparation légère */
+  font-size: 14px;
+  font-weight:200 ;
+
+}
+
+.journalLine.swipe {
+  background-color: var(--color-error);
+}
+
+.journalLine:last-child {
+  border-bottom: none; /* Pas de bordure pour la dernière ligne */
+}
+
+/* Bloc contenant le nom et la quantite */
+.alimentDetails {
+  display: flex; /* Utilise flexbox */
+  flex-direction: column; /* Empile les éléments verticalement */
+  flex-grow: 1; /* Permet à cet élément de prendre tout l'espace disponible */
+  justify-content: flex-start; /* Aligne le contenu au début */
+  color: var(--color-text-secondary) ;
+}
+
+.alimentNom { /* NOUVEAU STYLE: Pour le nom de l'aliment */
+  font-weight: bold; /* Met le nom de l'aliment en gras */
+}
+
+.alimentPortion {
+  font-style: italic;
+  font-size: 11px; /* Taille de police plus petite */
+  margin-left: 0; /* Supprime la marge gauche */
+  margin-top: 2px; /* Ajoute une petite marge au-dessus */
+  white-space: normal; /* Permet au texte de passer à la ligne si nécessaire */
+}
+
+/* Bloc droit contenant les poits à l'accès à la modification */
+.journalLineRightSection { /* Conteneur pour les points et les actions */
+  display: flex;
+  /* align-items: center; *//* Centre les éléments verticalement */
+}
+
+.linePoints {
+  font-weight: bold;
+  margin-right: 0px; /* Supprime la marge droite fixe, l'alignement est géré par flexbox et padding */
+  padding-right: 16px; /* Garde le padding droit pour l'espace avant le bouton + */
+  align-items: flex-start;
+  text-align: right;
+}
+
+.journalLineActions { /* Conteneur pour les boutons d'action */
+  display: flex;
+  margin-left: 0px; 
+  align-items: center;
+}
+
+
+.repasIconFallback {
+  width: 24px; /* Même taille que l'icône */
+  height: 24px; /* Même taille que l'icône */
+  margin-right: 8px; /* Même marge que l'icône */
+  border: 1px dashed #ccc; /* Visuel pour indiquer une icône manquante */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #ccc;
+}
+
+/* NOUVEAU STYLE pour les messages "Aucune entrée pour ce repas." */
+.noEntriesForRepas {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 10px;
+  font-size: 13px;
+}

@@ -1,0 +1,25 @@
+.zoneSaisiePoids {
+   padding-left: var(--padding-x);
+   padding-right: var(--padding-x);
+   display: flex;
+   flex-direction: column;
+
+
+
+}
+
+.formSaisie {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 1rem;
+}
+
+.positionBouton{
+   padding-bottom: 5px;
+}
+
+.loadingMessage {
+   padding-left: var(--padding-x);
+   padding-right: var(--padding-x);
+}

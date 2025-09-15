@@ -1,0 +1,32 @@
+.swipeWrapper {
+   position: relative;
+   overflow: hidden;
+ }
+ 
+ .swipeBackground {
+   background-color: #d9534f;
+   color: white;
+   position: absolute;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   width: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .trashIcon {
+   font-size: 24px;
+ }
+ 
+ .swipeItem {
+   position: relative;
+   background-color: white;
+   z-index: 1;
+ }
+ 
+ .swipeRed {
+   background-color: #ffe5e5;
+ }
+ 

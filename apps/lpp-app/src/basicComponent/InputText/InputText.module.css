@@ -1,0 +1,151 @@
+
+.small { width: var(--input-width-small); }
+.medium { width: var(--input-width-medium); }
+.large { width: var(--input-width-large); }
+
+
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeButton {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  margin-top: 7px ;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+
+/* ==================================================================================== */
+
+/* Styles de base du conteneur */
+.container {
+   position: relative;
+   /* Styles de largeur et hauteur */
+   /* margin-top: var(--size-font-normal); */
+
+   margin-bottom: 0.5rem;
+   padding-bottom: calc( var(--size-font-mini) * 1);
+}
+
+
+ /* Styles pour la hauteur h1 */
+ .h1 {
+   height: 48px;
+   line-height: 48px;    
+   padding: 0rem 1rem;
+ }
+ 
+ /* Styles pour la hauteur h2 */
+ .h2 {
+   height: 40px;
+   line-height: 40px;
+   padding: 0rem 1rem;
+ }
+
+ 
+.label {
+   top: calc( var(--size-font-normal) / 2);
+   left: 0rem;
+   font-size: var(--size-font-normal);
+   color: var(--color-text-primary) ;
+   background-color: transparent;
+   padding: 0 5px;
+   opacity: 1; /* On le rend visible quand il est actif */
+}
+
+.labelInvisible {
+  display: none;
+}
+
+.labelVisible  {
+  display: flex;
+}
+
+.requiredStar {
+   color: var(--color-text-primary) ;
+   margin-left: 2px;
+}
+
+/* Une classe de base pour tous vos champs de formulaire */
+.form-field-base {
+   width: 100%;
+   box-sizing: border-box;
+   border: 1px solid var(--color-border-input) ;
+   border-radius: 4px;
+   font-size: var(--size-font-normal);
+   outline: none;
+   padding: 0.5rem;
+   transition: all 0.2s ease-in-out;
+
+ }
+
+ .form-field-base-select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border-input) ;
+  border-radius: 4px;
+  font-size: var(--size-font-normal);
+  outline: none;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  transition: all 0.2s ease-in-out;
+
+}
+ 
+ /* Styles de validation qui s'appliquent à TOUS les champs */
+ .form-field-base.valid {
+   border-left: 3px solid var(--color-success);
+ }
+ 
+ .form-field-base.invalid {
+   border-left: 3px solid var(--color-error);
+ }
+ 
+ .form-field-base:focus {
+   border-left: 2px solid var(--color-border-input);
+ }
+
+ /* Styles pour le placeholder de l'input */
+.placeholder-active {
+  color: var(--color-text-secondary) !important;
+}
+
+.form-field-base::placeholder {
+   color: var(--color-text-secondary) !important;
+ }
+
+ .form-field-base option {
+   color: var(--color-text-primary);
+ }
+
+
+/* Styles pour simuler le placeholder du select */
+.form-field-base option:first-child {
+  color: var(--color-text-secondary) !important;
+}
+
+.form-field-base option:not([value=""]) {
+  color: var(--color-text-primary) !important;
+}
+
+.messageErreur {
+   /* Position absolue pour qu'il ne pousse pas le reste des éléments */
+   position: absolute;
+   bottom: 15;
+   left: 0;
+   font-size: var(--size-font-mini);
+   color: var(--color-error);
+   line-height: var(--size-font-mini);
+   
+ }
+
+.numberInput {
+  text-align: right;
+} 

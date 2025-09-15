@@ -1,0 +1,33 @@
+.tooltip {
+  background: #777777;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tooltip.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tooltip.top {
+  transform-origin: bottom center;
+}
+
+.tooltip.bottom {
+  transform-origin: top center;
+}
+
+.tooltip.left {
+  transform-origin: right center;
+}
+
+.tooltip.right {
+  transform-origin: left center;
+}

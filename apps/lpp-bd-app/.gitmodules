@@ -1,0 +1,3 @@
+[submodule "ww-package"]
+	path = ww-packages
+	url = https://github.com/lolo1367/ww-package.git

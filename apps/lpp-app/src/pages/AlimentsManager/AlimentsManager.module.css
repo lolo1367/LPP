@@ -1,0 +1,29 @@
+.points {
+	background-color: var(--color-primary);
+	color: var(--color-primary-text);
+	font-weight: bold;
+	border-radius: 50% ;
+	width: var(--size-pastille);
+	height: var(--size-pastille);
+	min-width: var(--size-pastille);
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	font-size: calc(var(--size-pastille) / 2);
+	text-align: center;
+	margin-right: var(--padding-x);
+ }
+
+ .details{
+	flex-grow: 1;
+ }
+
+ .nom {
+	font-weight: bold;
+	font-size: var(--size-font-normal);
+ }
+
+ .portion {
+	font-size: 0.85rem;
+	color: var(--color-text-secondary);
+ }

@@ -1,0 +1,44 @@
+{
+  "name": "ww-bd-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "start": "node dist/server.js",
+    "dropTable": "node dist/bd/dropTable.js",
+    "initialisationBase": "node dist/bd/initialisationBase.js", 
+    "testDbRender": "ts-node src/testDbRender.ts",
+    "test": "vitest run --reporter verbose",
+    "test ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@ww/reference": "file:./ww-packages",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^6.1.0",
+    "date-fns": "^3.0.0",
+    "date-fns-tz": "^3.2.0",
+    "dotenv": "^17.2.0",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.16.3",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "tsc-alias": "^1.8.16",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.12",
+    "@types/pg": "^8.15.5",
+    "@vitest/ui": "^3.2.4",
+    "eslint": "^9.27.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

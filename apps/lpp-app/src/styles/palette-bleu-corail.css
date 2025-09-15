@@ -1,0 +1,29 @@
+:root {
+  --color-primary: #0F172A;
+  --primary-light: #3B82F6;
+  --accent-color: #F472B6;
+  --background-color: #E0F2FE;
+  --text-color: #1E293B;
+}
+
+.bg-main {
+  background-color: var(--background-color);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.btn-primary-custom {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-light);
+}

@@ -1,0 +1,90 @@
+.formGrid {
+   display: flex;
+   flex-direction: column  ;
+
+   gap: 0rem; /* Espace vertical et horizontal entre les lignes et les champs */
+   
+}
+
+.gridItem {
+   
+   width: var(--input-width-large);
+    
+
+}
+
+.ligneTitre {
+   display: flex;
+   flex-direction: row;
+   align-items: top;
+   border-top: 1px solid var(--color-border-medium);
+   justify-content: space-between;
+   padding-top: 1rem;
+   padding-bottom: 0rem;
+   width: var(--input-width-large);
+
+}
+.titreNutrition{
+   display: flex;
+   font-weight: bold;
+   height: 40px;
+   font-size: var(--size-font-normal);
+   align-items: center;   
+}
+
+.ligneSoustitre {
+   display: flex;
+   flex-direction: row;
+   align-items: top;
+   justify-content: space-between;
+   padding-top: 0rem;
+   padding-bottom: 0rem;
+   
+   width: var(--input-width-large);
+
+}
+.sousTitreNutrition {
+   margin-left: 1rem ;        
+   font-size: var(--size-font-normal);
+   display: flex;
+   align-items: center;
+   height: 40px;
+}
+
+/* Styles pour les conteneurs Flexbox à l'intérieur de la Grid */
+.twoDataRow {
+   display: flex;
+   /* Aligne les éléments à gauche du conteneur.
+    * Vous pouvez utiliser 'center', 'flex-start' ou 'flex-end'
+    * selon l'alignement souhaité.
+    */
+   justify-content: space-between; 
+   /* Empêche le bouton de s'étirer en hauteur */
+   align-items: center;
+   /* Permet aux elments de s'aligner en fonction de la largeur */
+   flex-wrap: wrap;
+}
+
+.informationsNutritionelles{
+   display: flex;
+   justify-content: left;
+   font-weight: bold;
+   padding-top: 1rem;
+   padding-bottom: 0.25rem;
+   font-size: var(--size-font-normal);
+   border-bottom: 1px solid var(--color-border-medium);
+   width: 100%;
+}
+
+.attentionValeurNutrionelle{
+   padding-left: 0.25rem;
+   padding-right: 0.25rem;
+   color: var(--color-error);
+   margin-top: -3px;
+}
+
+.positionBoutonCalculerPoints{
+   display: flex;
+   padding-top: 6px;
+   gap: 1rem;
+}

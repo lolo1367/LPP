@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    // 🔽 Ajout important ici :
+    "baseUrl": ".",
+    "paths": {
+      "@ww/types": ["../ww-packages/types/src/index.ts"] ,
+      "@ww/reference": ["../ww-packages/ww-reference/dist"], 
+      "@/*" : ["src/*"]
+    }
+  },
+  "include": [
+    "src","types"
+  ]
+}

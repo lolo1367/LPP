@@ -1,0 +1,201 @@
+
+.dateText {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+
+
+/* ELEMENTS DE LA ZONE DE RECHERCHE */
+
+.zoneRecherche {
+	display: flex;
+	padding-left: var(--padding-x);
+	padding-right: var(--padding-x);
+	padding-bottom: 0rem;
+	padding-top: 1rem;
+	justify-content: space-between;
+	align-items: center	;
+}
+
+.zoneTabs {
+	display: flex;
+	border-bottom: 1px solid var( --color-border-medium);
+	padding-left: var(--padding-x);
+	padding-right: var(--padding-x);
+	padding-bottom: 0rem;
+	padding-top: 1rem;
+	justify-content: space-between;
+	align-items: center	;
+}
+
+/* Input de saisie de la recherche : ! La position est relative pour pouvoir positionner l'icone */ 
+.searchInputWrapper {
+  	width: 100%;
+	position: relative; 
+  	display: flex;
+  	align-items: center ;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-text-secondary) ;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem; /* left padding pour laisser la place à l’icône */
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-medium);
+  border-radius: 2rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary)    ;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.scanButton {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	color: var(--color-primary);
+	font-size: 2.5rem;
+	display: flex;	
+	align-items: center;
+	margin-left: 1rem;
+}
+
+.scanButton:hover {
+	color: var(--color-action-hover);
+	cursor: pointer;
+ }
+
+/* LISTE DES ALIMENTS */
+
+.scrollWrapper {
+	border-radius: 1.5rem;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	background-color: var(--color-background-light);
+	border: 1px solid var(--color-border-light);
+	box-shadow: var(--shadow-medium);
+}
+
+.alimentListe{
+	height: calc(8 * 60px) ;
+	min-height: calc(5 * 60px)   ;
+	max-height: 60vH ;
+	overflow-y: auto;	
+	padding-left: 0;
+	padding-right: 0;
+	scroll-snap-type: y mandatory; /* Pour scroller par item */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE et Edge */
+ }
+
+ .alimentListe::-webkit-scrollbar {
+	display: none	;
+ }
+ 
+ .alimentListe::-webkit-scrollbar-thumb {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 8px;
+ }
+ 
+ .alimentListe::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 8px;
+ }
+
+ .alimentWrapper{
+	scroll-snap-align: start;
+	box-sizing: border-box;
+	background-color: var(--color-background-light)	;
+	padding-left : var(--padding-x);
+	padding-right: var(--padding-x);
+
+}
+
+ .alimentItem {
+	box-sizing: border-box;
+	height: 60px ;
+	display: flex;
+	background-color: transparent;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--color-border-light);
+	transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+ }
+
+ .points {
+	background-color: var(--color-primary);
+	color: var(--color-primary-text);
+	font-weight: bold;
+	border-radius: 50% ;
+	width: var(--size-pastille);
+	height: var(--size-pastille);
+	min-width: var(--size-pastille);
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	font-size: calc(var(--size-pastille) / 2);
+	text-align: center;
+	margin-right: var(--padding-x);
+ }
+
+ .details{
+	flex-grow: 1;
+ }
+
+ .nom {
+	font-weight: bold;
+	font-size: 1rem;
+ }
+
+ .portion {
+	font-size: 0.85rem;
+	color: var(--color-text-secondary);
+ }
+
+ .addButton {
+	color: var(--color-secondary);
+	border: none;
+	background-color: transparent;
+	padding-inline: 0;
+ }
+
+ .confirmButton {
+	color: rgb(14, 163, 14);
+	border: none;
+	background-color: transparent;
+	padding-inline: 0;
+ }
+
+ .pastilleButton {
+	size: calc(var(--size-pastille) * 3);
+ }
+
+.alimentWrapper:hover {
+  background-color: var(--color-primary-text-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* FOOTER */
+.footer {
+	padding: 0.25rem;
+	background-color: var(--color-background-light);
+}

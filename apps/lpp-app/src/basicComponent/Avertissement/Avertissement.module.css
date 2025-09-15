@@ -1,0 +1,28 @@
+.erreur {
+   color: var(--color-error);
+   background-color: var(--color-error-background);   
+}
+
+.messageContainer{
+   display: flex;
+   align-items: center;
+   border-width: 1px;
+   border-style: solid;
+   border-radius: 0.5rem;
+   padding: 0.75rem;
+   margin-bottom: 0.5rem;
+   white-space: pre-wrap;
+ }
+
+ .icon {
+   margin-right: 0.5rem;
+ }
+
+ .message{
+   padding-left: 0.5rem;
+ }
+
+ .icon svg {
+   width: var(5px);
+   height: var(--size-font-normal);
+}

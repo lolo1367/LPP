@@ -1,0 +1,26 @@
+/* ======================================================= */
+/* Style pour les tailles de policde                       */
+/* ======================================================= */
+
+@media (max-width: 575px) {
+   :root {
+      --padding-x: 0.5rem;
+      --padding-y: 0.875rem;
+   }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+   :root {
+      --padding-x: 1.5rem;
+      --padding-y: 1rem;
+    }
+}
+
+@media (min-width: 769px) {
+
+   :root {
+      --padding-x: 1.5rem;
+      --padding-y: 1.5rem;
+    }
+}

@@ -1,0 +1,20 @@
+	/* src/pages/SaisieQuotidienne.module.css */
+
+
+
+	/* Le conteneur qui enveloppera SemaineSelector et PointSummary */
+	.dashboardCard {
+		background-color: var(--color-background-light); 
+		border-radius: 25px; 
+		box-shadow: var(--shadow-strong); 
+		width: 100%; 
+		margin-top: 0px; /* Pas de marge supérieure par défaut, ajustée par .appContainer */
+		overflow: hidden; 
+		display: flex; /* Utilise Flexbox pour empiler les enfants (SemaineSelector et PointSummary) */
+		flex-direction: column;
+	}
+
+	.messageErreur {
+		margin-left: var(--padding-x);
+		margin-right: var(--padding-x);
+	}

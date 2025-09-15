@@ -1,0 +1,155 @@
+/* src/styles/globals.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import './styles/variables.css';
+
+/* ==========================================
+  Correction de la mise en page
+  ==========================================
+*/
+/*
+  Ces règles sont cruciales pour s'assurer que la page entière
+  (du <html> à votre élément racine) a une hauteur correcte
+  et ne déborde pas.
+*/
+
+/* Reset box-sizing global */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Masque l'ascenceur au niveau haut */  
+}
+
+html,
+body,
+.modal,
+.modal-open {
+  overscroll-behavior: contain !important;
+  touch-action: auto !important;
+}
+
+/*
+  ==========================================
+  Styles de base (votre code)
+  ==========================================
+*/
+body {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-light {
+  background-color: var(--color-background-main) !important;
+}
+
+h1 {
+  color: var(--color-primary);
+}
+
+/* 
+  ==========================================
+  Styles pour les ascenseurs
+  ==========================================
+*/
+/* Applique à tout conteneur avec overflow, ici `main` */
+main::-webkit-scrollbar {
+  width: 8px; /* largeur de la scrollbar */
+}
+
+main::-webkit-scrollbar-track {
+  background:var(--color-sb-background); /* couleur de fond */
+  border-radius: 8px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: var(--color-sb-color); /* couleur de la barre */
+  border-radius: 8px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sb-hover); /* couleur au survol */
+}
+
+/* Firefox (moins personnalisable) */
+main {  
+  scrollbar-width: 8px;
+  scrollbar-color: var(--color-sb-color) var(--color-sb-background);
+}
+
+/*
+  =========================================
+  Styles pour les boutons
+  =========================================
+*/
+
+
+/* Bonton fermeture des modales*/
+.btn-close {
+	background: transparent !important;
+	border: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	box-shadow: none !important;
+	color: var(--color-primary-text);
+	opacity: 1;
+	margin-left: auto;
+	padding: 0 0.5rem;
+	cursor: pointer;
+}
+
+/* Style au survol du bouton de fermeture */
+.btn-close:hover {
+	color: var(--color-text-secondary);
+	}
+
+/* ==================================================== */
+/* Bouton action avec SVG (Puce ronde)                  */
+/* ==================================================== */
+
+.btn-puce-action { /* Pour les boutons d'ajout de repas */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px; /* Padding identique à celui de la flèche d'accès au détail de la ligne */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary); /* Couleur des actions */
+  transition: color 0.2s ease;
+}
+
+.btn-puce-action:hover {
+  color: var(--color-action-hover); /* Couleur au survol */
+}
+
+
+
+/*  
+  =====================================================
+  STYLE POUR LES CHARGEMENTS
+  =====================================================
+*/
+
+/* Style pour le message de chargement */
+.loadingMessage {
+  background-color: var(--color-loading-bg);
+  border: 1px solid var(--color-loading-border);
+  color: var(--color-loading-text);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* remplace space-x-2 */
+}
+
+.loadingMessage.hidden {
+    display: none;
+}
+

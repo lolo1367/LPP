@@ -1,0 +1,110 @@
+/* ==== Variables pour padding === */
+@media (max-width: 575px) {
+  :root {
+    --layout-padding-main: 0.5rem;
+    --layout-padding-container: 1rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  :root {
+    --layout-padding-main: 0.5rem;
+    --layout-padding-container: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --layout-padding-main: 0.25rem;
+    --layout-padding-container: 0.5rem;
+
+  }
+}
+
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* Mobile : Hauteur - navBar (pas de footer) */
+@media (max-width: 575px) {
+  .main {
+    height: calc(100vh - var(--nav-height)); /* nav seulement */
+    display: flex;
+    justify-content: center;
+  }
+
+  .zoneScrollable {
+    width: 100%;
+    max-width: 800px;
+    height: 100%; 
+    overflow-y: scroll;              /* scroll toujours actif */
+    scrollbar-width: none;           /* masque la barre en Firefox */
+    -ms-overflow-style: none;        /* masque la barre IE/Edge */
+    -webkit-overflow-scrolling: touch; /* scroll fluide iOS */
+  }
+
+  .zoneScrollable::-webkit-scrollbar {
+    display: none;                   /* masque la barre sur Webkit (Chrome/Safari) */
+  }
+
+
+}
+
+/* === Tablette : bottom nav === */
+@media (min-width: 576px) and (max-width: 768px) {
+  .main {
+    height: calc(100vh - var(--nav-height)); /* nav seulement */   
+    display: flex; 
+    justify-content: center;
+  }
+
+  .zoneScrollable {
+    width: 100%;
+    max-width: 800px;
+    height: 100%; 
+    overflow-y: scroll;              /* scroll toujours actif */
+    scrollbar-width: none;           /* masque la barre en Firefox */
+    -ms-overflow-style: none;        /* masque la barre IE/Edge */
+    -webkit-overflow-scrolling: touch; /* scroll fluide iOS */
+  }
+
+  .zoneScrollable::-webkit-scrollbar {
+    display: none;                   /* masque la barre sur Webkit (Chrome/Safari) */
+  }
+}
+
+/* Desktop : footer visible  mais pas de nav qui est sur le coté*/
+@media (min-width: 769px) {
+  .main {
+    height: calc(100vh - var(--footer-height) - var(--nav-height)); /* on supprime pas le header car il y a déjà le pagging */
+    margin-top: var(--nav-height);    
+    display: flex;
+    justify-content: center;
+  }
+
+  .zoneScrollable {
+    width: 100%;
+    max-width: 800px;
+    height: 100%; 
+    overflow-y: scroll;              /* scroll toujours actif */
+
+  }
+
+  .zoneScrollable::-webkit-scrollbar {
+    display: none;                   /* masque la barre sur Webkit (Chrome/Safari) */
+  }
+}
+
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: var(--layout-padding-container);
+  width: 100%;
+  max-width: 800px;
+}
+

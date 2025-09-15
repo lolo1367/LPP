@@ -1,0 +1,7 @@
+.modalProfilBody {
+   padding-top: var(--padding-y);
+   padding-left:  var(--padding-x);
+   padding-right:  var(--padding-x);
+   padding-bottom: 0px;
+   scroll-behavior: smooth;
+ }

@@ -1,0 +1,95 @@
+/* SemaineSelector.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0 15px 0; /* Padding global du haut et du bas pour la couleur de fond grise */
+  background-color: var(--color-background-main); /* **RETOUR À LA COULEUR GRISE DU HEADER** */
+  border-top-left-radius: 25px; /* Garde les arrondis du haut */
+  border-top-right-radius: 25px; /* Garde les arrondis du haut */
+  border-bottom-left-radius: 0; /* **CHANGEMENT :** Supprime l'arrondi en bas à gauche */
+  border-bottom-right-radius: 0; /* **CHANGEMENT :** Supprime l'arrondi en bas à droite */
+  box-shadow: none; /* **CHANGEMENT :** L'ombre est maintenant gérée par le wrapper parent (.dashboardCard) */
+  width: 100%; /* S'assure qu'il prend toute la largeur du .dashboardCard */
+  box-sizing: border-box;
+}
+
+.container h5 {
+  font-size: 16px;  
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+  text-align: center;
+  padding: 0 15px; /* Important pour les petits écrans */
+}
+
+.joursWrapper {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */ /* On va gérer la distribution différemment */
+  background-color: var(--color-background-light);
+  border-radius: 50px;
+  padding: 8px 2px; /* Réduction du padding latéral ici pour gagner de l'espace. Les flèches auront leur propre padding. */
+  width: 95%; /* Augmenter un peu la largeur du wrapper pour laisser moins de blanc sur les côtés du tel */
+  max-width: 350px; /* **TRÈS IMPORTANT :** Limiter la largeur maximale pour ne pas dépasser 360px, en tenant compte des marges */
+  margin-top: 5px;
+  box-shadow: var(--shadow-light);
+}
+
+/* Conteneur des jours (L, M, M, ...) */
+.jours {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between; /* On n'utilise plus space-between avec margin-right */
+  overflow: hidden;
+}
+
+/* Style de chaque cercle de jour */
+.jour {
+  width: 31px; /* Largeur fixe pour former un cercle */
+  height: 31px; /* Hauteur fixe pour former un cercle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0; /* Essentiel : empêche les cercles de rétrécir */
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin-right: 1px; /* Espacement de 1px à droite de chaque jour */
+}
+
+.jour:last-child {
+  margin-right: 0; /* Pas de marge à droite pour le dernier jour */
+}
+
+.jour:hover { 
+  background-color: var(--color-action-hover);
+}
+
+.actif {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Style des boutons de navigation (< et >) */
+.joursWrapper button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 4px; /* Augmenter le padding des flèches pour les rendre plus tapables, tout en les laissant serrées */
+  color: var(--color-primary);
+  flex-shrink: 0; /* Essentiel : empêche les flèches de rétrécir */
+  display: flex; /* Transforme le bouton en conteneur flex */
+  justify-content: center; /* Centre le contenu (l'icône) horizontalement */
+  align-items: center; /* Centre le contenu (l'icône) VERTICALEMENT */
+}
+
+.joursWrapper button:hover {
+  color: var(--color-action-hover); 
+}
