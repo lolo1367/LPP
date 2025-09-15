@@ -10,7 +10,7 @@
       "baseUrl": "./src",
       "paths": {
         "@/*": ["*"],
-        "@ww/reference": ["./ww-packages/reference/src/index.ts"]
+        "@lpp/communs": ["../../communs/src/index.ts"]
       },
       "outDir": "dist",
       "rootDir": "src"

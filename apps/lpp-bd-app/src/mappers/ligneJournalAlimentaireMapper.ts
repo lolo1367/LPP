@@ -1,4 +1,4 @@
-import { LigneJournalAlimentaireDataSimple , LigneJournalAlimentaireDataComplet} from '@ww/reference';
+import { LigneJournalAlimentaireDataSimple , LigneJournalAlimentaireDataComplet} from '@lpp/communs';
 import { LigneJournalAlimentaireDataRow, LigneJournalAlimentaireDataCompletRow } from '../types/ligneJournalalimentaire';
 import { format } from "date-fns";
 

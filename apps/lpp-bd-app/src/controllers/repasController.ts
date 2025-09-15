@@ -8,7 +8,7 @@ import {
    urlRepasIdSchema,
    idsQuerySchema,
    logConsole
-} from "@ww/reference";
+} from "@lpp/communs";
 
 import {
    mapFromApi,

@@ -1,14 +1,18 @@
 import { LigneJournalPoidsRow,LigneJournalPoidsDataRow } from "../types/ligneJournalPoids";
-import * as Trace from "../utils/logger";
+import {logConsole} from "@lpp/communs";
 import pool from "../bd/db";
+
+const viewlog = false;
+const emoji = "";
+const fichier = "journalPoidsService";
 
 
 export async function liste(uti_id: number, date_debut: Date | undefined, date_fin : Date | undefined, ligne_id?:number) {  
  
-   Trace.traceInformation(__filename, `liste`, `uti_id`, uti_id);  
-   Trace.traceInformation(__filename, `liste`, `date_debut`, date_debut);
-   Trace.traceInformation(__filename, `liste`, `date_fin`, date_fin);
-   Trace.traceInformation(__filename, `liste`, `ligneId`, ligne_id);  
+   logConsole (viewlog, emoji,fichier + `liste`, `uti_id`, uti_id);  
+   logConsole (viewlog, emoji,fichier + `liste`, `date_debut`, date_debut);
+   logConsole (viewlog, emoji,fichier + `liste`, `date_fin`, date_fin);
+   logConsole (viewlog, emoji,fichier + `liste`, `ligneId`, ligne_id);  
 
    let query : string ;
    let params: (string | number)[] = [];
@@ -47,13 +51,13 @@ export async function liste(uti_id: number, date_debut: Date | undefined, date_f
       return res.rows ;
       
    } catch (err) {
-      Trace.traceErreur(__filename, `liste`, `Erreur lors récupération des lignes du journal du poids`, err);
+      logConsole (viewlog, emoji,fichier + `liste`, `Erreur lors récupération des lignes du journal du poids`, err);
       throw err ;   
    }  
 }
 
 export async function ajouter (ligneJournal: LigneJournalPoidsDataRow) : Promise<number | undefined> {
-   Trace.traceDebut(__filename, `ajouter`);
+   logConsole (viewlog, emoji,fichier + `ajouter`,'Début','');
    let params : (string | number | Date)[];
     
    let query = `
@@ -69,23 +73,23 @@ export async function ajouter (ligneJournal: LigneJournalPoidsDataRow) : Promise
       ligneJournal.date,
       ligneJournal.poids];
    
-   Trace.traceInformation(__filename, `ajouter`, `query`, query);
-   Trace.traceInformation(__filename, `ajouter`, `params`, params);
+   logConsole (viewlog, emoji,fichier + `ajouter`, `query`, query);
+   logConsole (viewlog, emoji,fichier + `ajouter`, `params`, params);
 
    try {
       const res = await pool.query< {id : number}> (query,params);
       return res.rows[0].id;
 
    } catch (err) {
-      Trace.traceErreur(__filename, `ajouter`, "Erreur lors de l`ajout d`une ligne au journal du poids.", err);
+      logConsole (viewlog, emoji,fichier + `ajouter`, "Erreur lors de l`ajout d`une ligne au journal du poids.", err);
       throw err;      
    } 
 }
 
 export async function modifier(id: number, ligneJournal: LigneJournalPoidsDataRow): Promise <LigneJournalPoidsRow | null>{
   
-   Trace.traceDebut(__filename, `modifier`);
-   Trace.traceInformation (__filename, `Modifier`, `id`, id);
+   logConsole (viewlog, emoji,fichier + `modifier`,'Début','');
+   logConsole (viewlog, emoji,fichier +  `Modifier`, `id`, id);
     
    let query = `
       UPDATE journal_poids SET
@@ -101,29 +105,29 @@ export async function modifier(id: number, ligneJournal: LigneJournalPoidsDataRo
       ligneJournal.poids,
       id];
    
-   Trace.traceInformation (__filename,`Modifier`,`query`,query) ;
-   Trace.traceInformation(__filename, `Modifier`, `params`, params);
+   logConsole (viewlog, emoji,fichier + `Modifier`,`query`,query) ;
+   logConsole (viewlog, emoji,fichier + `Modifier`, `params`, params);
    
    try {
       const result = await pool.query<LigneJournalPoidsRow>(query, params);
 
       // Si aucune données mise à jour
       if (!result.rows.length || result.rows.length === 0) {
-         Trace.traceInformation( __filename,"modifier","Pas de ligne modifiée","");
+         logConsole (viewlog, emoji,fichier + "modifier","Pas de ligne modifiée","");
          return null ;
       };
 
       return result.rows[0];
 
    } catch (err) {
-      Trace.traceErreur(__filename, `modifier`, "Erreur lors de la modification d`une ligne au journal du poids.", err);
+      logConsole (viewlog, emoji,fichier + `modifier`, "Erreur lors de la modification d`une ligne au journal du poids.", err);
       throw err;
    } 
   }
 
 export async function supprimer(id: number): Promise<number> {
 
-   Trace.traceDebut(__dirname, `supprimer`);
+   logConsole (viewlog, emoji,fichier + `supprimer`,'Début','');
 
    try {
 
@@ -131,7 +135,7 @@ export async function supprimer(id: number): Promise<number> {
       return res.rowCount || 0 ;
 
    } catch (err) {
-      Trace.traceErreur (__filename, `supprimer`, `Erreur lors modification`, err);
+      logConsole (viewlog, emoji,fichier + `supprimer`, `Erreur lors modification`, err);
       throw err ;
    } 
 }   

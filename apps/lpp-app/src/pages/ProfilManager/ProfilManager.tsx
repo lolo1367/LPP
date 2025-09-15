@@ -3,7 +3,7 @@ import styles from './ProfilManager.module.css';
 
 import React, { useState, useEffect } from 'react';
 
-import { Utilisateur,UtilisateurData, logConsole,formatAppError, CustomAppException } from '@ww/reference';
+import { Utilisateur,UtilisateurData, logConsole,formatAppError, CustomAppException } from '@lpp/communs';
 import { useAuthStore } from '@/store/authStore';
 import PuceButton from '@/basicComponent/PuceButton/PuceButton';
 import ProfilForm from '@/popin/ProfilForm/ProfilForm';

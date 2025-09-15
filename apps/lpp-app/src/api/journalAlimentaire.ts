@@ -1,13 +1,13 @@
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
-import {logConsole} from '@/utils/logger';
+import {logConsole} from '@lpp/communs';
 
 import { format } from 'date-fns'
 import {
 	LigneJournalAlimentaireComplet,
 	LigneJournalAlimentaireDataSimple,
 	Resultat
-} from '@ww/reference';
+} from '@lpp/communs';
 
 const emoji = "📝​";
 const viewLog = false;

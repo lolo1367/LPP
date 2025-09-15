@@ -1,8 +1,8 @@
 // src/api/aliment.ts
-import {logConsole} from '../utils/logger';
+import {logConsole} from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
-import { Aliment, AlimentData, Resultat, AlimentRecent } from '@ww/reference';
+import { Aliment, AlimentData, Resultat, AlimentRecent } from '@lpp/communs';
 import { format } from 'date-fns';
 
 const emoji = "🍓​";

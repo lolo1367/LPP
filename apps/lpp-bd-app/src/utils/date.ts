@@ -1,6 +1,10 @@
 import { parse, isValid }  from 'date-fns';
 import { startOfWeek, format } from "date-fns";
-import * as Trace from "../utils/logger";
+import { logConsole } from "@lpp/communs";
+
+const viewlog = false;
+const emoji = "";
+const fichier = "date";
 
 /**
  * Vérifie si une chaîne de caractères est une date valide au format yyyy-MM-dd
@@ -15,7 +19,7 @@ export function isValidISODate(input : string) : boolean{
 }
 
 export function getLundiSemaine(date: Date): Date {
-  Trace.traceInformation
+  logConsole(viewlog, emoji, fichier + 'getLundiSemaine', 'Début', '');
   const localDate = new Date(date.getFullYear(), date.getMonth(), date.getDate()); // forcée à minuit local
   const lundi = startOfWeek(localDate, { weekStartsOn: 1 }); // lundi = 1
   return lundi;

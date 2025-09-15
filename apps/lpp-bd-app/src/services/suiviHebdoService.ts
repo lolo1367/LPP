@@ -1,5 +1,5 @@
 import pool from "../bd/db";
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 import { SuiviHebdoDataRow, SuiviHebdoRow } from "../types/suiviHebdo.js";
 import * as JournalAlimentaireService from "../services/journalAlimentaireService";
 import * as UtilisateurService from "../services/utilisateurService";

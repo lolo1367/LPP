@@ -2,7 +2,7 @@
 import 'dotenv/config';
 import { Pool } from 'pg';
 import { URL } from 'url';
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 
 const rawEnv = (process.env.DATABASE_URL || '').trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
 

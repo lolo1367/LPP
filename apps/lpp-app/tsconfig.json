@@ -21,8 +21,7 @@
     // 🔽 Ajout important ici :
     "baseUrl": ".",
     "paths": {
-      "@ww/types": ["../ww-packages/types/src/index.ts"] ,
-      "@ww/reference": ["../ww-packages/ww-reference/dist"], 
+      "@lpp/communs": ["../../communs/src/index.ts"], 
       "@/*" : ["src/*"]
     }
   },

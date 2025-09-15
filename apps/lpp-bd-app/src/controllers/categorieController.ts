@@ -9,7 +9,7 @@ import {
    idsQuerySchema,
    categorieFiltreSchema,
    logConsole
-} from "@ww/reference";
+} from "@lpp/communs";
 
 import {
    mapFromApi,

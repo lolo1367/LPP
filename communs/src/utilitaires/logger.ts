@@ -82,6 +82,7 @@ export function logConsole(
 		message += String(valeur);
 	}
 	console.log(message);
-  }
+}
+
 
 

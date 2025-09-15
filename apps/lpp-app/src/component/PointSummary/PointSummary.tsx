@@ -1,7 +1,7 @@
 // src/components/PointSummary/PointSummary.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 import styles from './PointSummary.module.css'; // Assurez-vous que le nom du module est correct (PointSummary sans 's')
 
 interface PointSummaryProps {

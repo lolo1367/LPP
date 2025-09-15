@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getDay, subDays } from 'date-fns';
-import { logConsole } from '@ww/reference';
-import { CustomAppException, formatAppError } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
+import { CustomAppException, formatAppError } from '@lpp/communs';
 import { useAuthStore } from '@/store/authStore';
 
 import {
@@ -15,7 +15,7 @@ import {
 	LigneJournalAlimentaireComplet,
 	SuiviHebdo,
 	AlimentRecent
-} from '@ww/reference';
+} from '@lpp/communs';
 
 export function useSaisieQuotidienneData(
 	utilisateurId: number,

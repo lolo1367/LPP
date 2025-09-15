@@ -14,7 +14,7 @@ import JournalPoidsPage from './pages/JournalPoidsPage/JournalPoidsPage';
 import Page404 from '@/pages/Page404';
 import SaisieQuotidienne from '@/pages/SaisieQuotidienne/SaisieQuotidienne';
 import Layout from '@/component/Layout/Layout';
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 import PageTest from '@/pages/pageTest';
 
 import { useAuthStore } from './store/authStore';

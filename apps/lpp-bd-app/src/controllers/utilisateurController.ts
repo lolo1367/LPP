@@ -7,10 +7,10 @@ import {
 	utilisateurDataSchema,
 	utilisateurFiltreSchema,
 	urlUtilisateurIdSchema
-} from "@ww/reference";
+} from "@lpp/communs";
 import {
    logConsole
-} from '@ww/reference';
+} from '@lpp/communs';
 
 import * as utilisateurService from '../services/utilisateurService';
 

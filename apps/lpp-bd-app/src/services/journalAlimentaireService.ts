@@ -1,12 +1,15 @@
 import { LigneJournalAlimentaireRow, LigneJournalAlimentaireDataRow, LigneJournalAlimentaireDataCompletRow } from "../types/ligneJournalalimentaire";
 import {AlimentRecentRow} from '../types/aliment'
-import * as Trace from "../utils/logger";
+import {logConsole} from "@lpp/communs";
 import pool from "../bd/db";
 import * as AlimentService from "../services/alimentService";
 import * as TypeRepasService from "../services/repasService";
-import { ContraintBaseReferenceError} from "@ww/reference";
+import { ContraintBaseReferenceError} from "@lpp/communs";
 import * as SuiviHebdoService from "../services/suiviHebdoService";
 
+const viewlog = false;
+const emoji = "";
+const fichier = "journalAlimentaireService";
 
 async function verifierIdsExistants(alimentId: number, typeRepasId: number) {
    const [aliments, repas] = await Promise.all([
@@ -25,11 +28,11 @@ async function verifierIdsExistants(alimentId: number, typeRepasId: number) {
 
 export async function getLigneById(id: number): Promise<LigneJournalAlimentaireRow | null> {
 
-   Trace.traceDebut(__filename, `getLigneById`);
-   Trace.traceInformation(__filename, `getLigneById`, `id`, id);
+   logConsole (viewlog, emoji,fichier +  `getLigneById`,'Début','');
+   logConsole (viewlog, emoji,fichier + `getLigneById`, `id`, id);
    
    const rows = await liste(undefined, undefined, undefined, undefined, id);
-   Trace.traceInformation(__filename, `getLigneById`, `Nombre de lignes trouvées`, rows.length);
+   logConsole (viewlog, emoji,fichier + `getLigneById`, `Nombre de lignes trouvées`, rows.length);
    
    if (rows.length >= 1) {
       return rows[0];
@@ -40,12 +43,12 @@ export async function getLigneById(id: number): Promise<LigneJournalAlimentaireR
 
 export async function liste(uti_id: number|undefined, date: Date | undefined, dateFin : Date | undefined,  typeRepasId?: number, ligneId?: number) : Promise <LigneJournalAlimentaireDataCompletRow[]> {  
 
-   Trace.traceDebut(__filename, `liste`); 
-   Trace.traceInformation(__filename, `liste`, `uti`, uti_id); 
-   Trace.traceInformation(__filename, `liste`, `date`, date);  
-   Trace.traceInformation(__filename, `liste`, `dateFin`, dateFin);  
-   Trace.traceInformation(__filename, `liste`, `type_repas_id`, typeRepasId);
-   Trace.traceInformation(__filename, `liste`, `ligne_id`, ligneId);
+   logConsole (viewlog, emoji,fichier + `liste`,'Début',''); 
+   logConsole (viewlog, emoji,fichier + `liste`, `uti`, uti_id); 
+   logConsole (viewlog, emoji,fichier + `liste`, `date`, date);  
+   logConsole (viewlog, emoji,fichier + `liste`, `dateFin`, dateFin);  
+   logConsole (viewlog, emoji,fichier + `liste`, `type_repas_id`, typeRepasId);
+   logConsole (viewlog, emoji,fichier + `liste`, `ligne_id`, ligneId);
 
    let query : string ;
    let params: (string | number)[] = [];
@@ -115,22 +118,22 @@ export async function liste(uti_id: number|undefined, date: Date | undefined, da
 
    query += ` ORDER BY date,type_repas_id ;`
 
-   Trace.traceInformation(__filename,`liste`,`query`, query);
-   Trace.traceInformation(__filename,`liste`,`param`, params);
+   logConsole (viewlog, emoji,fichier + `liste`,`query`, query);
+   logConsole (viewlog, emoji,fichier + `liste`,`param`, params);
    
    try {
       const res = await pool.query<LigneJournalAlimentaireDataCompletRow>(query, params);
-      Trace.traceInformation(__filename,`liste`,`Nombre de lignes trouvées`, res.rows.length);
+      logConsole (viewlog, emoji,fichier + `liste`,`Nombre de lignes trouvées`, res.rows.length);
       return res.rows ;
       
    } catch (err) {
- 		Trace.traceErreur(__filename, `liste`, `Erreur lors récupération des lignes du journal alimentaires`, err);
+ 		logConsole (viewlog, emoji,fichier + `liste`, `Erreur lors récupération des lignes du journal alimentaires`, err);
  		throw err ;	
 	}  
 }
 
 export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : Promise<number | undefined> {
-   Trace.traceDebut(__filename, `ajouter`);
+   logConsole (viewlog, emoji,fichier + `ajouter`,'Début','');
 
    let params : (string | number | Date)[];
     
@@ -155,8 +158,8 @@ export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : P
       ligneJournal.nombre_point,
       ligneJournal.unite ];
    
-   Trace.traceInformation(__filename, `ajouter`, `query`, query);
-   Trace.traceInformation(__filename, `ajouter`, `params`, params);
+   logConsole (viewlog, emoji,fichier + `ajouter`, `query`, query);
+   logConsole (viewlog, emoji,fichier + `ajouter`, `params`, params);
 
    try {
 
@@ -168,7 +171,7 @@ export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : P
       return res.rows[0].id;
 
    } catch (err) {
- 		Trace.traceErreur(__filename, `ajouter`, "Erreur lors de l`ajout d`une ligne au journal alimentaire.", err);
+ 		logConsole (viewlog, emoji,fichier + `ajouter`, "Erreur lors de l`ajout d`une ligne au journal alimentaire.", err);
       throw err;
       
    } 
@@ -176,8 +179,8 @@ export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : P
 
 export async function modifier(id: number, ligneJournal: LigneJournalAlimentaireDataRow): Promise <LigneJournalAlimentaireDataCompletRow | null>{
   
-   Trace.traceDebut(__filename, `modifier`);
-   Trace.traceInformation (__filename, `Modifier`, `id`, id);
+   logConsole (viewlog, emoji,fichier + `modifier`,'Début','');
+   logConsole (viewlog, emoji,fichier + `Modifier`, `id`, id);
 
    let query = `
       UPDATE journal_alimentaire SET
@@ -200,17 +203,17 @@ export async function modifier(id: number, ligneJournal: LigneJournalAlimentaire
       ligneJournal.unite,
       id];
    
-   Trace.traceInformation (__filename,`Modifier`,`query`,query) ;
-   Trace.traceInformation(__filename, `Modifier`, `params`, params);
+   logConsole (viewlog, emoji,fichier + `Modifier`,`query`,query) ;
+   logConsole (viewlog, emoji,fichier + `Modifier`, `params`, params);
    
    try {
 
       const res = await pool.query(query, params);
-      Trace.traceInformation( __filename,"modifier","res",res);
+      logConsole (viewlog, emoji,fichier + "modifier","res",res);
 
       // Si aucune données mise à jour
 		if (res.rowCount === 0) {
-			Trace.traceInformation( __filename,"modifier","Pas de ligne modifiée","");
+			logConsole (viewlog, emoji,fichier + "modifier","Pas de ligne modifiée","");
 			return null ;
 		};
 
@@ -223,14 +226,14 @@ export async function modifier(id: number, ligneJournal: LigneJournalAlimentaire
       return rows[0];
 
    } catch (err) {
- 		Trace.traceErreur(__filename, `modifier`, "Erreur lors de la modification d`une ligne au journal alimentaire.", err);
+ 		logConsole (viewlog, emoji,fichier + `modifier`, "Erreur lors de la modification d`une ligne au journal alimentaire.", err);
       throw err;
    } 
   }
 
 export async function supprimer(id: number): Promise<number> {
 
-   Trace.traceDebut(__dirname, `supprimer`);
+   logConsole (viewlog, emoji,fichier + `supprimer`,'Début','');
    
 	try {
 
@@ -248,17 +251,17 @@ export async function supprimer(id: number): Promise<number> {
       return res.rowCount || 0;
 
 	} catch (err) {
- 		Trace.traceErreur (__filename, `supprimer`, `Erreur lors modification`, err);
+ 		logConsole (viewlog, emoji,fichier +  `supprimer`, `Erreur lors modification`, err);
 		throw err ;
 	} 
 }   
 
 export async function getAlimentParPeriode(uti_id: number, dateDebut: Date, dateFin: Date): Promise<AlimentRecentRow[]> {
 
-   Trace.traceDebut(__filename, `getAlimentParPeriode`);
-   Trace.traceInformation(__filename, `getAlimentParPeriode`, `uti_id`, uti_id);
-   Trace.traceInformation(__filename, `getAlimentParPeriode`, `dateDebut`, dateDebut);
-   Trace.traceInformation(__filename, `getAlimentParPeriode`, `dateFin`, dateFin);
+   logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`,'Début','');
+   logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `uti_id`, uti_id);
+   logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `dateDebut`, dateDebut);
+   logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `dateFin`, dateFin);
 
    let query: string;
    let params: (string | number)[] = [];
@@ -329,17 +332,17 @@ export async function getAlimentParPeriode(uti_id: number, dateDebut: Date, date
       dateDebut.toISOString().split(`T`)[0],
       dateFin.toISOString().split(`T`)[0]
    );
-   Trace.traceInformation(__filename, `getAlimentParPeriode`, `query`, query);
-   Trace.traceInformation(__filename, `getAlimentParPeriode`, `params`, params);
+   logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `query`, query);
+   logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `params`, params);
    
    try {
 
       const res = await pool.query<AlimentRecentRow>(query, params);
-      Trace.traceInformation(__filename, `getAlimentParPeriode`, `Nombre de lignes trouvées`, res.rows.length);
+      logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `Nombre de lignes trouvées`, res.rows.length);
       return res.rows;
       
    } catch (err) {
-      Trace.traceErreur(__filename, `getAlimentParPeriode`, `Erreur lors récupération des aliments récents du journal alimentaire`, err);
+      logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `Erreur lors récupération des aliments récents du journal alimentaire`, err);
       throw err;
 	
    } 

@@ -1,7 +1,7 @@
 import {
   logConsole,
   Unite
-} from "@ww/reference";
+} from "@lpp/communs";
 import pool from "../bd/db";
 
 // ==================================================

@@ -2,7 +2,7 @@ import styles from './AlimentForm.module.css';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal } from 'react-bootstrap';
-import { log, logConsole } from '@ww/reference';
+import { log, logConsole } from '@lpp/communs';
 import InputText from '@/basicComponent/InputText/InputText';
 import InputNumber from '@/basicComponent/InputNumber/InputNumber';
 import InputSelect from '@/basicComponent/InputSelect/InputSelect';
@@ -16,7 +16,7 @@ import {
    AlimentData,
    Unite,
    Categorie
-} from '@ww/reference';
+} from '@lpp/communs';
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import { forEach } from 'list';
 import { da } from 'date-fns/locale';

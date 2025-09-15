@@ -7,24 +7,28 @@ import {
    ligneJournalPoidsDataSchema,
    ligneJournalPoidsFiltreSchemas,
    urlLigneJournalPoidsIdSchema
-} from '@ww/reference';
-import * as Trace from '../utils/logger';
+} from '@lpp/communs';
+import {logConsole} from '@lpp/communs';
 import * as JournalPoidsService from '../services/journalPoidsService';
 
 import { mapFromApi } from '../mappers/ligneJournalPoidsMapper';
 
+const viewlog = false;
+const emoji = "";
+const fichier = "journalPoidsController";
+
 export const getLigne = async (req : Request, res : Response, next : NextFunction) => {   
 
    try {
-      Trace.traceDebut(__filename, 'getLigne');
-      Trace.traceInformation(__filename, 'getLigne', 'req.query', req.query);
+      logConsole (viewlog, emoji,fichier + 'getLigne','Début','');
+      logConsole (viewlog, emoji,fichier + 'getLigne', 'req.query', req.query);
       
       // Vérification des paramètres de la requette
       const parseResultQuery = ligneJournalPoidsFiltreSchemas.safeParse(req.query) ;
-      Trace.traceInformation (__filename,'getLigne','parseResultQuery',parseResultQuery);
+      logConsole (viewlog, emoji,fichier + 'getLigne','parseResultQuery',parseResultQuery);
 
       if (!parseResultQuery.success) {
-            Trace.traceInformation (__filename,'getLigne','Erreur format body',parseResultQuery.error?.format()); 
+            logConsole (viewlog, emoji,fichier + 'getLigne','Erreur format body',parseResultQuery.error?.format()); 
             throw parseResultQuery.error
       }
 
@@ -33,21 +37,21 @@ export const getLigne = async (req : Request, res : Response, next : NextFunctio
 
       if (parseResultQuery.data.date_debut) {
          dateDebut = new Date(parseResultQuery.data.date_debut);
-         Trace.traceInformation(__filename, 'getLigne', 'date debut fournie', dateDebut);
+         logConsole (viewlog, emoji,fichier + 'getLigne', 'date debut fournie', dateDebut);
       } else {
-         Trace.traceInformation(__filename, 'getLigne', 'aucune date de début fournie', ' date undefined');
+         logConsole (viewlog, emoji,fichier + 'getLigne', 'aucune date de début fournie', ' date undefined');
       }
 
       if (parseResultQuery.data.date_fin) {
          dateFin = new Date(parseResultQuery.data.date_fin);
-         Trace.traceInformation(__filename, 'getLigne', 'date fin fournie', dateFin);
+         logConsole (viewlog, emoji,fichier + 'getLigne', 'date fin fournie', dateFin);
       } else {
-         Trace.traceInformation(__filename, 'getLigne', 'aucune date de fin fournie', ' date undefined');
+         logConsole (viewlog, emoji,fichier + 'getLigne', 'aucune date de fin fournie', ' date undefined');
       }
       
       const lignes = await JournalPoidsService.liste(parseResultQuery.data.uti_id,dateDebut,dateFin,parseResultQuery.data.ligne_id);
-      Trace.traceInformation(__filename, 'getLigne', 'NB row', lignes.length);  
-      Trace.traceInformation(__filename, 'getLigne', 'lignes', lignes);  
+      logConsole (viewlog, emoji,fichier + 'getLigne', 'NB row', lignes.length);  
+      logConsole (viewlog, emoji,fichier + 'getLigne', 'lignes', lignes);  
 
       res.status(200).json(lignes);
       
@@ -60,13 +64,13 @@ export const insertLigne = async (req : Request, res : Response, next :NextFunct
 
    try {
 
-      Trace.traceDebut(__filename, 'insertLigne');
-      Trace.traceInformation(__filename,'insertLigne','req.body',req.body);
+      logConsole (viewlog, emoji,fichier + 'insertLigne','Début','');
+      logConsole (viewlog, emoji,fichier + 'insertLigne','req.body',req.body);
       const parseResultBody = ligneJournalPoidsDataSchema.safeParse(req.body);
-      Trace.traceInformation(__filename,'insertLigne', 'parseResultBody', parseResultBody )
+      logConsole (viewlog, emoji,fichier + 'insertLigne', 'parseResultBody', parseResultBody )
 
       if (!parseResultBody.success) {
-         Trace.traceInformation (__filename,'insertLigne','Erreur parse body',parseResultBody.error);
+         logConsole (viewlog, emoji,fichier + 'insertLigne','Erreur parse body',parseResultBody.error);
          throw parseResultBody.error;
       }
 
@@ -85,13 +89,13 @@ export const updateLigne = async (req: Request, res: Response, next : NextFuncti
   
       const parseResultBody = ligneJournalPoidsDataSchema.safeParse(req.body);
       if (!parseResultBody.success) {
-         Trace.traceInformation (__filename,'updateLigne','Erreur format body',parseResultBody.error?.format()); 
+         logConsole (viewlog, emoji,fichier + 'updateLigne','Erreur format body',parseResultBody.error?.format()); 
          throw parseResultBody.error ;
       }
 
       const parseResultParam = urlLigneJournalPoidsIdSchema.safeParse(req.params);
       if (!parseResultParam.success) {
-         Trace.traceInformation (__filename,'updateLigne',"Erreur de l'id",parseResultParam.error?.format()); 
+         logConsole (viewlog, emoji,fichier + 'updateLigne',"Erreur de l'id",parseResultParam.error?.format()); 
          throw parseResultParam.error ;
       }
 
@@ -105,8 +109,8 @@ export const updateLigne = async (req: Request, res: Response, next : NextFuncti
       } else {
          
          const lignes = await JournalPoidsService.liste(uti_id, undefined,undefined, id);
-         Trace.traceInformation(__filename, 'getLigne', 'Lignes remontées par le select', lignes.length);  
-         Trace.traceInformation(__filename, 'getLigne', 'lignes', lignes);  
+         logConsole (viewlog, emoji,fichier + 'getLigne', 'Lignes remontées par le select', lignes.length);  
+         logConsole (viewlog, emoji,fichier + 'getLigne', 'lignes', lignes);  
 
 
          res.status(200).json(lignes);
@@ -120,11 +124,11 @@ export const updateLigne = async (req: Request, res: Response, next : NextFuncti
 export const deleteLigne = async (req : Request, res : Response, next : NextFunction) => {
 
    try {
-      Trace.traceInformation (__filename,'deleteLigne','req.params',req.params); 
+      logConsole (viewlog, emoji,fichier + 'deleteLigne','req.params',req.params); 
       const parseResultParam = urlLigneJournalPoidsIdSchema.safeParse(req.params);
 
       if (!parseResultParam.success) {
-         Trace.traceInformation (__filename,'deleteLigne','Erreur format body',parseResultParam.error?.format()); 
+         logConsole (viewlog, emoji,fichier + 'deleteLigne','Erreur format body',parseResultParam.error?.format()); 
          throw parseResultParam.error ;
       }
 

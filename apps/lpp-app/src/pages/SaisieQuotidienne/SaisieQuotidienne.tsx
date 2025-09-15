@@ -17,7 +17,7 @@ import {
 	LigneJournalAlimentaireComplet,
 	LigneJournalAlimentaireDataSimple,
 	log
-} from '@ww/reference';
+} from '@lpp/communs';
 
 // Import des services
 import {
@@ -36,11 +36,11 @@ import EnregistrementModify from '@/popin/EnregistrmentModify/EnregistrmentModif
 import Avertissement from '@/basicComponent/Avertissement/Avertissement';
 
 import { format } from "date-fns";
-import { logConsole } from '@/utils/logger';
+import { logConsole } from '@lpp/communs';
 import {
 	Resultat,
 	formatAppError
- } from '@ww/reference';
+ } from '@lpp/communs';
 
  // == PAGE ======================================================================================================
 export default function SaisieQuotidienne() {

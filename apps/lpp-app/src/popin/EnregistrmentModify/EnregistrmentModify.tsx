@@ -5,14 +5,14 @@ import { Modal } from 'react-bootstrap';
 import Button from '@/basicComponent/Button/Button';
 import { capitalise } from '@/utils/fonctionBase';
 import QuantityPicker from '@/basicComponent/QuantityPicker/QuantityPicker';
-import { logConsole } from '@/utils/logger';
+import { logConsole } from '@lpp/communs';
 import { UNITE_BASE } from '@/config';
 
 import {
 Repas,
 LigneJournalAlimentaireComplet,
 Unite
-} from '@ww/reference';
+} from '@lpp/communs';
 
 import {
 format,

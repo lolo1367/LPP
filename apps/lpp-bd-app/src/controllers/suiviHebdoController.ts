@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { suiviHebdoDataSchema, suiviHebdoFiltreSchemas } from "@ww/reference";
-import * as Trace from "../utils/logger";
+import { suiviHebdoDataSchema, suiviHebdoFiltreSchemas } from "@lpp/communs";
+import * as Trace from "@lpp/communs";
 
 import * as SuiviHebdoService from '../services/suiviHebdoService';
 

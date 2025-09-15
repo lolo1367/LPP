@@ -4,9 +4,9 @@ import styles from './JournalPoidsPage.module.css';
 
 import React, { useState, useEffect } from 'react';
 import { UTI_ID } from '@/config';
-import { LigneJournalPoids, LigneJournalPoidsData, Resultat } from '@ww/reference';
+import { LigneJournalPoids, LigneJournalPoidsData, Resultat } from '@lpp/communs';
 import { ligneJournalPoidsAjouter, ligneJournalPoidsCharger, ligneJournalPoidsModifier} from '@/api/journalPoids';
-import { logConsole, formatAppError, CustomAppException } from '@ww/reference';
+import { logConsole, formatAppError, CustomAppException } from '@lpp/communs';
 import { format } from 'date-fns';
 import {startOfMonth,startOfWeek,startOfYear,startOfDay} from '@/utils/date/date'
 import InputNumber from '@/basicComponent/InputNumber/InputNumber';

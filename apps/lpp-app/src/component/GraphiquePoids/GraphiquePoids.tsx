@@ -1,7 +1,7 @@
 // src/component/GraphiquePoids/GraphiquePoids.tsx
 import styles from './GraphiquePoids.module.css';
 import React, { useState, useMemo } from 'react';
-import { LigneJournalPoids } from '@ww/reference';
+import { LigneJournalPoids } from '@lpp/communs';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Tabs from '@/basicComponent/Tabs/Tabs';
 import { startOfDay, startOfMonth, startOfWeek, startOfYear } from '@/utils/date/date';

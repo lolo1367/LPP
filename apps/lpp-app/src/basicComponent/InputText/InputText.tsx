@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './InputText.module.css';
-import { logConsole } from '@/utils/logger';
+import { logConsole } from '@lpp/communs';
 import { HiEye, HiEyeOff } from "react-icons/hi"; 
 
 

@@ -1,7 +1,7 @@
 // import { promises } from "dns";
 import { AlimentRow, AlimentDataRow} from "../types/aliment" ;
 import pool from '../bd/db' ;
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
 // ==================================================
 // Constant pour les logs

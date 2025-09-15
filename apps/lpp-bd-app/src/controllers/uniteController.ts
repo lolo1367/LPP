@@ -7,7 +7,7 @@ import {
    Unite,
    uniteFiltreSchema,
    logConsole
-} from "@ww/reference";
+} from "@lpp/communs";
 
 import * as uniteService from '../services/uniteService.js';
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '@/basicComponent/InputText/InputText.module.css';
-import { logConsole } from '@/utils/logger';
+import { logConsole } from '@lpp/communs';
 import { empty } from 'list';
 
 // Définition des types pour les props du composant

@@ -1,4 +1,4 @@
-import { SuiviHebdoData, SuiviHebdo, suiviHebdoDataSchema } from '@ww/reference';
+import { SuiviHebdoData, SuiviHebdo, suiviHebdoDataSchema } from '@lpp/communs';
 import { inherits } from 'util';
 
 export type SuiviHebdoDataRow = SuiviHebdoData;

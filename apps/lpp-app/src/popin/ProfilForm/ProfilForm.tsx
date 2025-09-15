@@ -2,7 +2,7 @@ import styles from './ProfilForm.module.css';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal } from 'react-bootstrap';
-import { logConsole, Utilisateur, UtilisateurData } from '@ww/reference';
+import { logConsole, Utilisateur, UtilisateurData } from '@lpp/communs';
 import InputText from '@/basicComponent/InputText/InputText';
 import InputNumber from '@/basicComponent/InputNumber/InputNumber';
 import InputSelect, { SelectOption } from '@/basicComponent/InputSelect/InputSelect';
@@ -199,7 +199,7 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
    // =============================================================================
    const validerInput = (name: keyof FormData, value: any) => { 
 
-      logConsole(viewLog, emoji, module + '/validerInput', `name : ${name}`, `value : ${value}`);
+      logConsole(viewLog, emoji, module + '/validerInput', `name : ${String(name)}`, `value : ${value}`);
       const config = inputConfig[name];      
       let message: string = '';
 
@@ -312,15 +312,23 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
    // Gestion des événements
    // ======================================================================
 
-   const handleInputChange = (name: keyof FormData, value: string | number | null ) => {
-      logConsole(viewLog, emoji, module + '/handleInputChange', `name: ${name}`, `value: ${value}`);
-      setFormData((prevData) => ({
+   const handleInputChange = (name: keyof FormData, value: string | number | null) => {
+      // Pour l'affichage dans le log, on convertit en string
+      logConsole(viewLog, emoji, module + '/handleInputChange', `name: ${String(name)}`, `value: ${value}`);
+    
+      // Mise à jour du state
+      setFormData((prevData : FormData) => {
+        const newData: FormData = {
           ...prevData,
-          [name]: value,
-      }));
-
+          [name]: value, // TypeScript comprend que 'name' est une clé valide
+        };
+        return newData;
+      });
+    
+      // Validation de l'input
       validerInput(name, value);
-   };
+    };
+    
 
    const handleBlur = (e : React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       logConsole(viewLog, emoji, module + '/handleBlur', `name: ${e.target.name}`, ``);
@@ -408,23 +416,23 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
                   .find((key) => inputConfig[key] === config) as keyof FormData;
 
                return (
-                  <React.Fragment key={name}>             
+                  <React.Fragment key={String(name)}>             
                  
                         {(config.type) && (config.type === "texte") && (
                            <InputText
                               label={config.label}
                               showLabel={config.showLabel}
                               placeholder={config.placeholder}
-                              name={field}
+                              name={String(field)}
                               width="medium"
                               height="h2"
                               required={config.required}
                               value={formData[field] !== null ? formData[field].toString() : ''}
                               onChange={(value) => handleInputChange(field, value)}
                               onBlur={handleBlur}
-                              isValid={!erreursFormulaire[field]}
-                              isTouched={!!touched[field]}
-                              messageErreur={erreursFormulaire[field]}                       
+                              isValid={!erreursFormulaire[String(field)]}
+                              isTouched={!!touched[String(field)]}
+                              messageErreur={erreursFormulaire[String(field)]}                       
                            />
                         )}
 
@@ -433,16 +441,16 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
                               label={config.label}
                               showLabel={config.showLabel}
                               placeholder={config.placeholder}
-                              name={field}
+                              name={String(field)}
                               width="medium"
                               height="h2"
                               required={true}
                               value={formData[field] !== null ? Number(formData[field]) : null}
                               onChange={(value) => handleInputChange(field, value)}
                               onBlur={handleBlur}
-                              isValid={!erreursFormulaire[field]}
-                              isTouched={!!touched[field]}
-                              messageErreur={erreursFormulaire[field]}                       
+                              isValid={!erreursFormulaire[String(field)]}
+                              isTouched={!!touched[String(field)]}
+                              messageErreur={erreursFormulaire[String(field)]}                       
                            />
                         )}
                      
@@ -451,7 +459,7 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
                               label={config.label}
                               placeholder={config.placeholder}
                               showLabel={config.showLabel}
-                              name={field}
+                              name={String(field)}
                               options={config.selectData || [{value: "",label:""}]}
                               value={formData[field] !== null ? formData[field].toString() : ''}
                               onChange={(value) => handleInputChange(field, value)}
@@ -459,9 +467,9 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
                               width="medium"    
                               height="h2"
                               required={true}
-                              isValid={!erreursFormulaire[field]}
-                              isTouched={!!touched[field]}
-                              messageErreur={erreursFormulaire[field]}
+                              isValid={!erreursFormulaire[String(field)]}
+                              isTouched={!!touched[String(field)]}
+                              messageErreur={erreursFormulaire[String(field)]}
                            />
                         )}
 
@@ -471,16 +479,16 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
                                  showLabel={config.showLabel}
                                  type='password'
                                  placeholder={config.placeholder}
-                                 name={field}
+                                 name={String(field)}
                                  width="medium"
                                  height="h2"
                                  required={config.required}
                                  value={formData[field] !== null ? formData[field].toString() : ''}
                                  onChange={(value) => handleInputChange(field, value)}
                                  onBlur={handleBlur}
-                                 isValid={!erreursFormulaire[field]}
-                                 isTouched={!!touched[field]}
-                                 messageErreur={erreursFormulaire[field]}                       
+                                 isValid={!erreursFormulaire[String(field)]}
+                                 isTouched={!!touched[String(field)]}
+                                 messageErreur={erreursFormulaire[String(field)]}                       
                               />
                            )}
                         </React.Fragment>

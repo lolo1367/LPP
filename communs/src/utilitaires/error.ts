@@ -72,7 +72,7 @@
 	// == DECLARATION     ==============================================================================
 	const emoji = "🍔​";
 	const viewLog = true;
-	const module = 'ww-package/utilitaires/error';
+	const fichier = 'ww-package/utilitaires/error';
 
 	// == FONCTION        ==============================================================================
 

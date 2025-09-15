@@ -1,6 +1,6 @@
 
 import pool from "./db";
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
 pool.on('connect', () => {
    logConsole(true,"","db.ts","Connecté à la base PostgreSQL","");

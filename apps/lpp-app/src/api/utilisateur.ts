@@ -1,8 +1,8 @@
 // src/api/utilisateur.ts
-import {logConsole} from '../utils/logger';
+import {logConsole} from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
-import { Utilisateur, UtilisateurData, isAppError, CustomAppException, Resultat } from '@ww/reference';
+import { Utilisateur, UtilisateurData, isAppError, CustomAppException, Resultat } from '@lpp/communs';
 import { format } from 'date-fns';
 
 const emoji = "😱​​";

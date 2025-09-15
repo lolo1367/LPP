@@ -1,4 +1,4 @@
-import { LigneJournalPoidsData } from '@ww/reference';
+import { LigneJournalPoidsData } from '@lpp/communs';
 import { LigneJournalPoidsDataRow } from '../types/ligneJournalPoids';
 import { format } from "date-fns";
 

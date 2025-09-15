@@ -1,6 +1,6 @@
-import type { RepasData, Repas} from  '@ww/reference';
+import type { RepasData, Repas} from  '@lpp/communs';
 import { RepasDataRow, RepasRow } from '../types/repas';
-import { repasDataSchema } from '@ww/reference';
+import { repasDataSchema } from '@lpp/communs';
 import { z } from 'zod' ;
 
 

@@ -7,14 +7,14 @@
     "build": "tsc && tsc-alias",
     "start": "node dist/server.js",
     "dropTable": "node dist/bd/dropTable.js",
-    "initialisationBase": "node dist/bd/initialisationBase.js", 
+    "initialisationBase": "node dist/bd/initialisationBase.js",
     "testDbRender": "ts-node src/testDbRender.ts",
     "test": "vitest run --reporter verbose",
     "test ui": "vitest --ui"
   },
   "dependencies": {
+    "@lpp/communs": "file:../../communs",
     "@types/bcrypt": "^6.0.0",
-    "@ww/reference": "file:./ww-packages",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "csv-parse": "^6.1.0",

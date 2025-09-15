@@ -1,4 +1,8 @@
-import { traceInformation } from "./logger";
+import { logConsole } from "@lpp/communs";
+
+const viewlog = false;
+const emoji = "";
+const fichier = "httpClient";
 
 export interface HttpResponse<T> {
   status: number;
@@ -7,8 +11,8 @@ export interface HttpResponse<T> {
 
 // utils/httpClient.ts
 export async function httpGet<T>(url: string): Promise<T> {
-	traceInformation (__filename,'httpGet','Début',""); 
-	traceInformation (__filename,'httpGet','URL',url	); 
+	logConsole (viewlog, emoji,fichier + 'httpGet','Début',""); 
+	logConsole (viewlog, emoji,fichier + 'httpGet','URL',url	); 
 
   const response = await fetch(url);
   if (!response.ok) {
@@ -53,7 +57,7 @@ export async function httpPost<T, U>(url: string, data: U): Promise<T> {
 	 body: JSON.stringify(data)
   });
 
-	traceInformation(__filename, "httpPut", "Début", "");
+	logConsole (viewlog, emoji,fichier +  "httpPut", "Début", "");
 	  
 	// On lit le JSON UNE fois et on le stocke
 	let responseData;
@@ -64,16 +68,16 @@ export async function httpPost<T, U>(url: string, data: U): Promise<T> {
 	}
 
 	// Traces utiles, responseData est déjà un objet ou null
-	traceInformation(__filename, "httpPut", "- Réponse", responseData);
+	logConsole (viewlog, emoji,fichier +  "httpPut", "- Réponse", responseData);
 
 		if (!response.ok) {
 
-			traceInformation(__filename, "httpPut", "- Réponse KO ", "");
+			logConsole (viewlog, emoji,fichier +  "httpPut", "- Réponse KO ", "");
 
 			let errorMessage = `PUT ${url} failed: ${response.status}`;
 			if (responseData && typeof responseData === 'object' ) {
 				errorMessage = responseData.message ?? responseData.Erreur ?? errorMessage;
-				traceInformation(__filename, "httpPut", "- Message attendu ", errorMessage);
+				logConsole (viewlog, emoji,fichier +  "httpPut", "- Message attendu ", errorMessage);
 			}
 
 			const error = new Error(errorMessage);
@@ -92,7 +96,7 @@ export async function httpDelete<T>(url: string): Promise<HttpResponse<T>> {
   });
 	
 	
-	traceInformation(__filename, "httpDelete", "Début", "");
+	logConsole (viewlog, emoji,fichier +  "httpDelete", "Début", "");
 	  
 	// On lit le JSON UNE fois et on le stocke
   	let responseData;
@@ -103,17 +107,17 @@ export async function httpDelete<T>(url: string): Promise<HttpResponse<T>> {
 	}
 	
 	// Traces utiles, responseData est déjà un objet ou null
-	traceInformation(__filename, "httpDelete", "- Réponse", responseData);
-	traceInformation(__filename, "httpDelete", "- Statut", response.status);
+	logConsole (viewlog, emoji,fichier +  "httpDelete", "- Réponse", responseData);
+	logConsole (viewlog, emoji,fichier +  "httpDelete", "- Statut", response.status);
 	
 	if (!response.ok) {
 			
-			traceInformation(__filename, "httpDelete", "- Réponse KO ", "");
+			logConsole (viewlog, emoji,fichier +  "httpDelete", "- Réponse KO ", "");
 
 			let errorMessage = `DELETE ${url} failed: ${response.status}`;
 			if (responseData && typeof responseData === 'object' ) {
 				errorMessage = responseData.message ?? responseData.Erreur ?? errorMessage;
-				traceInformation(__filename, "httpPut", "- Message attendu ", errorMessage);
+				logConsole (viewlog, emoji,fichier +  "httpPut", "- Message attendu ", errorMessage);
 			}
 
 			const error = new Error(errorMessage);
@@ -123,7 +127,7 @@ export async function httpDelete<T>(url: string): Promise<HttpResponse<T>> {
 			throw error;
   	} 
 
-	traceInformation(__filename, "httpDelete", "- Réponse OK ", "");
+	logConsole (viewlog, emoji,fichier +  "httpDelete", "- Réponse OK ", "");
 
 	return {
 			status: response.status,

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './QuantityPicker.module.css';
 
-import { logConsole } from '@/utils/logger';
+import { logConsole } from '@lpp/communs';
 
 interface QuantityPickerProps {
 	valeur: number;

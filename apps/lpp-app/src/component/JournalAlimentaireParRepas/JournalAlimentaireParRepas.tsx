@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './JournalAlimentaireParRepas.module.css';
 import SwipeToDeleteItem  from '@/basicComponent/SwipeToDeleteItem/SwipeToDeleteItem';
 
-// Importation des types depuis @ww/reference
-import { Repas, LigneJournalAlimentaireComplet } from '@ww/reference';
+// Importation des types depuis @lpp/communs
+import { Repas, LigneJournalAlimentaireComplet } from '@lpp/communs';
 
 // Importez toutes les icônes de react-icons/md sous l'alias MDIcons
 import * as MDIcons from 'react-icons/md'; 

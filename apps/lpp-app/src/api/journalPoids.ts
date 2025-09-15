@@ -1,5 +1,5 @@
 // src/api/LigneJournalPoids.ts
-import { logConsole } from '../utils/logger';
+import { logConsole } from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
 
@@ -9,7 +9,7 @@ import {
    isAppError,
    CustomAppException,
    Resultat
-} from '@ww/reference';; 
+} from '@lpp/communs';; 
 import { format } from 'date-fns';
 
 const emoji = "⚖️​​";

@@ -10,9 +10,8 @@ import {
 	urlAlimentIdSchema,
 	idsQuerySchema,
 	alimentsRecentsFiltreSchema,
-	AlimentRecent,
 	logConsole
-} from "@ww/reference";
+} from "@lpp/communs";
 
 import {
 	mapFromDb,
@@ -22,7 +21,6 @@ import {
 
 import {
 	AlimentDataRow,
-	AlimentRow
 } from "@/types/aliment";
 
 import * as alimentService from '../services/alimentService';

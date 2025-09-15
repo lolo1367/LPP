@@ -5,7 +5,7 @@
 		Aliment,
 		Repas,
 		AlimentRecent
-	} from '@ww/reference';
+	} from '@lpp/communs';
 
 
 	import styles from './AlimentSelector.module.css';

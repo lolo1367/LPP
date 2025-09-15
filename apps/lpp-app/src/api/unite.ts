@@ -1,5 +1,4 @@
 // src/api/typesRepas.ts
-import * as Trace from '../utils/logger';
 import api from './api';
 import { handleApiError ,handleApiCriticalError} from './handleApiError';
 
@@ -9,7 +8,7 @@ import {
     CustomAppException,
     Resultat,
     logConsole
-} from '@ww/reference'; 
+} from '@lpp/communs'; 
 
 const emoji = "📏​​​";
 const viewLog = false;
@@ -20,9 +19,9 @@ const module = "api/unite";
 // ===========================================================================
 export async function uniteCharger (): Promise<Unite[]> {
 
-   Trace.logConsole(viewLog, emoji, module + '/uniteCharger', "DEBUT", "");
+   logConsole(viewLog, emoji, module + '/uniteCharger', "DEBUT", "");
    const uri = `/unite`;
-   Trace.logConsole(viewLog, emoji, module + '/uniteCharger', 'uri', uri); 
+   logConsole(viewLog, emoji, module + '/uniteCharger', 'uri', uri); 
    try {
       
       const response = await api.get(uri);

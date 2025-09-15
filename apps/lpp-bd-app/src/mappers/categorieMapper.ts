@@ -1,6 +1,6 @@
-import type {CategorieData, Categorie} from '@ww/reference';
+import type {CategorieData, Categorie} from '@lpp/communs';
 import { CategorieDataRow, CategorieRow } from '../types/categorie';
-import { categorieDataSchema } from '@ww/reference';
+import { categorieDataSchema } from '@lpp/communs';
 import { z } from 'zod' ;
 
 // Transforme un résultat SQL en objet "Categorie" pour le frontend

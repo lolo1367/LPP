@@ -1,5 +1,5 @@
 // src/api/typesRepas.ts
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
 
@@ -8,7 +8,7 @@ import {
     isAppError,
     CustomAppException,
     Resultat
-} from '@ww/reference'; 
+} from '@lpp/communs'; 
 
 const emoji = "🍱​​";
 const viewLog = true;

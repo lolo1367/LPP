@@ -1,6 +1,6 @@
-import type { Aliment, AlimentRecent } from  '@ww/reference';
+import type { Aliment, AlimentRecent } from  '@lpp/communs';
 import { AlimentDataRow, AlimentRow, AlimentRecentRow } from '../types/aliment';
-import { alimentDataSchema } from '@ww/reference';
+import { alimentDataSchema } from '@lpp/communs';
 import { z } from 'zod' ;
 
 // Transforme un résultat SQL en objet "Aliment" pour le frontend

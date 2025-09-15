@@ -1,5 +1,5 @@
-import { isAppError, CustomAppException, Resultat } from "@ww/reference";
-import { logConsole } from "@ww/reference";
+import { isAppError, CustomAppException, Resultat } from "@lpp/communs";
+import { logConsole } from "@lpp/communs";
 
 export function handleApiCriticalError(error: any, context: string = ""): never {
   const emoji = "🌷​​​​";

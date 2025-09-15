@@ -1,6 +1,6 @@
 import { Database } from "sqlite";
-import { Utilisateur,UtilisateurData } from "@ww/reference";
-import {logConsole} from "@ww/reference";
+import { Utilisateur,UtilisateurData } from "@lpp/communs";
+import {logConsole} from "@lpp/communs";
 import pool from "../bd/db";
 import bcrypt from "bcrypt";
 import { V } from "vitest/dist/chunks/reporters.d.BFLkQcL6";

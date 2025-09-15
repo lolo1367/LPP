@@ -6,13 +6,13 @@ import {
     Unite,
     Categorie,
     AlimentData
-} from '@ww/reference';
+} from '@lpp/communs';
 import {
     CustomAppException,
     formatAppError
-} from '@ww/reference';
+} from '@lpp/communs';
 
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 import AlimentForm from "@/popin/AlimentForm/AlimentForm";
 import {
     alimentCharger,

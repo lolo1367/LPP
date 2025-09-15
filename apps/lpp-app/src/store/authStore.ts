@@ -1,12 +1,12 @@
 // authStore.ts
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { Utilisateur, utilisateurDataSchema } from "@ww/reference";
+import { Utilisateur, utilisateurDataSchema } from "@lpp/communs";
 import { logout, verifierLogin } from '@/api/login';
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
-import { CustomAppException, Resultat, isAppError } from '@ww/reference';
-import { Authentification } from "@ww/reference";
+import { CustomAppException, Resultat, isAppError } from '@lpp/communs';
+import { Authentification } from "@lpp/communs";
 
 type User = { id: number; name: string; email: string };
 

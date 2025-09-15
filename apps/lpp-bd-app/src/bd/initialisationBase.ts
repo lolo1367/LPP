@@ -4,7 +4,7 @@ import { initCategorie }  from './initCategorie';  // Initialisation des catégo
 import {initTypeRepas }  from  './initTypeRepas' ;
 import { initUnite } from "./initUnite";
 import 'dotenv/config';
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
 async function initialisationBase () {
 

@@ -3,7 +3,7 @@ import 'dotenv/config';
 import { Pool } from 'pg';
 import { URL } from 'url';
 import dns from 'dns';
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 
 const rawEnv = (process.env.DATABASE_URL || '')
   .trim()

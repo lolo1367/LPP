@@ -1,6 +1,6 @@
 import { RepasRow, RepasDataRow } from "../types/repas";
 import pool from "../bd/db";
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
 // ==================================================
 // Constant pour les logs

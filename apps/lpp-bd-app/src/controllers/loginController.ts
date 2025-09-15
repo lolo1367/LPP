@@ -7,17 +7,17 @@ import {
    utilisateurLoginSchema,
    utilisateurTokenSchema,
    Utilisateur
-} from "@ww/reference";
+} from "@lpp/communs";
 
 import {
    logConsole
-} from '@ww/reference';
+} from '@lpp/communs';
 
 import * as utilisateurService from '../services/utilisateurService';
 import * as refreshTokenService from '../services/refreshTokenService';
 
 import jwt from 'jsonwebtoken';
-import { HttpException } from '@ww/reference';
+import { HttpException } from '@lpp/communs';
 
 // ==================================================
 // Constant pour les logs

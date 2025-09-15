@@ -2,7 +2,7 @@
 
 import pool from "../bd/db";
 import { addDays } from "date-fns";
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
 const viewLog= true;
 const emoji= ``;

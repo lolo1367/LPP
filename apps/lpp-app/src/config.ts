@@ -1,5 +1,5 @@
 // src/config.js
-import { logConsole } from "./utils/logger";
+import { logConsole } from "@lpp/communs";
 
 const viewLog = false;
 const module = "config.ts";

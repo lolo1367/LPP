@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '@/basicComponent/InputText/InputText.module.css';
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 
 // Définition des types
 type InputWidth = 'small' | 'medium' | 'large';

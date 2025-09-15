@@ -1,10 +1,10 @@
 
-import { logConsole } from '../utils/logger';
+import { logConsole } from '@lpp/communs';
 import api from './api';
 import { handleApiError , handleApiCriticalError} from './handleApiError';
-import { Utilisateur } from '@ww/reference';
-import { CustomAppException, Resultat, isAppError } from '@ww/reference';
-import { Authentification } from '@ww/reference';
+import { Utilisateur } from '@lpp/communs';
+import { CustomAppException, Resultat, isAppError } from '@lpp/communs';
+import { Authentification } from '@lpp/communs';
 
 const emoji = "🥵​";
 const viewLog = true;

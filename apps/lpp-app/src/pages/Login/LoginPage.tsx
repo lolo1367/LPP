@@ -8,7 +8,7 @@ import { useAuthStore } from "@/store/authStore";
 import { useNavigate } from "react-router-dom";
 import InputText from '@/basicComponent/InputText/InputText';
 import { ErreursFormulaire, TouchedFormulaire } from '@/utils/Form/form';
-import { formatAppError, logConsole } from '@ww/reference';
+import { formatAppError, logConsole } from '@lpp/communs';
 import Button from '@/basicComponent/Button/Button';
 import Avertissement from '@/basicComponent/Avertissement/Avertissement';
 import { HiOutlineUserCircle } from "react-icons/hi2";

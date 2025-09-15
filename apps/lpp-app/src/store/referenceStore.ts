@@ -1,6 +1,6 @@
 // referenceStore.ts
 import { create } from "zustand";
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 import {
 	repasCharger,
 	uniteCharger,

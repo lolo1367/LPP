@@ -9,9 +9,9 @@ import {
    ligneJournalAlimentaireFiltreSchemas,
    urlLigneJournalAlimentaireIdSchema,
    LigneJournalAlimentaireComplet
-} from '@ww/reference';
+} from '@lpp/communs';
 
-import { logConsole } from '@ww/reference';
+import { logConsole } from '@lpp/communs';
 import { mapFromDb as alimentMapFromDb, mapFromDb} from '@/mappers/alimentMapper';
 import { mapFromDb as repasMapFromDb } from '@/mappers/repasMapper';
 import { mapFromBd as ligneMapFromDb } from '../mappers/ligneJournalAlimentaireMapper';

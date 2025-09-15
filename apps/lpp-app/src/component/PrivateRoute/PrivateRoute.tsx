@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/store/authStore";
-import { logConsole } from "@ww/reference";
+import { logConsole } from "@lpp/communs";
 
 type PrivateRouteProps = {
   children: ReactNode;

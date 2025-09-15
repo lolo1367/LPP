@@ -13,7 +13,6 @@ import { alimentSchema } from "./alimentSchema.js";
 
 
 export const ligneJournalAlimentaireDataSimpleSchema = z.object({
-
   uti:nonNullablePositifStrictIntegerSchema("L'identifiant de l'utilisateur"),
   date: dateIsoSchema("La date du journal alimentaire"),
   alimentId: nonNullablePositifStrictIntegerSchema("L'identifiant de l'aliment"),
@@ -25,7 +24,7 @@ export const ligneJournalAlimentaireDataSimpleSchema = z.object({
 });
 
 export const ligneJournalAlimentaireDataCompletSchema = z.object({
-
+  id: nonNullablePositifStrictIntegerSchema("L'identifiant de la ligne du journal alimentaire"),
   uti_id: nonNullablePositifStrictIntegerSchema("L'identifiant de l'utilisateur"),
   date: dateIsoSchema("La date du journal alimentaire"),
   aliment: alimentSchema,
