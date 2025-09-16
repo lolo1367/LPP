@@ -52,7 +52,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new Dotenv(),
+    new Dotenv({
+      path: './.env.production', // explicitement le fichier de prod
+      systemvars: true,           // pour prendre aussi les variables définies dans Render
+    }),
   ],
   devServer: {
     static: {
