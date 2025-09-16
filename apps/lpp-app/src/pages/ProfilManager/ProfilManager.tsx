@@ -3,11 +3,18 @@ import styles from './ProfilManager.module.css';
 
 import React, { useState, useEffect } from 'react';
 
-import { Utilisateur,UtilisateurData, logConsole,formatAppError, CustomAppException } from '@lpp/communs';
+import {
+   Utilisateur,
+   UtilisateurDataUpdate,
+   UtilisateurDataUpdateMdp,
+   logConsole,
+   formatAppError,
+   CustomAppException
+} from '@lpp/communs';
 import { useAuthStore } from '@/store/authStore';
 import PuceButton from '@/basicComponent/PuceButton/PuceButton';
 import ProfilForm from '@/popin/ProfilForm/ProfilForm';
-import { utilisateurModifier, utilisateurCharger } from '@/api';
+import { utilisateurModifier, utilisateurCharger, utilisateurModifierMdp } from '@/api';
 
 type FieldName = keyof Utilisateur;
 
@@ -80,14 +87,15 @@ export default function ProfilManager() {
    };
 
    // Gérer la soumission du formulaire (ajout ou modification)
-   const handleSaveProfil  = async (data : UtilisateurData, id: number) => {
-      logConsole(viewLog, emoji, module + '/handleSaveUtilisateur', "utilisateur", utilisateur);
+   const handleSaveProfil  = async (data : UtilisateurDataUpdate, id: number) => {
+      logConsole(viewLog, emoji, module + '/handleSaveUtilisateur', "data", data);
       const resultat = await utilisateurModifier(id, data);
 
 
       if (resultat.success) {
-          setShowProfilForm(false);
-          setErreurValidation('');
+         setUtilisateur((prev) => prev ? { ...prev, ...data } : prev);
+         setShowProfilForm(false);
+         setErreurValidation('');
       } else {
           if (resultat.erreur) {
               setErreurValidation(formatAppError(resultat.erreur));
@@ -97,6 +105,25 @@ export default function ProfilManager() {
       }
 
    };
+
+      // Gérer la soumission du formulaire (ajout ou modification)
+      const handleSaveMdp  = async (data : UtilisateurDataUpdateMdp, id: number) => {
+         logConsole(viewLog, emoji, module + '/handleSaveMdp', "data", data);
+         const resultat = await utilisateurModifierMdp(id, data);
+   
+   
+         if (resultat.success) {
+             setShowProfilForm(false);
+             setErreurValidation('');
+         } else {
+             if (resultat.erreur) {
+                 setErreurValidation(formatAppError(resultat.erreur));
+             } else {
+                 setErreurValidation("Erreur inconnue lors de la modification des données du profil");
+             }               
+         }
+   
+      };
 
    const handleCloseForm = () => {
       setShowProfilForm(false);
@@ -210,6 +237,7 @@ export default function ProfilManager() {
                field={field}
                erreurValidation={erreurValidation}
                onValider={handleSaveProfil}
+               onValiderMdp={handleSaveMdp}
                onClose={handleCloseForm}
             />
          </div>

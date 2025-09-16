@@ -42,3 +42,11 @@ export const urlUtilisateurIdSchema = z.object({
 });
  
 export const utilisateurSchema = utilisateurDataSchema.extend({ id: nonNullablePositifStrictIntegerSchema("L'identifiant de l'utilisateur") }).strict(); 
+export const utilisateurDataUpdateSchema = utilisateurDataSchema.omit({	
+  mdp : true}
+);
+
+export const utilisateurDataUpdateMdpSchema = z.object({
+	actuelMdp :z.string().min(1, { message: "Le mot de passe actuel de l'utilisateur est requis." }),
+   nouveauMdp: z.string().min(1, { message: "Le nouveau mot de passe de l'utilisateur est requis." }),
+});

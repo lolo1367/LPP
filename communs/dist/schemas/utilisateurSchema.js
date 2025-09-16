@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.utilisateurSchema = exports.urlUtilisateurIdSchema = exports.utilisateurTokenSchema = exports.utilisateurLoginSchema = exports.utilisateurFiltreSchema = exports.utilisateurDataSchema = void 0;
+exports.utilisateurDataUpdateMdpSchema = exports.utilisateurDataUpdateSchema = exports.utilisateurSchema = exports.urlUtilisateurIdSchema = exports.utilisateurTokenSchema = exports.utilisateurLoginSchema = exports.utilisateurFiltreSchema = exports.utilisateurDataSchema = void 0;
 const zod_1 = require("zod");
 const commonSchema_js_1 = require("./commonSchema.js");
 exports.utilisateurDataSchema = zod_1.z.object({
@@ -28,3 +28,10 @@ exports.urlUtilisateurIdSchema = zod_1.z.object({
     id: (0, commonSchema_js_1.urlIntegerSchema)("L'identifiant de l'utilisateur")
 });
 exports.utilisateurSchema = exports.utilisateurDataSchema.extend({ id: (0, commonSchema_js_1.nonNullablePositifStrictIntegerSchema)("L'identifiant de l'utilisateur") }).strict();
+exports.utilisateurDataUpdateSchema = exports.utilisateurDataSchema.omit({
+    mdp: true
+});
+exports.utilisateurDataUpdateMdpSchema = zod_1.z.object({
+    actuelMdp: zod_1.z.string().min(1, { message: "Le mot de passe actuel de l'utilisateur est requis." }),
+    nouveauMdp: zod_1.z.string().min(1, { message: "Le nouveau mot de passe de l'utilisateur est requis." }),
+});

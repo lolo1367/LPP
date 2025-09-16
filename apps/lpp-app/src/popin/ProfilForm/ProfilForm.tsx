@@ -2,7 +2,12 @@ import styles from './ProfilForm.module.css';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal } from 'react-bootstrap';
-import { logConsole, Utilisateur, UtilisateurData } from '@lpp/communs';
+import {
+   logConsole,
+   Utilisateur,
+   UtilisateurDataUpdate,
+   UtilisateurDataUpdateMdp
+} from '@lpp/communs';
 import InputText from '@/basicComponent/InputText/InputText';
 import InputNumber from '@/basicComponent/InputNumber/InputNumber';
 import InputSelect, { SelectOption } from '@/basicComponent/InputSelect/InputSelect';
@@ -24,7 +29,8 @@ interface AlimentFormProps {
    utilisateur: Utilisateur;
    field: FieldName;
    erreurValidation: string ;
-	onValider: (utilisateurtData : UtilisateurData, id: number) => void;
+   onValider: (utilisateurtData: UtilisateurDataUpdate, id: number) => void;
+   onValiderMdp: (UtilisateurData: UtilisateurDataUpdateMdp, id: number) => void;
 	onClose: () => void;
 }
 
@@ -160,6 +166,7 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
    field,
    erreurValidation,
    onValider,
+   onValiderMdp,
    onClose,
 }) => {
 	
@@ -361,21 +368,30 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
             return;
          }
       
-      } 
-
-      const utilisateurData : UtilisateurData = {
-         nom: formData.nom || '',
-         prenom: formData.prenom || '',
-         email: formData.email || '',
-         sexe: formData.sexe || '',
-         mdp: formData.mdp || '',
-         taille: formData.taille || 0,
-         point_bonus: formData.point_bonus || 0,
-         point_jour: formData.point_jour || 0,
       }
-
-      onValider(utilisateurData,formData.id || 0);
       
+      if (field === 'mdp') {
+         const utilisateurData: UtilisateurDataUpdateMdp = {
+            actuelMdp: formData.mdp || '',
+            nouveauMdp: formData.mdpNouveau || ''
+         }
+
+         onValiderMdp(utilisateurData, formData.id || 0);
+         
+      } else {
+
+         const utilisateurData: UtilisateurDataUpdate = {
+            nom: formData.nom || '',
+            prenom: formData.prenom || '',
+            email: formData.email || '',
+            sexe: formData.sexe || '',
+            taille: formData.taille || 0,
+            point_bonus: formData.point_bonus || 0,
+            point_jour: formData.point_jour || 0,
+         }
+
+         onValider(utilisateurData, formData.id || 0);
+      }      
    };
 
 

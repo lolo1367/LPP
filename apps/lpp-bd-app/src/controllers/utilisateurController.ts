@@ -6,7 +6,9 @@ import {
 import {
 	utilisateurDataSchema,
 	utilisateurFiltreSchema,
-	urlUtilisateurIdSchema
+	urlUtilisateurIdSchema,
+	utilisateurDataUpdateSchema,
+	utilisateurDataUpdateMdpSchema
 } from "@lpp/communs";
 import {
    logConsole
@@ -17,7 +19,7 @@ import * as utilisateurService from '../services/utilisateurService';
 // ==================================================
 // Constant pour les logs
 //===================================================
-const viewLog: boolean = false;
+const viewLog: boolean = true;
 const emoji = "👩‍🦰​​";
 const fichier: string  = "utilisateurController";
 
@@ -40,6 +42,7 @@ export async function getUtilisateurs(req: Request, res: Response, next: NextFun
 		};
 		
 		const result = await utilisateurService.liste(nom, uti_id);
+		logConsole (viewLog, emoji, fichier + '/getUtilisateurs', 'result',result);
 		res.json(result);
 
   	} catch (err) {
@@ -72,7 +75,7 @@ export async function updateUtilisateur(req: Request, res: Response, next: NextF
 	try {
 
 		logConsole (viewLog, emoji, fichier + '/updateUtilisateur','req.body',req.body);
-		const parseResultBody = utilisateurDataSchema.safeParse(req.body);
+		const parseResultBody = utilisateurDataUpdateSchema.safeParse(req.body);
 		logConsole (viewLog, emoji, fichier + '/updateUtilisateur', 'parseResultBody', parseResultBody)
 		
 		if (!parseResultBody.success) {
@@ -96,6 +99,36 @@ export async function updateUtilisateur(req: Request, res: Response, next: NextF
 		next(err);
 	}
 }
+
+export async function updateMdpUtilisateur(req: Request, res: Response, next: NextFunction) {
+	try {
+
+		logConsole (viewLog, emoji, fichier + '/updateMdpUtilisateur','req.body',req.body);
+		const parseResultBody = utilisateurDataUpdateMdpSchema.safeParse(req.body);
+		logConsole (viewLog, emoji, fichier + '/updateMdpUtilisateur', 'parseResultBody', parseResultBody)
+		
+		if (!parseResultBody.success) {
+				throw parseResultBody.error;
+		}
+
+	   const parseResultParam = urlUtilisateurIdSchema.safeParse(req.params);
+      if (!parseResultParam.success) {
+         logConsole (viewLog, emoji, fichier + '/updateMdpUtilisateur','Erreur format body',parseResultParam.error?.format()); 
+         throw parseResultParam.error ;
+		}	
+
+		const data = parseResultBody.data;
+		const id = Number(parseResultParam.data.id);
+
+		const row = await utilisateurService.modifierMdp(id, data);
+		res.json(row);
+				
+
+ 	} catch (err) {
+		next(err);
+	}
+}
+
 
 export async function deleteUtilisateur(req: Request, res: Response, next: NextFunction) {
 	try {

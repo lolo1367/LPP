@@ -1,8 +1,8 @@
 // src/api/utilisateur.ts
-import {logConsole} from '@lpp/communs';
+import {logConsole, UtilisateurDataUpdate} from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
-import { Utilisateur, UtilisateurData, isAppError, CustomAppException, Resultat } from '@lpp/communs';
+import { Utilisateur, UtilisateurData, UtilisateurDataUpdateMdp, Resultat } from '@lpp/communs';
 import { format } from 'date-fns';
 
 const emoji = "😱​​";
@@ -70,7 +70,7 @@ async function utilisateurAjouter(
 
 async function  utilisateurModifier (
     ligneId: number,
-    body: UtilisateurData,
+    body: UtilisateurDataUpdate,
     
 ):Promise<Resultat> {
     
@@ -86,6 +86,31 @@ async function  utilisateurModifier (
 
     } catch (error) {
         const erreur = handleApiError(error, "utilisateurModifier");
+        return erreur;
+    }
+}
+// ===========================================================================
+// Fonction de modification du mot de passe d'un utilisateur
+// ===========================================================================
+
+async function  utilisateurModifierMdp (
+    ligneId: number,
+    body: UtilisateurDataUpdateMdp,
+    
+):Promise<Resultat> {
+    
+    logConsole (viewLog, emoji, module + '/utilisateurModifierMdp','Début','-');
+
+    try {
+
+        const uri =`/utilisateur/mdp/${ligneId}`;
+        logConsole(viewLog, emoji, module + '/utilisateurModifierMdp', 'uri', uri);    
+
+        const response = await api.put(uri, body);        
+        return { success: true, donnees: response.data };
+
+    } catch (error) {
+        const erreur = handleApiError(error, "utilisateurModifierMdp");
         return erreur;
     }
 }
@@ -121,5 +146,6 @@ export {
     utilisateurCharger,
     utilisateurAjouter,
     utilisateurModifier,
+    utilisateurModifierMdp,
     utilisateurSupprimer
 };

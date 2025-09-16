@@ -43,7 +43,7 @@ export default function JournalAlimentaireParRepas({
 	});
 
 	// Trier les types de repas par leur nom pour un affichage cohérent
-	const sortedMealTypes = [...mealTypes].sort((a, b) => a.nom.localeCompare(b.nom));
+	const sortedMealTypes = [...mealTypes].sort((a, b) => a.ordre - b.ordre);
 
 	// ---------------------------------------------------------------------------------
 	// Gestion des événements

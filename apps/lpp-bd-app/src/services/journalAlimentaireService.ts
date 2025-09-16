@@ -7,7 +7,7 @@ import * as TypeRepasService from "../services/repasService";
 import { ContraintBaseReferenceError} from "@lpp/communs";
 import * as SuiviHebdoService from "../services/suiviHebdoService";
 
-const viewlog = false;
+const viewlog = true;
 const emoji = "";
 const fichier = "journalAlimentaireService";
 
@@ -113,7 +113,7 @@ export async function liste(uti_id: number|undefined, date: Date | undefined, da
 
    if (ligneId) {
       params.push (ligneId);
-      query += ` AND id = $${params.length}` ;
+      query += ` AND ja.id = $${params.length}` ;
    }
 
    query += ` ORDER BY date,type_repas_id ;`
@@ -218,10 +218,12 @@ export async function modifier(id: number, ligneJournal: LigneJournalAlimentaire
 		};
 
       // Mise à jour du suivi quotidien
-      SuiviHebdoService.majApresModification(ligneJournal.uti_id, new Date(ligneJournal.date));
+      await SuiviHebdoService.majApresModification(ligneJournal.uti_id, new Date(ligneJournal.date));
       
       // Si des données sont mises à jour on les retourne
+      logConsole (viewlog, emoji,fichier + "modifier","Avant remontée liste","");
       const rows =  await liste(undefined, undefined, undefined, undefined, id);
+      logConsole (viewlog, emoji,fichier + "modifier","Après remontée liste","");
       
       return rows[0];
 

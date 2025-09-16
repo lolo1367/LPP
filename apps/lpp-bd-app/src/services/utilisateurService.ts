@@ -1,5 +1,10 @@
 import { Database } from "sqlite";
-import { Utilisateur,UtilisateurData } from "@lpp/communs";
+import {
+   Utilisateur,
+   UtilisateurData,
+   UtilisateurDataUpdate,
+   UtilisateurDataUpdateMdp
+} from "@lpp/communs";
 import {logConsole} from "@lpp/communs";
 import pool from "../bd/db";
 import bcrypt from "bcrypt";
@@ -22,15 +27,15 @@ async function hashPassword(plainPassword: string): Promise<string> {
    return await bcrypt.hash(plainPassword, saltRounds);
 }
 
-   async function verifyPassword(plainPassword: string, hash: string): Promise<boolean> {
+async function verifyPassword(plainPassword: string, hash: string): Promise<boolean> {
 
-      logConsole(viewLog, emoji, fichier, `mdp`, plainPassword);
-      logConsole(viewLog, emoji, fichier, `mdp après hash`, await hashPassword(plainPassword));
-      logConsole(viewLog, emoji, fichier, `hash`, hash);
+   logConsole(viewLog, emoji, fichier, `mdp`, plainPassword);
+   logConsole(viewLog, emoji, fichier, `mdp après hash`, await hashPassword(plainPassword));
+   logConsole(viewLog, emoji, fichier, `hash`, hash);
 
 
-      return await bcrypt.compare(plainPassword, hash);
-   } 
+   return await bcrypt.compare(plainPassword, hash);
+} 
 
 // =================================================
 // Retour verification login
@@ -103,7 +108,7 @@ export async function ajouter (utilisateur: UtilisateurData) : Promise<number | 
          prenom, 
          email,
          sexe,
-         '' as mdp, 
+         mdp, 
          taille,
          point_bonus,
          point_jour)
@@ -136,24 +141,22 @@ export async function ajouter (utilisateur: UtilisateurData) : Promise<number | 
    } 
 }
 
-export async function modifier(id: number, utilisateur: UtilisateurData): Promise <Utilisateur | null>{
+export async function modifier(id: number, utilisateur: UtilisateurDataUpdate): Promise <Utilisateur | null>{
   
    logConsole (viewLog, emoji, fichier + `/modifier`,`Début`,``);
    logConsole(viewLog, emoji, fichier + `/Modifier`, `id`, id);
+
    
-   const mdpHashe = await hashPassword(utilisateur.mdp);
-    
    let query = `
       UPDATE utilisateur SET
          nom = $1,
          prenom = $2,
          email = $3,
          sexe = $4,
-         mdp = $5,
-         taille = $6,
-         point_bonus = $7,
-         point_jour = $8
-      WHERE id = $9
+         taille = $5,
+         point_bonus = $6,
+         point_jour = $7
+      WHERE id = $8
       RETURNING *` ;
     
    const params = [
@@ -161,7 +164,6 @@ export async function modifier(id: number, utilisateur: UtilisateurData): Promis
       utilisateur.prenom,
       utilisateur.email,
       utilisateur.sexe,
-      mdpHashe,
       utilisateur.taille,
       utilisateur.point_bonus,
       utilisateur.point_jour,
@@ -180,6 +182,62 @@ export async function modifier(id: number, utilisateur: UtilisateurData): Promis
 		};
 
       logConsole (viewLog, emoji, fichier + `/modifier`, `rows`, res.rows);
+      
+      return res.rows[0];
+
+   } catch (err) {
+ 		logConsole (viewLog, emoji, fichier + `/modifier`, "Erreur lors de la modification d`une ligne au journal alimentaire.", err);
+      throw err;
+   } 
+}
+
+export async function modifierMdp(id: number, utilisateur: UtilisateurDataUpdateMdp): Promise <Utilisateur | null>{
+  
+   logConsole (viewLog, emoji, fichier + `/modifierMdp`,`Début`,``);
+   logConsole(viewLog, emoji, fichier + `/ModifierMdp`, `id`, id);
+
+   // Récupération du mot de passe actuel
+   const res = await pool.query<{ mdp: string }>(`SELECT mdp FROM utilisateur where id = $1`,[id]);
+   logConsole(viewLog, emoji, fichier + `/ModifierMdp`, `res recup mdp`, res);
+
+   if (!res.rows.length) {
+      logConsole(viewLog, emoji, fichier + `/ModifierMdp`, `res recup mdp`, res);
+      throw new Error("L'utilisateur fourni n'existe pas.");
+   }
+
+   const mdpBd = res.rows[0].mdp; 
+
+   // Vérification du mot de passe actuel
+   if (!await verifyPassword(utilisateur.actuelMdp, mdpBd)) {
+      throw new Error("Le mot de passe actuel est incorrect.")
+   }
+
+   const mdpHashe = await hashPassword(utilisateur.nouveauMdp);
+
+    
+   let query = `
+      UPDATE utilisateur SET
+         mdp = $1
+      WHERE id = $2
+      RETURNING *` ;
+    
+   const params = [
+      mdpHashe,
+      id];
+   
+   logConsole (viewLog, emoji, fichier + `/Modifier`,`query`,query) ;
+   logConsole (viewLog, emoji, fichier + `/Modifier`, `params`, params);
+   
+   try {
+      const res = await pool.query<Utilisateur> (query,params) ;
+
+      // Si aucune données mise à jour
+		if (!res.rows.length) {
+			logConsole (viewLog, emoji, fichier + `/modifierMdp`,"Pas de ligne modifiée","");
+			return null ;
+		};
+
+      logConsole (viewLog, emoji, fichier + `/modifierMdp`, `rows`, res.rows);
       
       return res.rows[0];
 

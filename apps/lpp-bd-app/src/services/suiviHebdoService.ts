@@ -3,7 +3,8 @@ import { logConsole } from "@lpp/communs";
 import { SuiviHebdoDataRow, SuiviHebdoRow } from "../types/suiviHebdo.js";
 import * as JournalAlimentaireService from "../services/journalAlimentaireService";
 import * as UtilisateurService from "../services/utilisateurService";
-import { startOfWeek, addDays, format} from "date-fns";
+import { startOfWeek, addDays, format } from "date-fns";
+
 
 type Resultat = {
    date: string;
@@ -202,7 +203,8 @@ export async function ajouterModifierSuiviHebdo(suivi: SuiviHebdoDataRow): Promi
          point_total_initial = excluded.point_total_initial,
          point_total_utilise = excluded.point_total_utilise,
          derniere_mise_a_jour = CURRENT_TIMESTAMP
-         RETURNING *;` ;
+         RETURNING
+            uti_id;` ;
          
    params = [
       suivi.uti_id,
@@ -231,6 +233,8 @@ export async function ajouterModifierSuiviHebdo(suivi: SuiviHebdoDataRow): Promi
          logConsole (viewLog,emoji, file +`/ajouterModifierSuiviHebdo`, `❌​ Pas de ligne modifiée`,"");
          return null ;
       };
+
+      logConsole (viewLog,emoji, file +`/ajouterModifierSuiviHebdo`, `rows`, res.rows);
 
       return res.rows[0];
 
@@ -280,7 +284,9 @@ export async function majApresModification(uti_id: number,date: Date) {
       pointsParJour[nomJour] = jour.pointsConsommes;
    });
    
-   return await ajouterModifierSuiviHebdo({
+   logConsole (viewLog, emoji, file + "modifier","Avant maj suivi habdo","");
+
+   await ajouterModifierSuiviHebdo({
       uti_id: uti_id,
       semaine: retour.resultats?.semaine,
       point_bonus_initial: retour.resultats.bonusInitial,
@@ -296,5 +302,8 @@ export async function majApresModification(uti_id: number,date: Date) {
       point_total_initial: retour.resultats.pointJour * 7,
       point_total_utilise: retour.resultats.recap.reduce((sum, jour) => sum + jour.pointsConsommes, 0),
    });
+
+   logConsole (viewLog, emoji, file + "/modifier","Après maj suivi habdo","");
+
 }
 

@@ -34,3 +34,16 @@ export declare const utilisateurSchema: z.ZodObject<{
     point_jour: z.ZodNumber;
     id: z.ZodNumber;
 }, z.core.$strict>;
+export declare const utilisateurDataUpdateSchema: z.ZodObject<{
+    email: z.ZodString;
+    nom: z.ZodString;
+    prenom: z.ZodString;
+    sexe: z.ZodString;
+    taille: z.ZodNumber;
+    point_bonus: z.ZodNumber;
+    point_jour: z.ZodNumber;
+}, z.core.$strict>;
+export declare const utilisateurDataUpdateMdpSchema: z.ZodObject<{
+    actuelMdp: z.ZodString;
+    nouveauMdp: z.ZodString;
+}, z.core.$strip>;
