@@ -152,7 +152,7 @@ export async function modifier(id: number, utilisateur: UtilisateurData): Promis
          mdp = $5,
          taille = $6,
          point_bonus = $7,
-         point_hebdo = $8
+         point_jour = $8
       WHERE id = $9
       RETURNING *` ;
     

@@ -415,85 +415,58 @@ const ProfilForm: React.FC<AlimentFormProps> = ({
                const name = (Object.keys(inputConfig) as (keyof FormData)[])
                   .find((key) => inputConfig[key] === config) as keyof FormData;
 
-               return (
-                  <React.Fragment key={String(name)}>             
-                 
-                        {(config.type) && (config.type === "texte") && (
+                  const commonProps = {
+                     label: config.label,
+                     showLabel: config.showLabel,
+                     name: String(name),
+                     width: "medium" as const,
+                     height: "h2" as const,
+                     required: config.required,
+                     value: formData[name] !== null ? formData[name].toString() : '',
+                     onChange: (value: string | number | null) => handleInputChange(name, value),
+                     onBlur: handleBlur,
+                     isValid: !erreursFormulaire[String(name)],
+                     isTouched: !!touched[String(name)],
+                     messageErreur: erreursFormulaire[String(name)],
+                  };
+               
+                  switch (config.type) {
+                     case "texte":
+                     case "password":
+                        return (
                            <InputText
-                              label={config.label}
-                              showLabel={config.showLabel}
+                              key={String(name)}
+                              {...commonProps}
+                              type={config.type === "password" ? "password" : "text"}
                               placeholder={config.placeholder}
-                              name={String(field)}
-                              width="medium"
-                              height="h2"
-                              required={config.required}
-                              value={formData[field] !== null ? formData[field].toString() : ''}
-                              onChange={(value) => handleInputChange(field, value)}
-                              onBlur={handleBlur}
-                              isValid={!erreursFormulaire[String(field)]}
-                              isTouched={!!touched[String(field)]}
-                              messageErreur={erreursFormulaire[String(field)]}                       
                            />
-                        )}
-
-                        {(config.type) && (config.type === "number") && (
+                        );
+               
+                     case "number":
+                        return (
                            <InputNumber
-                              label={config.label}
-                              showLabel={config.showLabel}
+                              key={String(name)}
+                              {...commonProps}
+                              value={formData[name] !== null ? Number(formData[name]) : null}
                               placeholder={config.placeholder}
-                              name={String(field)}
-                              width="medium"
-                              height="h2"
-                              required={true}
-                              value={formData[field] !== null ? Number(formData[field]) : null}
-                              onChange={(value) => handleInputChange(field, value)}
-                              onBlur={handleBlur}
-                              isValid={!erreursFormulaire[String(field)]}
-                              isTouched={!!touched[String(field)]}
-                              messageErreur={erreursFormulaire[String(field)]}                       
                            />
-                        )}
-                     
-                        {config.type === "select" && (
+                        );
+               
+                     case "select":
+                        return (
                            <InputSelect
-                              label={config.label}
+                              key={String(name)}
+                              {...commonProps}
+                              options={config.selectData || [{ value: "", label: "" }]}
+                              value={formData[name] !== null ? formData[name].toString() : ''}
                               placeholder={config.placeholder}
-                              showLabel={config.showLabel}
-                              name={String(field)}
-                              options={config.selectData || [{value: "",label:""}]}
-                              value={formData[field] !== null ? formData[field].toString() : ''}
-                              onChange={(value) => handleInputChange(field, value)}
-                              onBlur={handleBlur}
-                              width="medium"    
-                              height="h2"
-                              required={true}
-                              isValid={!erreursFormulaire[String(field)]}
-                              isTouched={!!touched[String(field)]}
-                              messageErreur={erreursFormulaire[String(field)]}
                            />
-                        )}
-
-                           {config.type === "password" && (
-                              <InputText
-                                 label={config.label}
-                                 showLabel={config.showLabel}
-                                 type='password'
-                                 placeholder={config.placeholder}
-                                 name={String(field)}
-                                 width="medium"
-                                 height="h2"
-                                 required={config.required}
-                                 value={formData[field] !== null ? formData[field].toString() : ''}
-                                 onChange={(value) => handleInputChange(field, value)}
-                                 onBlur={handleBlur}
-                                 isValid={!erreursFormulaire[String(field)]}
-                                 isTouched={!!touched[String(field)]}
-                                 messageErreur={erreursFormulaire[String(field)]}                       
-                              />
-                           )}
-                        </React.Fragment>
-                     );
-                  })}
+                        );
+               
+                     default:
+                        return null;
+                  }
+               })}
             </form>
          </Modal.Body>
 
