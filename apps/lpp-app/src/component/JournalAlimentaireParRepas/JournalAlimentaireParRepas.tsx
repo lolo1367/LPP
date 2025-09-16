@@ -28,7 +28,12 @@ export default function JournalAlimentaireParRepas({
 	onAskDelete }: JournalAlimentaireParRepasProps) {
 	
 		if (!mealTypes || mealTypes.length === 0) {
-			return <div className={styles.container}>Chargement des données...</div>;
+			return (
+			  <div className={styles.spinnerContainer}>
+				 <div className={styles.spinner}></div>
+				 <p>Chargement des repas...</p>
+			  </div>
+			);
 		 }
 
 	// Grouper les lignes par type de repas

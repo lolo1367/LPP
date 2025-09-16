@@ -14,13 +14,15 @@ import {
 import {
 	LigneJournalAlimentaireComplet,
 	SuiviHebdo,
-	AlimentRecent
+	AlimentRecent,
+	Repas
 } from '@lpp/communs';
 
 export function useSaisieQuotidienneData(
 	utilisateurId: number,
 	dateSelectionnee: Date,
-	nombreModification: number) {
+	nombreModification: number,
+	repasTypes: Repas[] ) {
 	
 	const viewLog = true;
 	const emoji = "🍜​";
@@ -129,7 +131,7 @@ export function useSaisieQuotidienneData(
 		// Appel de la fonction
 		loadDynamicData();
 		
-	}, [dateSelectionnee,nombreModification]); // Quand la date est modifiée
+	}, [dateSelectionnee,nombreModification,repasTypes]); // Quand la date est modifiée
 
 
 	// ==================================================================================

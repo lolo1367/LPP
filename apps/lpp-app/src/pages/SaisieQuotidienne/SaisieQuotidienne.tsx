@@ -101,7 +101,7 @@ export default function SaisieQuotidienne() {
 		dailyPointsTotal,
 		pointsConsumedToday,
 		pointsRemainingDaily
-	} = useSaisieQuotidienneData(UTI_ID,selectedDate, modificationCount);
+	} = useSaisieQuotidienneData(UTI_ID,selectedDate, modificationCount,repasTypes);
 	
 	logConsole(viewLog, emoji, module, "unites", unites);
 

@@ -149,3 +149,26 @@
   padding: 10px;
   font-size: 13px;
 }
+
+/* JournalAlimentaireParRepas.module.css */
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.spinner {
+  border: 4px solid rgba(0,0,0,0.1);
+  border-left-color: #4caf50;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
