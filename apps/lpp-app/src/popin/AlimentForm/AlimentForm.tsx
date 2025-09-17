@@ -137,7 +137,7 @@ const convertToAliment = (data: FormData, categories: Categorie[]): AlimentData 
  * @param fibres en grammes
  * @returns nombre de points arrondi à l’entier le plus proche
  */
-function calculPointNew(
+function calculPoint(
    calories: number,
    acidesGrasSatures: number,
    sucres: number,
@@ -209,8 +209,8 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
    const [messageAvertissement, setMessageAvertissement] = useState<string>('');
    const [erreursFormulaire, setErreursFormulaire] = useState<ErreursFormulaire>({});
    const [touched, setTouched] = useState<TouchedFormulaire>({});
-   const [isCalculPointProActif, setIsCalculPointProActif] = useState<boolean>(false);
-   const [isCalculPointSmartActif, setIsCalculPointSmartActif] = useState<boolean>(false);
+   const [isCalculPointActif, setIsCalculPointActif] = useState<boolean>(false);
+   //const [isCalculPointSmartActif, setIsCalculPointSmartActif] = useState<boolean>(false);
    const [initialisation, setInitialisation] = useState<boolean>(false);
    const hauteur = 'h2';
    const scrollableRef = useRef<HTMLDivElement>(null);
@@ -349,28 +349,29 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
    // ====================================================================================
    // Fonction d'avaluation de l'état du bouton de calcul des points
    // ====================================================================================
-   const evaluerEtatBoutonCalculPointPro = () => {
-      logConsole(viewLog, emoji, module + '/evaluerEtatBoutonCalculPointPro', 'formData', formData);
+   const evaluerEtatBoutonCalculPoint = () => {
+      logConsole(viewLog, emoji, module + '/evaluerEtatBoutonCalculPoint', 'formData', formData);
       const etat: boolean = (
+         formData.calories !== null &&
          formData.proteines !== null &&
          formData.glucides !== null &&
          formData.fibres !== null &&
-         formData.matieresGrasses !== null &&
-         formData.unite === 'g');
-      setIsCalculPointProActif(etat);
-      logConsole(viewLog, emoji, module + '/evaluerEtatBoutonCalculPointPro', `etat : ${etat}`, ``);
+         formData.matieresGrasses !== null);
+
+      setIsCalculPointActif(etat);
+      logConsole(viewLog, emoji, module + '/evaluerEtatBoutonCalculPoint', `etat : ${etat}`, ``);
    }
 
-   const evaluerEtatBoutonCalculPointSmart = () => {
-      const etat: boolean = (
-         formData.calories !== null &&
-         formData.acideGrasSature !== null &&
-         formData.sucres !== null &&
-         formData.proteines !== null
-         && formData.unite === 'g');
-      setIsCalculPointSmartActif(etat);
-      logConsole(viewLog, emoji, module + '/evaluerEtatBoutonCalculPointSmart', `etat : ${etat}`, ``);
-   }
+   // const evaluerEtatBoutonCalculPointSmart = () => {
+   //    const etat: boolean = (
+   //       formData.calories !== null &&
+   //       formData.acideGrasSature !== null &&
+   //       formData.sucres !== null &&
+   //       formData.proteines !== null
+   //       && formData.unite === 'g');
+   //    setIsCalculPointSmartActif(etat);
+   //    logConsole(viewLog, emoji, module + '/evaluerEtatBoutonCalculPointSmart', `etat : ${etat}`, ``);
+   // }
 
    // ====================================================================================
    // Fonction pour vérifier tous les champs du formualaire
@@ -402,8 +403,8 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
          setTouched({});
          setInitialisation(true);
          validerFormulaire();
-         evaluerEtatBoutonCalculPointPro();
-         evaluerEtatBoutonCalculPointSmart();
+         evaluerEtatBoutonCalculPoint();
+         // evaluerEtatBoutonCalculPointSmart();
          logConsole(viewLog, emoji, module + '/useEffect(show,aliment)', `Fin initialisation`, "");
       }
    }, [show]);
@@ -421,8 +422,8 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
 
       logConsole(viewLog, emoji, module + '/checkValues[formData]', "formData", formData);
       logConsole(viewLog, emoji, module + '/checkValues[formData]', `initialisation : ${initialisation}`, "");
-      evaluerEtatBoutonCalculPointPro();
-      evaluerEtatBoutonCalculPointSmart();
+      evaluerEtatBoutonCalculPoint();
+      // evaluerEtatBoutonCalculPointSmart();
 
       if (initialisation) {
          validerFormulaire();
@@ -488,8 +489,8 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
    const handleCalculerPointNewClick = () => {
       let points: number = 0;
 
-      if (formData.proteines !== null && formData.calories !== null && formData.acideGrasSature !== null && formData.sucres !== null && formData.fibres) {
-         points = calculPointNew(
+      if (formData.proteines !== null && formData.calories !== null && formData.acideGrasSature !== null && formData.sucres !== null && formData.fibres !== null) {
+         points = calculPoint(
             formData.calories,
             formData.acideGrasSature,
             formData.sucres,
@@ -658,14 +659,13 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
                            <Button
                               variant='secondary' 
                               onClick={() => handleCalculerPointNewClick()}
-                              disabled={!isCalculPointProActif}
-                              tooltip="Accessible si l'unité est le gramme et toutes les informations nutritionelles sont renseignées."
+                              disabled={!isCalculPointActif}
+                              tooltip="Toutes les informations nutritionelles doivent être renseignées."
                               tooltipPosition='bottom'
-                           >
-                              
-                              Points New
+                           >                              
+                              Calculer les points
                            </Button>
-                           <Button
+                           {/* <Button
                               variant='secondary'
                               onClick={() => handleCalculerPointSmartClick()}
                               disabled={!isCalculPointSmartActif}
@@ -673,7 +673,7 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
                            >
 
                               Points smart
-                           </Button>
+                           </Button> */}
                         </div>
                      </div>
                   </div>
