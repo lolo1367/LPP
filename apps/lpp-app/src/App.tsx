@@ -21,6 +21,7 @@ import { useAuthStore } from './store/authStore';
 import { useReferenceStore } from './store/referenceStore';
 import { useEffect } from "react";
 import LoginPage from './pages/Login/LoginPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 	const viewLog = true;
@@ -86,6 +87,7 @@ function App() {
 	
 	return (
 		<Router>
+			<Toaster position='top-right' />
 			<Layout>
 			<Routes>
 
