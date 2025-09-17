@@ -57,6 +57,10 @@ import { int } from "zod";
        * Indicateur 0 point
        */
       zero_point: boolean;
+      /**
+       * grammes
+       */
+      grammes: number | null;
    }
 
    export interface UpdateAlimentRow extends AlimentDataRow {

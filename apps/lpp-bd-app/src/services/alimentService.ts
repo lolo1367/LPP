@@ -2,6 +2,7 @@
 import { AlimentRow, AlimentDataRow} from "../types/aliment" ;
 import pool from '../bd/db' ;
 import { logConsole } from "@lpp/communs";
+import { aL } from "vitest/dist/chunks/reporters.d.BFLkQcL6";
 
 // ==================================================
 // Constant pour les logs
@@ -39,6 +40,7 @@ export async function liste (nom ? : string, categorieId ? : number) : Promise<A
           		aliment.glucides,
 					aliment.sucres,
 					aliment.sel,
+					aliment.grammes,
 					categorie.id AS categorie_id,
 					categorie.nom AS categorie,
 					aliment.zero_point
@@ -102,6 +104,7 @@ logConsole(viewLog, emoji, fichier + `/listeParIds`, `ids`, ids);
           		aliment.glucides,
 					aliment.sucres,
 					aliment.sel,
+					aliment.grammes,
 					categorie.id AS categorie_id,
 					categorie.nom AS categorie,
 					aliment.zero_point
@@ -148,8 +151,9 @@ export async function ajouter (aliment : AlimentDataRow) : Promise<number | unde
 				sucres,
 				sel,
 				categorie_id,
-				zero_point)
-			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+				zero_point,
+				grammes)
+			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
 			RETURNING id
 			`;
 	
@@ -176,7 +180,8 @@ export async function ajouter (aliment : AlimentDataRow) : Promise<number | unde
 			aliment.sucres,
 			aliment.sel,
 			aliment.categorie_id,
-			aliment.zero_point];
+			aliment.zero_point,
+			aliment.grammes];
 
 		logConsole(viewLog, emoji, fichier + `/ajouter`,`query`,query);
   		logConsole(viewLog, emoji, fichier + `/ajouter`,`params`,params);
@@ -214,8 +219,9 @@ export async function modifier (id : number , aliment : AlimentDataRow) : Promis
 			sucres = $11,
 			sel = $12,
 			categorie_id= $13,
-			zero_point=$14
-		WHERE id = $15
+			zero_point=$14,
+			grammes = $15
+		WHERE id = $16
 		RETURNING * ;`;
 
 	const params = [
@@ -233,6 +239,7 @@ export async function modifier (id : number , aliment : AlimentDataRow) : Promis
 		aliment.sel,
 		aliment.categorie_id,
 		aliment.zero_point,
+		aliment.grammes,
 		id];
 
    logConsole(viewLog, emoji, fichier + `/Modifier`,`query`,query) ;
@@ -263,7 +270,8 @@ export async function modifier (id : number , aliment : AlimentDataRow) : Promis
 					aliment.sel,
 					categorie.id AS categorie_id,
 					categorie.nom AS categorie,
-					aliment.zero_point
+					aliment.zero_point,
+					aliment.grammes
 			FROM aliment
 				LEFT JOIN categorie ON aliment.categorie_id = categorie.id 
 			WHERE aliment.id = $1;`;

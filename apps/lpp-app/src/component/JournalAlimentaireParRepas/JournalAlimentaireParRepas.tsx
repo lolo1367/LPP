@@ -116,7 +116,10 @@ export default function JournalAlimentaireParRepas({
 										<div className={styles.alimentDetails}>
 											<span className={styles.alimentNom}>{line.aliment.nom}</span>
 											<span className={styles.alimentPortion}>
-												{line.quantite} {line.unite} 
+  												{line.quantite} {line.unite} 
+  												{line.aliment.grammes ? (
+    												<> ({line.quantite * line.aliment.grammes} g)</>
+  												) : null}
 											</span>
 										</div>
 										<div className={styles.journalLineRightSection}>

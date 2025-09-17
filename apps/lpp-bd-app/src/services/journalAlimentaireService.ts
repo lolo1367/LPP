@@ -72,6 +72,7 @@ export async function liste(uti_id: number|undefined, date: Date | undefined, da
          al.glucides as aliment_glucides,
          al.sel as aliment_sel,
          al.sucres as aliment_sucres,
+         al.grammes as aliment_grammes,
          al.zero_point as aliment_zero_point,
          ja.quantite as quantite,
          ca.id as categorie_id,
@@ -285,6 +286,7 @@ export async function getAlimentParPeriode(uti_id: number, dateDebut: Date, date
 		   al.glucides,
 		   al.sel,
 		   al.sucres,
+         al.grammes,
 		   al.zero_point,
          max(T1.date) as "date"
       FROM 
@@ -325,6 +327,7 @@ export async function getAlimentParPeriode(uti_id: number, dateDebut: Date, date
 		   al.glucides,
 		   al.sel,
 		   al.sucres,
+         al.grammes,
 		   al.zero_point
       ORDER BY
          t1.date DESC;`;

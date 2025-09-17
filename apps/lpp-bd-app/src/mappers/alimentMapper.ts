@@ -23,8 +23,8 @@ export function mapFromDb(row : AlimentRow) : Aliment {
       proteines: row.proteines,
       sucres: row.sucres,
       sel: row.sel,
-      zeroPoint: row.zero_point
-
+      zeroPoint: row.zero_point,
+      grammes: row.grammes
    };
 }
 
@@ -48,7 +48,8 @@ export function mapAlimentRecentFromDb(row : AlimentRecentRow) : AlimentRecent {
          proteines: row.proteines,
          sucres: row.sucres,
          sel: row.sel,
-         zeroPoint: row.zero_point
+         zeroPoint: row.zero_point,
+         grammes: row.grammes
       },
       date: row.date
    };
@@ -70,7 +71,8 @@ export function mapFromApi (apiData : unknown) : AlimentDataRow {
       matieres_grasses: parsed.acideGrasSature,
       sucres: parsed.sucres,
       sel: parsed.sel,
-      zero_point: parsed.zeroPoint
+      zero_point: parsed.zeroPoint,
+      grammes: parsed.grammes
 
    } ;
 }

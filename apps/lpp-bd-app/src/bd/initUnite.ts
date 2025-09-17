@@ -13,9 +13,10 @@ export async function initUnite () {
          { nom: 'verre' },
          { nom: 'part' },
          { nom: 'portion' },
-         { nom: 'pièce(s)'},
-      ];
-
+         { nom: 'pièce(s)' },
+         { nom: 'tranche(s)' },
+         { nom: 'boite'}
+      ]
       for (const value of unite) {
          await pool.query ('INSERT INTO unite (unite) VALUES ($1)',[value.nom]) ;
          }	

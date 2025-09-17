@@ -29,6 +29,7 @@ export declare const ligneJournalAlimentaireDataCompletSchema: z.ZodObject<{
         glucides: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         sel: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         sucres: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
+        grammes: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         zeroPoint: z.ZodBoolean;
         id: z.ZodNumber;
     }, z.core.$strict>;
@@ -75,6 +76,7 @@ export declare const ligneJournalAlimentaireCompletSchema: z.ZodObject<{
         glucides: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         sel: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         sucres: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
+        grammes: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         zeroPoint: z.ZodBoolean;
         id: z.ZodNumber;
     }, z.core.$strict>;

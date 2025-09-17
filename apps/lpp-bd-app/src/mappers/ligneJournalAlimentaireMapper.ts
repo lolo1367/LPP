@@ -38,6 +38,7 @@ export function mapFromBd(row: LigneJournalAlimentaireDataCompletRow): LigneJour
       proteines: row.aliment_proteines,
       sel: row.aliment_sel,
       sucres: row.aliment_sucres,
+      grammes: row.aliment_grammes,
       zeroPoint: row.aliment_zero_point
     },
     repas: {

@@ -50,6 +50,7 @@ const defaultFormData = {
    matieresGrasses: null,
    glucides: null,
    sucres: null,
+   grammes: null,
    sel: null,
    zeroPoint: false,
 };
@@ -90,6 +91,7 @@ const convertToFormData = (aliment: Aliment | null): FormData => {
       acideGrasSature: aliment.acideGrasSature,
       glucides: aliment.glucides,
       sucres: aliment.sucres,
+      grammes: aliment.grammes,
       sel: aliment.sel,
       zeroPoint: aliment.zeroPoint
    }
@@ -121,6 +123,7 @@ const convertToAliment = (data: FormData, categories: Categorie[]): AlimentData 
       matieresGrasses: data.matieresGrasses != null ? data.matieresGrasses : null,
       glucides: data.glucides != null ? data.glucides : null,
       sucres: data.sucres != null ? data.sucres : null,
+      grammes: data.grammes != null ? data.grammes : null,
       sel: data.sel != null ? data.sel: null,
       zeroPoint : zeroPoint
          
@@ -321,6 +324,7 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
             message = "La quantité de matières grasses est un nombre positif ou égal à 0"
          }
       }
+
       // Acides gras sature
       if (name === 'acideGrasSature') {
          if (value < 0) {
@@ -332,6 +336,13 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
       if (name === 'sucres') {
          if (value < 0) {
             message = "La quantité de sucre est un nombre positif ou égal à 0"
+         }
+      }
+
+      // Sucres
+      if (name === 'grammes') {
+         if (value < 0) {
+            message = "Le nombre de grammes est un nombre positif ou égal à 0"
          }
       }
 
@@ -677,12 +688,38 @@ const AlimentForm: React.FC<AlimentFormProps> = ({
                         </div>
                      </div>
                   </div>
+                  
+
                   {/* Ligne 5 : Energie / Calories */}
                   <div className={`${styles.gridItem} `}>
                      <div className={styles.informationsNutritionelles}>
                         Valeurs nutritionnelles (<div className={styles.attentionValeurNutrionelle}><FaExclamationTriangle /></div> pour {formData.quantite} {formData.unite})
                      </div>
                   </div>
+                  {/* Ligne 5- : Grammes affiché uniquement sil'unité n'est pas le g*/}
+                  { formData.unite !== 'g' && (
+                     <div className={styles.gridItem}>
+                        <div className={styles.ligneTitre}>
+                           <div className={styles.titreNutrition}>Poids</div>
+                           <InputNumber
+                              label="Grammes"
+                              showLabel={false}
+                              placeholder="Nombre"
+                              name= "grammes"
+                              width="small"
+                              height="h2"
+                              step={0.01}
+                              required={false}
+                              value={formData.grammes}
+                              onChange={(value) => handleInputChange('grammes', value)}
+                              onBlur={handleBlur}
+                              isValid={!erreursFormulaire.grammes}
+                              isTouched={!!touched.grammes}
+                              messageErreur={erreursFormulaire.grammes}
+                           />
+                        </div>
+                     </div>
+                  )}
                   {/* Ligne 6 : Calories */}
                   <div className={styles.gridItem}>
                      <div className={styles.ligneTitre}>

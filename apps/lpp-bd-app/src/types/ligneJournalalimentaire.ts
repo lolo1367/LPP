@@ -57,6 +57,7 @@ export interface LigneJournalAlimentaireDataCompletRow extends LigneJournalAlime
    aliment_glucides: number;
    aliment_sel: number;
    aliment_sucres: number;
+   aliment_grammes: number;
    aliment_zero_point : boolean,
    categorie_id: number;
    categorie_nom: string;

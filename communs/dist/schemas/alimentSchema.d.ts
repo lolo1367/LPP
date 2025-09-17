@@ -16,6 +16,7 @@ export declare const alimentDataSchema: z.ZodObject<{
     glucides: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
     sel: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
     sucres: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
+    grammes: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
     zeroPoint: z.ZodBoolean;
 }, z.core.$strict>;
 export declare const urlAlimentIdSchema: z.ZodObject<{
@@ -42,6 +43,7 @@ export declare const alimentSchema: z.ZodObject<{
     glucides: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
     sel: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
     sucres: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
+    grammes: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
     zeroPoint: z.ZodBoolean;
     id: z.ZodNumber;
 }, z.core.$strict>;
@@ -68,6 +70,7 @@ export declare const alimentRecentSchema: z.ZodObject<{
         glucides: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         sel: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         sucres: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
+        grammes: z.ZodPipe<z.ZodTransform<{} | null, unknown>, z.ZodNullable<z.ZodNumber>>;
         zeroPoint: z.ZodBoolean;
         id: z.ZodNumber;
     }, z.core.$strict>;

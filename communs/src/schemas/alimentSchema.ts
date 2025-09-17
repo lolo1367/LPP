@@ -36,6 +36,7 @@ export const alimentDataSchema = z.object({
 	glucides: nullablePositifDecimalSchema("La quantité d'acide gras saturé", 2),
 	sel: nullablePositifDecimalSchema("La quantité de sel", 2),
 	sucres: nullablePositifDecimalSchema("La quantité de sucre", 2),
+	grammes: nullablePositifDecimalSchema("Le nombre de grammes", 2),
 
 	zeroPoint: nonNullableBooleanSchema("L'indicateur 'Zero point'")
 }).strict();

@@ -36,6 +36,7 @@ export async function initCategorie() {
          { id: 17, nom: 'Pain,pain grillé et biscottes' },
          { id: 18, nom: 'Petits déjeuners et collations' },
          { id: 19, nom: 'Fromage' },
+         { id: 20, nom: 'Plat cuisiné  ' },
 
 
 

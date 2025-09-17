@@ -18,6 +18,7 @@ exports.alimentDataSchema = zod_1.z.object({
     glucides: (0, commonSchema_js_1.nullablePositifDecimalSchema)("La quantité d'acide gras saturé", 2),
     sel: (0, commonSchema_js_1.nullablePositifDecimalSchema)("La quantité de sel", 2),
     sucres: (0, commonSchema_js_1.nullablePositifDecimalSchema)("La quantité de sucre", 2),
+    grammes: (0, commonSchema_js_1.nullablePositifDecimalSchema)("Le nombre de grammes", 2),
     zeroPoint: (0, commonSchema_js_1.nonNullableBooleanSchema)("L'indicateur 'Zero point'")
 }).strict();
 exports.urlAlimentIdSchema = zod_1.z.object({
