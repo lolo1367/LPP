@@ -1,7 +1,7 @@
 // src/component/GraphiquePoids/GraphiquePoids.tsx
 import styles from './GraphiquePoids.module.css';
 import React, { useState, useMemo } from 'react';
-import { LigneJournalPoids } from '@lpp/communs';
+import { LigneJournalPoids, DateISO } from '@lpp/communs';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Tabs from '@/basicComponent/Tabs/Tabs';
 import { startOfDay, startOfMonth, startOfWeek, startOfYear } from '@/utils/date/date';
@@ -12,8 +12,8 @@ import { format } from 'date-fns';
 // ==========================================================================================
 interface GraphiquePoidsProps {
     poidsData: LigneJournalPoids[];
-    dateDebut: Date,
-    dateFin: Date,
+    dateDebut: DateISO,
+    dateFin: DateISO,
     periode: 'semaine' | 'mois' | 'annee';
     onPeriodeChange: (periode: 'semaine' | 'mois' | 'annee') => void;
 }
@@ -87,7 +87,7 @@ const GraphiquePoids: React.FC<GraphiquePoidsProps> = ({ poidsData, dateDebut,da
     const [activeTab, setActiveTab] = useState<string>(tabsData[0]?.id || 's');
 
     // Données préparées en fonction de la période
-    const data = useMemo(() => generateContinuousData(poidsData, periode, dateDebut,dateFin), [poidsData, periode]);
+    const data = useMemo(() => generateContinuousData(poidsData, periode, new Date(dateDebut), new Date(dateFin)), [poidsData, periode]);
 
     const minPoids = Math.min(...poidsData.map(i => i.poids));
     const maxPoids = Math.max(...poidsData.map(i => i.poids));
@@ -119,7 +119,7 @@ const GraphiquePoids: React.FC<GraphiquePoidsProps> = ({ poidsData, dateDebut,da
                     <XAxis
                     dataKey="date"
                     type="number"
-                    domain={[dateDebut.getTime(), dateFin.getTime()]}
+                    domain={[new Date(dateDebut).getTime(), new Date(dateFin).getTime()]}
                     tickFormatter={(ts) =>
                         new Date(ts).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' })
                     }

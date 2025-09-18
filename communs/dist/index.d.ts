@@ -19,3 +19,4 @@ export * from './schemas/uniteSchema.js';
 export * from './schemas/utilisateurSchema.js';
 export * from './utilitaires/logger.js';
 export * from './utilitaires/error.js';
+export * from './utilitaires/date.js';

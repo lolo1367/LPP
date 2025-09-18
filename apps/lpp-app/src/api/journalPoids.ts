@@ -1,5 +1,5 @@
 // src/api/LigneJournalPoids.ts
-import { logConsole } from '@lpp/communs';
+import { DateISO, logConsole } from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
 
@@ -22,7 +22,7 @@ const module = "api/journalPoids";
  * @returns {Promise<LigneJournalPoids[]>} - Promesse d'un tableau d'objets Ligne de journal de poids.
  * @throws Lance une erreur si le chargement des types de LigneJournalPoids est en erreur.
  */
-async function ligneJournalPoidsCharger (utiId: number, dateDebut?:Date, dateFin?:Date, ligneId?:number): Promise<LigneJournalPoids[]> {
+async function ligneJournalPoidsCharger (utiId: number, dateDebut?:DateISO, dateFin?:DateISO, ligneId?:number): Promise<LigneJournalPoids[]> {
 
    logConsole(viewLog, emoji, module + '/LigneJournalPoidsCharger', "utiId", utiId);
    logConsole(viewLog, emoji, module + '/LigneJournalPoidsCharger', "dateDebut", dateDebut);

@@ -4,7 +4,8 @@
 	import {
 		Aliment,
 		Repas,
-		AlimentRecent
+	AlimentRecent,
+		DateISO
 	} from '@lpp/communs';
 
 
@@ -25,7 +26,7 @@
 		show: boolean;
 		aliments: Aliment[];
 		alimentsRecents:AlimentRecent[] 
-		date: Date;
+		date: DateISO;
 		repas: Repas | null;
 		onValider: (aliments: Aliment[]) => void;
 		onClose: () => void;

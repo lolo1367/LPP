@@ -1,6 +1,6 @@
 // Imports
 import styles from './AlimentsManager.module.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Aliment,
     Unite,
@@ -21,6 +21,8 @@ import {
     alimentSupprimer,
     categorieCharger
 } from '@/api';
+
+import { useReferenceStore } from '@/store/referenceStore';
 
 import {
     MdSearch,
@@ -53,6 +55,10 @@ export default function AlimentsManager() {
     const [categories, setCategories] = useState<Categorie[]>([]);
     const [erreurValidation, setErreurValidation] = useState<string>('');
 
+    const loadReferences = useReferenceStore(s => s.loadReferences);
+
+    const modification = useRef(false);
+
     // =========================================================================
     // Hooks et appels API
     // =========================================================================
@@ -73,6 +79,16 @@ export default function AlimentsManager() {
         };
         fetchData();
     }, []);
+
+    // Déchargement du formulaire → rechargement si modifications
+    useEffect(() => {
+        return () => {
+            if (modification.current) {
+                console.log("Aliments modifiés → rechargement des références");
+                loadReferences(); // recharge les aliments depuis le store
+        }
+    };
+  }, []);
 
 
     // Fonction de recherche déclenchée par la saisie
@@ -118,24 +134,25 @@ export default function AlimentsManager() {
     // Gestion des événements
     // ===============================================================================
 
-    // Gérer l'ajout d'un nouvel aliment
+    // Gérer la demande d'ajout d'un nouvel aliment
     const handleDemanderAjout = () => {
         setSelectedAliment(null);
         setShowAlimentForm(true);
     };
 
-    // Gérer la modification d'un aliment existant
+    // Gérer la demande de modification d'un aliment existant
     const handleDemanderModificaiton = (aliment: Aliment) => {
         setSelectedAliment(aliment);
         setShowAlimentForm(true);
     };
 
-    // Gérer la suppression d'un aliment
+    // Gérer la demande de suppression d'un aliment
     const handleDelete = async (alimentId: number) => {
         if (window.confirm("Êtes-vous sûr de vouloir supprimer cet aliment ?")) {
             const result = await alimentSupprimer(alimentId);
             if (result.success) {
                 handleSearch(searchTerm); // On relance la recherche pour rafraîchir la liste
+                modification.current = true;
             } else {
                 setErreurChargement(result.message || 'Erreur lors de la suppression.');
             }
@@ -165,6 +182,7 @@ export default function AlimentsManager() {
 
         if (resultat.success) {
             setShowAlimentForm(false);
+            modification.current = true;
             setErreurValidation('');
             handleSearch(searchTerm);
         } else {
@@ -187,6 +205,7 @@ export default function AlimentsManager() {
 
         if (resultat.success) {
             setShowAlimentForm(false);
+            modification.current = true;
             setErreurValidation('');
             handleSearch(searchTerm);
         } else {

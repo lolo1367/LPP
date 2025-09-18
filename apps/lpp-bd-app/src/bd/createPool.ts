@@ -1,6 +1,6 @@
 // src/bd/db.ts
 import 'dotenv/config';
-import { Pool } from 'pg';
+import { Pool, types } from 'pg';
 import { URL } from 'url';
 import dns from 'dns';
 import { logConsole } from '@lpp/communs';
@@ -14,6 +14,8 @@ if (!rawEnv) {
   console.error('DATABASE_URL absente ou vide. Vérifie ton .env');
   throw new Error('DATABASE_URL missing');
 }
+
+types.setTypeParser(1082, (val: string) => val);
 
 // Fonction pour créer le pool (async pour gérer DNS)
 export async function createPool(): Promise<Pool> {

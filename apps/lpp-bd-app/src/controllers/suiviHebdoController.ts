@@ -3,6 +3,7 @@ import { suiviHebdoDataSchema, suiviHebdoFiltreSchemas } from "@lpp/communs";
 import * as Trace from "@lpp/communs";
 
 import * as SuiviHebdoService from '../services/suiviHebdoService';
+import { DateISO, toDateISO } from '@lpp/communs';
 
 export async function getSuiviHebdo(req: Request, res: Response, next: NextFunction) {
    try {
@@ -20,7 +21,7 @@ export async function getSuiviHebdo(req: Request, res: Response, next: NextFunct
       date = new Date(parseResultQuery.data.date);
       const uti_id: number = parseResultQuery.data.uti_id;
            
-      const result = await SuiviHebdoService.liste(uti_id,date);
+      const result = await SuiviHebdoService.liste(uti_id,toDateISO(date));
       res.json(result);
 
    } catch (err) {

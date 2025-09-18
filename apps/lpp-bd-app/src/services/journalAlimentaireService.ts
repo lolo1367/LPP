@@ -4,7 +4,7 @@ import {logConsole} from "@lpp/communs";
 import pool from "../bd/db";
 import * as AlimentService from "../services/alimentService";
 import * as TypeRepasService from "../services/repasService";
-import { ContraintBaseReferenceError} from "@lpp/communs";
+import { ContraintBaseReferenceError, DateISO} from "@lpp/communs";
 import * as SuiviHebdoService from "../services/suiviHebdoService";
 
 const viewlog = true;
@@ -41,7 +41,7 @@ export async function getLigneById(id: number): Promise<LigneJournalAlimentaireR
    }
 } 
 
-export async function liste(uti_id: number|undefined, date: Date | undefined, dateFin : Date | undefined,  typeRepasId?: number, ligneId?: number) : Promise <LigneJournalAlimentaireDataCompletRow[]> {  
+export async function liste(uti_id: number|undefined, date: DateISO | undefined, dateFin : DateISO | undefined,  typeRepasId?: number, ligneId?: number) : Promise <LigneJournalAlimentaireDataCompletRow[]> {  
 
    logConsole (viewlog, emoji,fichier + `liste`,'Début',''); 
    logConsole (viewlog, emoji,fichier + `liste`, `uti`, uti_id); 
@@ -97,14 +97,13 @@ export async function liste(uti_id: number|undefined, date: Date | undefined, da
    if (date && dateFin) {
       query += ` AND date BETWEEN $2::date AND $3::date`;
       params.push(
-         date.toISOString().split(`T`)[0],
-         dateFin.toISOString().split(`T`)[0]
+         date,
+         dateFin
       );
       
    } else if (date) {
       query += ` AND date = $2::date`;
-      const dateStr  = date.toISOString().split(`T`)[0];
-      params.push (dateStr) ;
+      params.push (date) ;
    }
 
    if (typeRepasId) {
@@ -136,7 +135,7 @@ export async function liste(uti_id: number|undefined, date: Date | undefined, da
 export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : Promise<number | undefined> {
    logConsole (viewlog, emoji,fichier + `ajouter`,'Début','');
 
-   let params : (string | number | Date)[];
+   let params : (string | number | DateISO)[];
     
    let query = `
       INSERT INTO journal_alimentaire (
@@ -147,7 +146,7 @@ export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : P
          quantite, 
          nombre_point,
          unite)
-      VALUES ($1, $2::date, $3 , $4 , $5, $6, $7)
+      VALUES ($1, $2, $3 , $4 , $5, $6, $7)
       RETURNING id`;
 
    params = [
@@ -167,7 +166,7 @@ export async function ajouter (ligneJournal: LigneJournalAlimentaireDataRow) : P
       const res = await pool.query<{id : number}>(query, params);
       
       // Mise à jour du suivi quotidien
-      SuiviHebdoService.majApresModification(ligneJournal.uti_id, new Date (ligneJournal.date));
+      SuiviHebdoService.majApresModification(ligneJournal.uti_id, ligneJournal.date);
 
       return res.rows[0].id;
 
@@ -186,7 +185,7 @@ export async function modifier(id: number, ligneJournal: LigneJournalAlimentaire
    let query = `
       UPDATE journal_alimentaire SET
          uti_id = $1,
-         date = $2::date,
+         date = $2,
          aliment_id = $3,
          type_repas_id = $4,
          quantite = $5, 
@@ -219,7 +218,7 @@ export async function modifier(id: number, ligneJournal: LigneJournalAlimentaire
 		};
 
       // Mise à jour du suivi quotidien
-      await SuiviHebdoService.majApresModification(ligneJournal.uti_id, new Date(ligneJournal.date));
+      await SuiviHebdoService.majApresModification(ligneJournal.uti_id, ligneJournal.date);
       
       // Si des données sont mises à jour on les retourne
       logConsole (viewlog, emoji,fichier + "modifier","Avant remontée liste","");
@@ -250,7 +249,7 @@ export async function supprimer(id: number): Promise<number> {
       const res = await pool.query(`DELETE FROM journal_alimentaire WHERE id = $1`, [id]);
       
       // Mise à jour du suivi quotidien
-      SuiviHebdoService.majApresModification(row.uti_id,new Date(row.date));
+      SuiviHebdoService.majApresModification(row.uti_id,row.date);
       return res.rowCount || 0;
 
 	} catch (err) {
@@ -259,7 +258,7 @@ export async function supprimer(id: number): Promise<number> {
 	} 
 }   
 
-export async function getAlimentParPeriode(uti_id: number, dateDebut: Date, dateFin: Date): Promise<AlimentRecentRow[]> {
+export async function getAlimentParPeriode(uti_id: number, dateDebut: DateISO, dateFin: DateISO): Promise<AlimentRecentRow[]> {
 
    logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`,'Début','');
    logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `uti_id`, uti_id);
@@ -334,8 +333,8 @@ export async function getAlimentParPeriode(uti_id: number, dateDebut: Date, date
    
    params.push(
       uti_id,
-      dateDebut.toISOString().split(`T`)[0],
-      dateFin.toISOString().split(`T`)[0]
+      dateDebut,
+      dateFin
    );
    logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `query`, query);
    logConsole (viewlog, emoji,fichier + `getAlimentParPeriode`, `params`, params);

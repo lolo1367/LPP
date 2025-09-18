@@ -1,4 +1,4 @@
-import { LigneJournalPoidsData } from '@lpp/communs';
+import { LigneJournalPoidsData, DateISO } from '@lpp/communs';
 import { LigneJournalPoidsDataRow } from '../types/ligneJournalPoids';
 import { format } from "date-fns";
 
@@ -6,7 +6,7 @@ import { format } from "date-fns";
 export function mapFromApi (ligne : LigneJournalPoidsData) : LigneJournalPoidsDataRow {
   return {
     uti_id: ligne.uti_id,
-    date: ligne.date ,
+    date: ligne.date as DateISO,
     poids: ligne.poids
   };
 }

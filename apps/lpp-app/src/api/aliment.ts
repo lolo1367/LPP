@@ -1,5 +1,5 @@
 // src/api/aliment.ts
-import {logConsole} from '@lpp/communs';
+import {logConsole, DateISO} from '@lpp/communs';
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
 import { Aliment, AlimentData, Resultat, AlimentRecent } from '@lpp/communs';
@@ -116,17 +116,17 @@ async function  alimentSupprimer (
 // Fonction de chargement des aliments récents
 // ===========================================================================
 
-async function alimentChargerRecent(utiId: number, dateDebut: Date, dateFin: Date): Promise<AlimentRecent[]> {
+async function alimentChargerRecent(utiId: number, dateDebut: DateISO, dateFin: DateISO): Promise<AlimentRecent[]> {
 
     logConsole(viewLog, emoji, module + '/alimentChargerRecent', "utiId", utiId);
     logConsole(viewLog, emoji, module + '/alimentChargerRecent', "dateDebut", dateDebut);
     logConsole(viewLog, emoji, module + '/alimentChargerRecent', "dateFin", dateFin);
 
     	// Transformation de la date en string au format ISO
-	const dateDebutStr = format(dateDebut, 'yyyy-MM-dd');
-	const dateFinStr = format(dateFin, 'yyyy-MM-dd');
+	//const dateDebutStr = format(dateDebut, 'yyyy-MM-dd');
+	//const dateFinStr = format(dateFin, 'yyyy-MM-dd');
     
-    const uri =`/aliment/recents?uti_id=${utiId}&date_debut=${dateDebutStr}&date_fin=${dateFinStr}`;
+    const uri =`/aliment/recents?uti_id=${utiId}&date_debut=${dateDebut}&date_fin=${dateFin}`;
     logConsole(viewLog, emoji, module + '/alimentChargerRecent', 'uri', uri); 
 
     try {

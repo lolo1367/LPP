@@ -1,4 +1,4 @@
-import { LigneJournalAlimentaireDataSimple , LigneJournalAlimentaireDataComplet} from '@lpp/communs';
+import { LigneJournalAlimentaireDataSimple , LigneJournalAlimentaireDataComplet, DateISO} from '@lpp/communs';
 import { LigneJournalAlimentaireDataRow, LigneJournalAlimentaireDataCompletRow } from '../types/ligneJournalalimentaire';
 import { format } from "date-fns";
 
@@ -6,7 +6,7 @@ import { format } from "date-fns";
 export function mapFromApi (ligne : LigneJournalAlimentaireDataSimple) : LigneJournalAlimentaireDataRow {
   return {
     uti_id:ligne.uti,
-    date: ligne.date,
+    date: ligne.date as DateISO,
     aliment_id: ligne.alimentId,
     quantite: ligne.quantite,
     type_repas_id: ligne.typeRepasId,

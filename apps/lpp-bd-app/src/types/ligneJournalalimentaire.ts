@@ -1,4 +1,4 @@
-import { boolean } from "zod";
+import { DateISO } from '@lpp/communs';
 
 /**
  * Donnée d'une ligne du journal alimentaire
@@ -11,7 +11,7 @@ export interface LigneJournalAlimentaireDataRow {
    /**
     * Date de la ligne alimentaire
     */
-  date: string ; // Attention le format doit être "AAAA-MM-JJ"				
+  date: DateISO ; // Attention le format doit être "AAAA-MM-JJ"				
   /**
    * Identifiant du type de repas
    */	

@@ -1,7 +1,7 @@
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
 
-import {logConsole} from '@lpp/communs';
+import {DateISO, logConsole} from '@lpp/communs';
 import { format } from 'date-fns'
 import {
    SuiviHebdo,
@@ -24,7 +24,7 @@ const module = "suiviHebdo.ts"
  *
  *@throws Lance une erreur si le chargement des lignes est en erreur
  */
-export async function suiviHebdoCharger (utilisateurId: number, date : Date):Promise<SuiviHebdo[]>  {
+export async function suiviHebdoCharger (utilisateurId: number, date : DateISO):Promise<SuiviHebdo[]>  {
 
    logConsole (viewLog, emoji, module + '/suiviHebdoCharger', 'date', date);
    logConsole (viewLog, emoji, module + '/suiviHebdoCharger','format(date,yyyy-MM-dd)',format(date,'yyyy-MM-dd'));

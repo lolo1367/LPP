@@ -25,3 +25,4 @@ __exportStar(require("./schemas/uniteSchema.js"), exports);
 __exportStar(require("./schemas/utilisateurSchema.js"), exports);
 __exportStar(require("./utilitaires/logger.js"), exports);
 __exportStar(require("./utilitaires/error.js"), exports);
+__exportStar(require("./utilitaires/date.js"), exports);

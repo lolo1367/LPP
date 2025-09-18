@@ -1,69 +1,69 @@
-import { LigneJournalAlimentaireRow } from '../../types/ligneJournalalimentaire';
+import { LigneJournalAlimentaireDataCompletRow } from '../../types/ligneJournalalimentaire';
 import { UNITE_BASE } from '../../config';
 
-export function lignesLundi(): LigneJournalAlimentaireRow[] {
+export function lignesLundi(): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 20 points
-    { id: 1,uti_id:1, date: '2025-07-21', nombre_point: 5, aliment_id: 1, type_repas_id: 1, quantite: 2, unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-21', nombre_point: 10, aliment_id: 2, type_repas_id: 2,  quantite: 6, unite: UNITE_BASE},
-    { id: 3,uti_id:1, date: '2025-07-21', nombre_point: 5, aliment_id: 3, type_repas_id: 3,  quantite: 5, unite: UNITE_BASE},
+    { id: 1,uti_id:1, date: '2025-07-21', nombre_point: 5, aliment_id: 1, type_repas_id: 1, quantite: 2, unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-21', nombre_point: 10, aliment_id: 2, type_repas_id: 2,  quantite: 6, unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 3,uti_id:1, date: '2025-07-21', nombre_point: 5, aliment_id: 3, type_repas_id: 3,  quantite: 5, unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
   ];
 }
 
-export function lignesMardi(): LigneJournalAlimentaireRow[] {
+export function lignesMardi(): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 27 points (-2)
-    { id: 1,uti_id:1, date: '2025-07-22', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-22', nombre_point: 15, aliment_id: 5, type_repas_id: 2, quantite: 1 , unite: UNITE_BASE},
+    { id: 1,uti_id:1, date: '2025-07-22', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-22', nombre_point: 15, aliment_id: 5, type_repas_id: 2, quantite: 1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
   ];
 }
 
-export function lignesMercredi (): LigneJournalAlimentaireRow[] {
+export function lignesMercredi (): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 37 points (-12)
-    { id: 1,uti_id:1, date: '2025-07-23', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-23', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 3,uti_id:1, date: '2025-07-23', nombre_point: 15, aliment_id: 5, type_repas_id: 2, quantite: 1, unite: UNITE_BASE},
+    { id: 1,uti_id:1, date: '2025-07-23', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-23', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 3,uti_id:1, date: '2025-07-23', nombre_point: 15, aliment_id: 5, type_repas_id: 2, quantite: 1, unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
   ];
 }
 
-export function lignesJeudi (): LigneJournalAlimentaireRow[] {
+export function lignesJeudi (): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 30 points (-5)
     {
-      id: 1,uti_id:1, date: '2025-07-24', nombre_point: 3, aliment_id: 4, type_repas_id: 1, quantite: 6, unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-24', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 3,uti_id:1, date: '2025-07-24', nombre_point: 15, aliment_id: 5, type_repas_id: 2, quantite: 1, unite: UNITE_BASE},
+      id: 1,uti_id:1, date: '2025-07-24', nombre_point: 3, aliment_id: 4, type_repas_id: 1, quantite: 6, unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-24', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 3,uti_id:1, date: '2025-07-24', nombre_point: 15, aliment_id: 5, type_repas_id: 2, quantite: 1, unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
   ];
 }
 
-export function lignesVendredi (): LigneJournalAlimentaireRow[] {
+export function lignesVendredi (): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 40 points (-15)
-    { id: 1,uti_id:1, date: '2025-07-25', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-25', nombre_point:  2, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 3,uti_id:1, date: '2025-07-25', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 4,uti_id:1, date: '2025-07-25', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 5,uti_id:1, date: '2025-07-25', nombre_point:  4, aliment_id: 5, type_repas_id: 2, quantite:  1 , unite: UNITE_BASE}
+    { id: 1,uti_id:1, date: '2025-07-25', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-25', nombre_point:  2, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 3,uti_id:1, date: '2025-07-25', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 4,uti_id:1, date: '2025-07-25', nombre_point: 12, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 5,uti_id:1, date: '2025-07-25', nombre_point:  4, aliment_id: 5, type_repas_id: 2, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1}
   ];
 }
 
-export function lignesSamedi (): LigneJournalAlimentaireRow[] {
+export function lignesSamedi (): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 28 points (-3)
-    { id: 1,uti_id:1, date: '2025-07-26', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-26', nombre_point:  2, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 3,uti_id:1, date: '2025-07-26', nombre_point:  6, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 4,uti_id:1, date: '2025-07-26', nombre_point:  8, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 5,uti_id:1, date: '2025-07-26', nombre_point:  2, aliment_id: 5, type_repas_id: 2, quantite:  1 , unite: UNITE_BASE}
+    { id: 1,uti_id:1, date: '2025-07-26', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-26', nombre_point:  2, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 3,uti_id:1, date: '2025-07-26', nombre_point:  6, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 4,uti_id:1, date: '2025-07-26', nombre_point:  8, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 5,uti_id:1, date: '2025-07-26', nombre_point:  2, aliment_id: 5, type_repas_id: 2, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1}
   ];
 }
 
-export function lignesDimanche (): LigneJournalAlimentaireRow[] {
+export function lignesDimanche (): LigneJournalAlimentaireDataCompletRow[] {
   return [
     // 15 points (0)
-    { id: 1,uti_id:1, date: '2025-07-27', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE},
-    { id: 2,uti_id:1, date: '2025-07-27', nombre_point:  2, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE},
-    { id: 3,uti_id:1, date: '2025-07-27', nombre_point:  3, aliment_id: 5, type_repas_id: 2, quantite:  1 , unite: UNITE_BASE},
+    { id: 1,uti_id:1, date: '2025-07-27', nombre_point: 10, aliment_id: 4, type_repas_id: 1, quantite:  6 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 2,uti_id:1, date: '2025-07-27', nombre_point:  2, aliment_id: 4, type_repas_id: 1, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
+    { id: 3,uti_id:1, date: '2025-07-27', nombre_point:  3, aliment_id: 5, type_repas_id: 2, quantite:  1 , unite: UNITE_BASE, aliment_nom: 'nom', aliment_acide_gras_sature: 0, aliment_calories: 0, aliment_categorie_id: 1, aliment_fibres: 0, aliment_glucides: 0, aliment_grammes: 0, aliment_matieres_grasses: 0, aliment_points: 0, aliment_proteines: 0, aliment_quantite: 0, aliment_sel: 0, aliment_sucres: 0, aliment_unite: 'g', aliment_zero_point: true, categorie_id:1, categorie_nom:'nom',type_repas_icone:'f',type_repas_nom: ' ',type_repas_ordre:1},
   ];
 }

@@ -8,7 +8,8 @@ import {
    ligneJournalAlimentaireDataSimpleSchema,
    ligneJournalAlimentaireFiltreSchemas,
    urlLigneJournalAlimentaireIdSchema,
-   LigneJournalAlimentaireComplet
+   LigneJournalAlimentaireComplet,
+   toDateISO
 } from '@lpp/communs';
 
 import { logConsole } from '@lpp/communs';
@@ -106,7 +107,7 @@ export const getLigne = async (req : Request, res : Response, next : NextFunctio
 
       // Vérification de la date
       if (parseResultQuery.data.date) {
-         date = new Date(parseResultQuery.data.date);
+         date = toDateISO(parseResultQuery.data.date);
          logConsole(viewLog, emoji, fichier + '/getLigne', 'date fournie', date);
       } else {
          date = undefined;
@@ -117,7 +118,7 @@ export const getLigne = async (req : Request, res : Response, next : NextFunctio
 
       // Vérification de la date
       if (parseResultQuery.data.date_fin) {
-         dateFin = new Date(parseResultQuery.data.date_fin);
+         dateFin = toDateISO(parseResultQuery.data.date_fin);
          logConsole(viewLog, emoji, fichier + '/getLigne', 'date fournie', date);
       } else {
          dateFin = undefined;

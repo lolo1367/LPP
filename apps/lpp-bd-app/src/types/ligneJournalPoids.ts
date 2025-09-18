@@ -1,3 +1,4 @@
+import { DateISO } from '@lpp/communs';
 
 /**
  * Donnée d'une ligne du journal de poids
@@ -10,7 +11,7 @@ export interface LigneJournalPoidsDataRow {
    /**
     * Date de la ligne alimentaire
     */
-  date: string ;				
+  date: DateISO ;				
   /**
    * Poids
    */

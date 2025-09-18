@@ -4,7 +4,7 @@ import styles from './JournalPoidsPage.module.css';
 
 import React, { useState, useEffect } from 'react';
 import { UTI_ID } from '@/config';
-import { LigneJournalPoids, LigneJournalPoidsData, Resultat } from '@lpp/communs';
+import { DateISO, LigneJournalPoids, LigneJournalPoidsData, Resultat,toDateISO } from '@lpp/communs';
 import { ligneJournalPoidsAjouter, ligneJournalPoidsCharger, ligneJournalPoidsModifier} from '@/api/journalPoids';
 import { logConsole, formatAppError, CustomAppException } from '@lpp/communs';
 import { format } from 'date-fns';
@@ -76,15 +76,15 @@ export default function JournalPoidsPage() {
    // =============================================================================
 
    const [formData, setFormData] = useState<FormData>(defaultFormData);
-   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+   const [selectedDate, setSelectedDate] = useState<DateISO>(toDateISO(new Date()));
    const [erreursFormulaire, setErreursFormulaire] = useState<ErreursFormulaire>({});
    const [touched, setTouched] = useState<TouchedFormulaire>({});
    const [isEnregistrerActif, setIsEnregistrerActif] = useState<boolean>(false);
    const [lignesJournal, setLignesJournal] = useState<LigneJournalPoids[]>([]);
    const [loading, setLoading] = useState<boolean>(true);
    const [erreurChargement, setErreurChargement] = useState<string | null>(null);
-   const [startOfData, setStartOfData] = useState<Date>(new Date());
-   const [endOfData, setEndOfData] = useState<Date>(new Date());
+   const [startOfData, setStartOfData] = useState<DateISO>(toDateISO(new Date()));
+   const [endOfData, setEndOfData] = useState<DateISO>(toDateISO(new Date()));
 
 
    const [messageAvertissement, setMessageAvertissement] = useState<string | null >(null);
@@ -152,15 +152,16 @@ export default function JournalPoidsPage() {
           logConsole(true, emoji, module + '/useEffect (selectedDate / isPoidsMisAjour)', `🔴​ periode`, periode);
   
           // Calcul dateDebut/dateFin selon la période
-          let dateDebut: Date;
-          const dateFin: Date = startOfDay(selectedDate); // toujours la date du jour
+         let dateDebut: DateISO;
+         let date = new Date(selectedDate);
+          const dateFin = selectedDate; // toujours la date du jour
   
           if (periode === 'semaine') {
-              dateDebut = startOfWeek(selectedDate); // lundi
+              dateDebut = toDateISO(startOfWeek(date)); // lundi
           } else if (periode === 'mois') {
-              dateDebut = startOfMonth(selectedDate); // 1er du mois
+              dateDebut = toDateISO(startOfMonth(date)); // 1er du mois
           } else {
-              dateDebut = startOfYear(selectedDate); // 1er janvier
+              dateDebut = toDateISO(startOfYear(date)); // 1er janvier
           }
   
           setStartOfData(dateDebut);

@@ -3,7 +3,7 @@ import styles from './JournalAlimentaireParRepas.module.css';
 import SwipeToDeleteItem  from '@/basicComponent/SwipeToDeleteItem/SwipeToDeleteItem';
 
 // Importation des types depuis @lpp/communs
-import { Repas, LigneJournalAlimentaireComplet } from '@lpp/communs';
+import { Repas, LigneJournalAlimentaireComplet, DateISO } from '@lpp/communs';
 
 // Importez toutes les icônes de react-icons/md sous l'alias MDIcons
 import * as MDIcons from 'react-icons/md'; 
@@ -12,7 +12,7 @@ import PuceButton from '@/basicComponent/PuceButton/PuceButton';
 
 interface JournalAlimentaireParRepasProps {
 	journalLines: LigneJournalAlimentaireComplet[]; 
-	selectedDate: Date; 
+	selectedDate: DateISO; 
 	mealTypes: Repas[]; 
 	onAskAdd: (repas: Repas) => void; 
 	onAskModidy: (ligne: LigneJournalAlimentaireComplet) => void; 

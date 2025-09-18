@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getDay, subDays } from 'date-fns';
-import { logConsole } from '@lpp/communs';
+import { DateISO, logConsole,toDateISO } from '@lpp/communs';
 import { CustomAppException, formatAppError } from '@lpp/communs';
 import { useAuthStore } from '@/store/authStore';
 
@@ -20,11 +20,11 @@ import {
 
 export function useSaisieQuotidienneData(
 	utilisateurId: number,
-	dateSelectionnee: Date,
+	dateSelectionnee: DateISO,
 	nombreModification: number,
 	repasTypes: Repas[] ) {
 	
-	const viewLog = true;
+	const viewLog = false;
 	const emoji = "🍜​";
 	const module = "useSaisieQuotidienneData";
 	
@@ -40,7 +40,7 @@ export function useSaisieQuotidienneData(
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
-	logConsole(viewLog, emoji, module, "Date", dateSelectionnee);
+	logConsole(true, emoji, module, "Date", dateSelectionnee);
 	logConsole(viewLog, emoji, module, "Compteur", nombreModification);
 	const utilisateur = useAuthStore(state => state.utilisateur);
 
@@ -68,7 +68,7 @@ export function useSaisieQuotidienneData(
 				
 				// Chargement des données
 				const [recents] = await Promise.all([
-					alimentChargerRecent(utilisateurId, subDays(aujourdhui,15),aujourdhui)
+					alimentChargerRecent(utilisateurId, toDateISO(subDays(aujourdhui,15)),toDateISO(aujourdhui))
 				]);	
 
 				logConsole(viewLog, emoji, module, "recents", recents);

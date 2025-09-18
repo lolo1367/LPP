@@ -10,7 +10,9 @@ import {
 	urlAlimentIdSchema,
 	idsQuerySchema,
 	alimentsRecentsFiltreSchema,
-	logConsole
+   logConsole,
+   DateISO,
+   toDateISO
 } from "@lpp/communs";
 
 import {
@@ -203,8 +205,8 @@ export const getAlimentsRecents = async (req : Request, res : Response, next : N
       }
 
       // Récupération des paramères
-      const dateDebut = new Date(parseResultQuery.data.date_debut);
-		const dateFin = new Date(parseResultQuery.data.date_fin);
+      const dateDebut = toDateISO(parseResultQuery.data.date_debut);
+		const dateFin = toDateISO(parseResultQuery.data.date_fin);
 		const utiId = parseResultQuery.data.uti_id;
 
 		logConsole(viewLog, emoji, fichier + '/getAlimentsRecents', 'Date debut', dateDebut);

@@ -1,5 +1,5 @@
 import pool from "../bd/db";
-import { logConsole } from "@lpp/communs";
+import { logConsole, DateISO, toDateISO } from "@lpp/communs";
 import { SuiviHebdoDataRow, SuiviHebdoRow } from "../types/suiviHebdo.js";
 import * as JournalAlimentaireService from "../services/journalAlimentaireService";
 import * as UtilisateurService from "../services/utilisateurService";
@@ -7,10 +7,10 @@ import { startOfWeek, addDays, format } from "date-fns";
 
 
 type Resultat = {
-   date: string;
+   date: DateISO;
    pointsAutorises: number;
    pointsConsommes: number;
-   bonusUilise: number;
+   bonusUtilise: number;
    bonusRestant: number;
 }
 
@@ -30,15 +30,17 @@ const viewLog = true;
 const emoji = "🦕​​";
 const file = "suiviHebdoService" ;
 
-export async function calculerSuiviHebdo(uti_id: number, date: Date): Promise<Retour> {
+export async function calculerSuiviHebdo(uti_id: number, date: DateISO): Promise<Retour> {
 
    logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `date`, date);
    logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `uti_id`, uti_id);
    
    try {
 
-      const lundi = startOfWeek(date, { weekStartsOn: 1 });
-      const dimanche = addDays(lundi, 6);
+      const lundiDate = startOfWeek(date, { weekStartsOn: 1 });
+      const dimancheDate = addDays(lundiDate, 6);
+      const lundi = toDateISO(lundiDate)
+      const dimanche = toDateISO(dimancheDate);
       logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `lundi`, format(lundi, `yyyy-MM-dd`));
       logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `dimanche`, format(dimanche, `yyyy-MM-dd`));
       
@@ -63,15 +65,19 @@ export async function calculerSuiviHebdo(uti_id: number, date: Date): Promise<Re
       logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `utilisateur`, utilisateur);
       const point_bonus = utilisateur[0].point_bonus;
       const point_jour = utilisateur[0].point_jour;
+      logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `point_bonus`, point_bonus);
+      logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `point_jour`, point_jour);
+      logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `lignes`, lignes);
 
       let resultats: Resultat[] = [];
       let bonusRestant = point_bonus;
 
       for (let i = 0; i < 7; i++) {
-         const jour = addDays(lundi, i);
-         const jourStr = format(jour, "yyyy-MM-dd");
+         const jour = toDateISO(addDays(lundi, i));
+         //const jourStr = format(jour, "yyyy-MM-dd");
 
-         const lignesJour = lignes.filter(l => l.date === jourStr);
+         const lignesJour = lignes.filter(
+            l => toDateISO(l.date) === jour);
          const pointConsommes = lignesJour.reduce((total: number, ligne) => total + ligne.nombre_point, 0);
          
          let depassement = pointConsommes - point_jour;
@@ -81,12 +87,20 @@ export async function calculerSuiviHebdo(uti_id: number, date: Date): Promise<Re
          const bonusUtilise = Math.min(depassement, bonusRestant);
 
          bonusRestant -= bonusUtilise;
+         logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `===============================`, "");
+         logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `jour`, jour);
+         //logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `jourStr`, jourStr);
+         logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `lignesJour`, lignesJour);
+         logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `pointConsommes`, pointConsommes);
+         logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `depassement`, depassement);
+         logConsole(viewLog, emoji, file + `/calculerSuiviHebdo`, `bonusUtilise`, bonusUtilise);
+         
 
          resultats.push({
-            date: jourStr,
+            date: jour,
             pointsAutorises: point_jour,
             pointsConsommes: pointConsommes,
-            bonusUilise: bonusUtilise,
+            bonusUtilise: bonusUtilise,
             bonusRestant: bonusRestant
          });
       }
@@ -109,7 +123,7 @@ export async function calculerSuiviHebdo(uti_id: number, date: Date): Promise<Re
 };
    
 
-export async function liste (uti_id: number, date: Date): Promise<SuiviHebdoRow[]> {
+export async function liste (uti_id: number, date: DateISO): Promise<SuiviHebdoRow[]> {
 
    logConsole (viewLog,emoji, file +`/liste`, `date`, date);
 
@@ -244,7 +258,7 @@ export async function ajouterModifierSuiviHebdo(suivi: SuiviHebdoDataRow): Promi
    } 
 }
 
-export async function majApresModification(uti_id: number,date: Date) {
+export async function majApresModification(uti_id: number,date: DateISO) {
 
 
    logConsole (viewLog,emoji, file +`/majApresModification`, `date`, date);

@@ -16,7 +16,8 @@ import {
 	Repas,
 	LigneJournalAlimentaireComplet,
 	LigneJournalAlimentaireDataSimple,
-	log
+	DateISO,
+	toDateISO
 } from '@lpp/communs';
 
 // Import des services
@@ -46,7 +47,7 @@ import {
 export default function SaisieQuotidienne() {
 
 	const emoji = "🍴​";
-	const viewLog = true;
+	const viewLog = false;
 	const module= 'saisieQuotidienne';
 
 	// ========================================================================
@@ -59,7 +60,7 @@ export default function SaisieQuotidienne() {
 	const alimentsDisponibles = useReferenceStore((s) => s.aliments);
 
 	// Date sélectionnée au niveau du composant semaineSelector
-	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [selectedDate, setSelectedDate] = useState<DateISO>(toDateISO((new Date())));
 
 	// Etat de visibilité de la modale de choix d'aliment qui permet l'ajout direct
 	const [showAlimentSelector, setShowAlimentSelector] = useState<boolean>(false);
@@ -87,7 +88,7 @@ export default function SaisieQuotidienne() {
 	// =========================================================================
 	
 	// Gestion de la valeur de la date (semaineSelector)
-	const handleDateChange = (newDate: Date) => {
+	const handleDateChange = (newDate: DateISO) => {
  		setSelectedDate(newDate);
 	};
 
@@ -102,8 +103,6 @@ export default function SaisieQuotidienne() {
 		pointsConsumedToday,
 		pointsRemainingDaily
 	} = useSaisieQuotidienneData(UTI_ID,selectedDate, modificationCount,repasTypes);
-	
-	logConsole(viewLog, emoji, module, "unites", unites);
 
 	// Déterminer si l'un des chargements est en cours pour afficher un message global
 	const overallLoading = loading;

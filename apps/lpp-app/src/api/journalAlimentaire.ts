@@ -1,6 +1,6 @@
 import api from './api';
 import { handleApiError, handleApiCriticalError } from './handleApiError';
-import {logConsole} from '@lpp/communs';
+import {DateISO, logConsole} from '@lpp/communs';
 
 import { format } from 'date-fns'
 import {
@@ -29,7 +29,7 @@ function bodyJournalAlimentaire (ligne : LigneJournalAlimentaireDataSimple ) {
 // ===========================================================================
 async function journalAlimentaireCharger(
 	utilisateurId:number,
-	date : Date
+	date : DateISO
 ): Promise<LigneJournalAlimentaireComplet[]>  {
 		
 	logConsole(viewLog, emoji, module + '/journalAlimentaireCharger', 'date', date);
