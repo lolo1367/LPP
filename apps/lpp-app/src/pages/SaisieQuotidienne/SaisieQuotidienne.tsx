@@ -5,7 +5,7 @@ import styles from './SaisieQuotidienne.module.css';
 
 // Import du hook - useEffect propre à ce composant
 import { useSaisieQuotidienneData } from '@/hook/useSaisieQuotidienneData';
-import { UTI_ID } from '@/config';
+//import { UTI_ID } from '@/config';
 
 import React, { useState } from 'react';
 import { useReferenceStore } from '@/store/referenceStore';
@@ -13,12 +13,15 @@ import { useReferenceStore } from '@/store/referenceStore';
 // Import de la déclaration des entités
 import {
 	Aliment,
+	Utilisateur,
 	Repas,
 	LigneJournalAlimentaireComplet,
 	LigneJournalAlimentaireDataSimple,
 	DateISO,
 	toDateISO
 } from '@lpp/communs';
+
+import { useAuthStore } from '@/store/authStore';
 
 // Import des services
 import {
@@ -58,6 +61,8 @@ export default function SaisieQuotidienne() {
 	const repasTypes = useReferenceStore((s) => s.typesRepas);
 	const unites = useReferenceStore((s) => s.unites);
 	const alimentsDisponibles = useReferenceStore((s) => s.aliments);
+
+	const utilisateur = useAuthStore(state => state.utilisateur);
 
 	// Date sélectionnée au niveau du composant semaineSelector
 	const [selectedDate, setSelectedDate] = useState<DateISO>(toDateISO((new Date())));
@@ -102,7 +107,7 @@ export default function SaisieQuotidienne() {
 		dailyPointsTotal,
 		pointsConsumedToday,
 		pointsRemainingDaily
-	} = useSaisieQuotidienneData(UTI_ID,selectedDate, modificationCount,repasTypes);
+	} = useSaisieQuotidienneData(utilisateur?.id ?? 0,selectedDate, modificationCount,repasTypes);
 
 	// Déterminer si l'un des chargements est en cours pour afficher un message global
 	const overallLoading = loading;
@@ -163,7 +168,7 @@ export default function SaisieQuotidienne() {
 			logConsole(viewLog, emoji, module, "Ajout aliment n° :", i);
 
 			ligne = {
-				uti: UTI_ID,
+				uti: utilisateur?.id ?? 0,
 				date: format(selectedDate, "yyyy-MM-dd"),
 				alimentId: aliments[i].id,
 				typeRepasId: (selectedRepas?.id ? selectedRepas.id : 1),
@@ -222,7 +227,7 @@ export default function SaisieQuotidienne() {
 	const handleLigneModifier = async (ligne: LigneJournalAlimentaireComplet | null) => {
 		if (ligne) {
 			const data: LigneJournalAlimentaireDataSimple = {
-				uti: UTI_ID,
+				uti: utilisateur?.id ?? 0,
 				date: format(selectedDate, "yyyy-MM-dd"),
 				alimentId: ligne.aliment.id,
 				typeRepasId: ligne.repas.id,
