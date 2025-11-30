@@ -3,10 +3,10 @@ import styles from './JournalPoidsPage.module.css';
 
 
 import React, { useState, useEffect } from 'react';
-import { UTI_ID } from '@/config';
+//import { UTI_ID } from '@/config';
 import { DateISO, LigneJournalPoids, LigneJournalPoidsData, Resultat,toDateISO } from '@lpp/communs';
 import { ligneJournalPoidsAjouter, ligneJournalPoidsCharger, ligneJournalPoidsModifier} from '@/api/journalPoids';
-import { logConsole, formatAppError, CustomAppException } from '@lpp/communs';
+import { logConsole, formatAppError, CustomAppException,Utilisateur } from '@lpp/communs';
 import { format } from 'date-fns';
 import {startOfMonth,startOfWeek,startOfYear,startOfDay} from '@/utils/date/date'
 import InputNumber from '@/basicComponent/InputNumber/InputNumber';
@@ -18,6 +18,11 @@ import SemaineSelector from '@/component/SemaineSelector/SemaineSelector';
 import { isCategoricalAxis } from 'recharts/types/util/ChartUtils';
 import {ErreursFormulaire, TouchedFormulaire } from '@/utils/Form/form';
 import { is } from 'date-fns/locale';
+import { useAuthStore } from '@/store/authStore';
+
+const utilisateur = useAuthStore(state => state.utilisateur);
+
+
 
 //================================================================================================
 // Déclaration des types et interfaces
@@ -32,7 +37,7 @@ type FormData = {
 
 const defaultFormData: FormData = {
    id: null,
-   utiId: UTI_ID,
+   utiId: utilisateur?.id ?? 0,
    date: format(new Date(), 'yyyy-MM-dd'),
    poids: null
 }
@@ -69,7 +74,8 @@ export default function JournalPoidsPage() {
    // =============================================================================
    const emoji = "🏋🏻‍♀️​​​​";
    const viewLog = false;
-   const module = "AlimentForm";
+   const module = "PoidsForm";
+   const utilisateur = useAuthStore(state => state.utilisateur);
 
    // =============================================================================
    // Gestion des données
@@ -184,7 +190,7 @@ export default function JournalPoidsPage() {
                   setIsCreation(true);
                   setFormData({
                       id: null,
-                      utiId: UTI_ID,
+                      utiId:utilisateur?.id ?? 0,
                       date: format(selectedDate, 'yyyy-MM-dd'),
                       poids: null
                   });
@@ -259,6 +265,7 @@ export default function JournalPoidsPage() {
       };
 
       let resultat: Resultat;
+      setMessageAvertissement(null);
 
       (isCreation ?
          resultat = await ligneJournalPoidsAjouter(poidsData) :
