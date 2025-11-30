@@ -4,9 +4,12 @@ import styles from './JournalPoidsPage.module.css';
 
 import React, { useState, useEffect } from 'react';
 //import { UTI_ID } from '@/config';
-import { DateISO, LigneJournalPoids, LigneJournalPoidsData, Resultat,toDateISO } from '@lpp/communs';
+import { DateISO, LigneJournalPoids, LigneJournalPoidsData, toDateISO } from '@lpp/communs';
 import { ligneJournalPoidsAjouter, ligneJournalPoidsCharger, ligneJournalPoidsModifier} from '@/api/journalPoids';
-import { logConsole, formatAppError, CustomAppException,Utilisateur } from '@lpp/communs';
+import { logConsole, 
+   formatAppError, 
+   CustomAppException,
+   Resultat } from '@lpp/communs';
 import { format } from 'date-fns';
 import {startOfMonth,startOfWeek,startOfYear,startOfDay} from '@/utils/date/date'
 import InputNumber from '@/basicComponent/InputNumber/InputNumber';
@@ -20,7 +23,7 @@ import {ErreursFormulaire, TouchedFormulaire } from '@/utils/Form/form';
 import { is } from 'date-fns/locale';
 import { useAuthStore } from '@/store/authStore';
 
-const utilisateur = useAuthStore(state => state.utilisateur);
+
 
 
 
@@ -37,7 +40,7 @@ type FormData = {
 
 const defaultFormData: FormData = {
    id: null,
-   utiId: utilisateur?.id ?? 0,
+   utiId: 0,
    date: format(new Date(), 'yyyy-MM-dd'),
    poids: null
 }
@@ -81,6 +84,7 @@ export default function JournalPoidsPage() {
    // Gestion des données
    // =============================================================================
 
+   
    const [formData, setFormData] = useState<FormData>(defaultFormData);
    const [selectedDate, setSelectedDate] = useState<DateISO>(toDateISO(new Date()));
    const [erreursFormulaire, setErreursFormulaire] = useState<ErreursFormulaire>({});
@@ -177,24 +181,14 @@ export default function JournalPoidsPage() {
           logConsole(true, emoji, module + '/useEffect (selectedDate / isPoidsMisAjour)', `💙 dateFin`, dateFin);
   
           try {
-              const lignesJournalPoids = await ligneJournalPoidsCharger(formData.utiId, dateDebut, dateFin);
+              const lignesJournalPoids = await ligneJournalPoidsCharger(utilisateur?.id ?? 0, dateDebut, dateFin);
               logConsole(viewLog, emoji, module + '/useEffect (selectedDate / isPoidsMisAjour)', `lignesJournalPoids`, lignesJournalPoids);
   
               // Vérifie si on a déjà un poids pour la date sélectionnée
-              const ligneDuJour = lignesJournalPoids.find(l => l.date === format(selectedDate, 'yyyy-MM-dd'));
-  
-              if (ligneDuJour) {
-                  setIsCreation(false);
-                  setFormData(convertToFormData(ligneDuJour));
-              } else {
-                  setIsCreation(true);
-                  setFormData({
-                      id: null,
-                      utiId:utilisateur?.id ?? 0,
-                      date: format(selectedDate, 'yyyy-MM-dd'),
-                      poids: null
-                  });
-              }
+              //const ligneDuJour = lignesJournalPoids.find(l => l.date === format(selectedDate, 'yyyy-MM-dd'));
+              const selectedDateStr = typeof selectedDate === 'string' ? selectedDate : format(selectedDate, 'yyyy-MM-dd');
+              const ligneDuJour = lignesJournalPoids.find(l => l.date === selectedDateStr);
+
   
               setLignesJournal(lignesJournalPoids);
               setIsPoidsMisAJour(false);
